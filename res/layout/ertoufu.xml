@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/city_gray"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/shangjia"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        >
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/logo"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ziname"
+            android:lines="1"
+            android:layout_toRightOf="@id/logo"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:text="洛阳自营店"
+            android:ellipsize="end"
+            android:textSize="20sp"
+            />
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/roomRatingBar"
+            android:numStars="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logo"
+            android:layout_below="@id/ziname"
+            android:layout_marginLeft="8dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
+            android:id="@+id/shangquan"
+            android:layout_toRightOf="@id/logo"
+            android:layout_marginLeft="8dp"
+            android:text="万达商圈"
+            android:textSize="12sp"
+            android:textColor="#b0b0b0"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ratingBar"
+            android:id="@+id/dizhi"
+            android:layout_toRightOf="@id/shangquan"
+            android:layout_marginLeft="8dp"
+            android:text="王城百货"
+            android:textSize="12sp"
+            android:textColor="#b0b0b0"
+            android:layout_marginTop="5dp"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_weight="0"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/renzheng"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vipicon01"
+                android:id="@+id/tu"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="认证商家"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/tu"
+                android:layout_marginLeft="3dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/vip"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vipicon02"
+                android:id="@+id/tu1"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP商家"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/tu1"
+                android:layout_marginLeft="3dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/nian"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/year_03"
+                android:id="@+id/tu2"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP3年"
+                android:id="@+id/jinian"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/tu2"
+                android:layout_marginLeft="3dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/jian"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vipicon04"
+                android:id="@+id/tu3"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐商家"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/tu3"
+                android:layout_marginLeft="3dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

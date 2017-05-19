@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="10"
+        android:background="#fc4d48" >
+
+        <ImageView
+            android:id="@+id/imgview_shops_discuss_back"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/jt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/shops_discuss_title"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#f2f2f2"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/discuss_name"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/img_shops_discuss_picture"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <TextView
+                android:id="@+id/txt_shops_discuss_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_shops_discuss_picture"
+                android:text="迪欧咖啡北环路店"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txt_shops_discuss_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txt_shops_discuss_name"
+                android:layout_below="@+id/txt_shops_discuss_name"
+                android:layout_marginTop="5dp"
+                android:text="万达商圈"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_shops_discuss_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/txt_shops_discuss_address"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/txt_shops_discuss_address"
+                android:text="咖啡馆"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评价星级："
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <RatingBar
+                android:id="@+id/ratingbar"
+                style="@style/discussRatingBarHW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:paddingLeft="1dp"
+                android:rating="5"
+                android:stepSize="1" />
+        </LinearLayout>
+        <!--
+        <EditText
+            android:id="@+id/et_shops_discuss_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/discuss_title"
+            android:hint="@string/shops_discuss_remind_title"
+            android:paddingLeft="10dp"
+            android:singleLine="true" />
+        -->
+
+        <EditText
+            android:id="@+id/et_shops_discuss_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_discuss_context"
+            android:gravity="top"
+            android:hint="@string/shops_discuss_remind_context"
+            android:maxLength="60"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_discuss_select"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/txt_discuss_input_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/shops_discuss_picture"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txt_discuss_input_picture_remind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/txt_discuss_input_picture"
+                android:layout_toRightOf="@id/txt_discuss_input_picture"
+                android:text="@string/shops_discuss_picture_remidn"
+                android:textSize="13sp"
+                android:textColor="@color/gray" />
+
+            <ImageView
+                android:id="@+id/img_shops_discuss_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/photo" />
+
+            <ImageView
+                android:id="@+id/img_shops_discuss_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@id/img_shops_discuss_photo"
+                android:background="@drawable/camera" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_shops_discuss_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/shops_discuss_submit"
+            android:padding="10dp"
+            android:text="@string/shops_discuss_submit"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

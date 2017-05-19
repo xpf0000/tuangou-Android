@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/city_gray"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:layout_weight="0"
+        >
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+                android:id="@+id/dong1"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white"
+            android:scrollbars="none" >
+            <LinearLayout
+                android:id="@+id/id_gallery1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" >
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="首页"
+                        android:textSize="18sp"
+                        android:textColor="@color/red"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao1"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商家介绍"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao2"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="商家相册"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao3"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="新闻资讯"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao5"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="活动优惠"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao4"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="热卖商品"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao6"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="网友点评"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/fudao7"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="在线预订"
+
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:id="@+id/gundong1"
+            android:layout_marginLeft="1dp"
+            android:background="@color/white"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arrowl"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

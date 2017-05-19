@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hkkj.csrx.activity"
+    android:versionCode="28"
+    android:versionName="2.9.3" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <application
+        android:name="com.hkkj.server.location"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoadingActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.GuideOneActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Facilitate" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bussexchange" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Reply_post" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bussanews" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bussainfo" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.BusinesAinfo" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bamember" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.News_omment" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Pri_info" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Report_post" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Photo_newsinfo" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Loca_news" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Info_info" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bbs_new_post" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Post_info" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.BusinessAssociation" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussList" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.News_search" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Privilegelist" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.GuideTwoActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.GuideThreeActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopsListActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Myinfo" 
+            android:configChanges="orientation|keyboardHidden"
+            >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.MyCollect" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.webiew" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.MyComments" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.About" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.RegistActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.LoginActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bbs" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Feedback" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Privileinfo" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopDetailsActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopPrivilegeActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Bbs_class" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussListActivity" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.MerchantsClassify" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Updatemyinfo" >
+        </activity>
+        <activity
+            android:name="com.hkkj.csrx.activity.testnews"
+            android:theme="@style/StyledIndicators" >
+        </activity>
+        <activity
+            android:name="com.hkkj.csrx.activity.Privile_search"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenLayout"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".HotSearch"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".GuideActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.ShopdateActivity" >
+        </activity>
+        <activity
+            android:name=".CityListsActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".HomePageActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+        <service android:name="com.hkkj.server.HKService" >
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="NGeo2NbGRCx76NjnpGG0iyPB" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="NGeo2NbGRCx76NjnpGG0iyPB" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="53731eb756240b1cc9001be0" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
+
+        <service
+            android:name="com.umeng.common.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Updatepowd" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.BusLine" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Driveline" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.Mymap" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.SeminarActivity" >
+        </activity>
+        <activity
+            android:name="com.hkkj.csrx.activity.ThematicDetails"
+            android:theme="@style/StyledIndicators" >
+        </activity>
+        <activity android:name="com.hkkj.csrx.activity.SemNewsInfo" >
+        </activity>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="a9c448d7e19a6476c18442b9024139c5" />
+
+        <activity android:name="com.amap.demo.LocationManager" >
+        </activity>
+    </application>
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <!-- 用于访问wifi网络信息,wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限,wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+</manifest>

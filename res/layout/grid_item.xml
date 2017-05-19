@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="5dp"
+    android:background="@drawable/gridback"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/kong"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/time_bg"
+            android:gravity="center"
+            android:text="抢光啦"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:textColor="@color/black" />
+
+        <cn.iwgang.countdownview.CountdownView
+            android:id="@+id/cv_countdownViewTest2"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/time_bg"
+            app:isShowDay="true"
+            app:isShowHour="true"
+            app:isShowMillisecond="false"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:suffixGravity="center"
+            app:suffixTextColor="@color/black"
+            app:suffixTextSize="12sp"
+            app:timeTextColor="@color/black"
+            app:timeTextSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/shop_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:id="@+id/statimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/indexstateend" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:padding="5dp"
+        android:text="166"
+        android:textColor="@color/red"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:text="166"
+        android:textColor="@color/gray" />
+</LinearLayout>

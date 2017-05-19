@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_title"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10"
+            android:background="#fc4d48" >
+
+            <ImageView
+                android:id="@+id/imgview_shops_list_back"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/jt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="团购列表"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imgview_shops_list_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:visibility="gone"
+                android:background="@drawable/search" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relativeLayout_title"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_shops_list_pop"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/shop_list_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txt_shop_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/ddown1"
+                    android:drawablePadding="3dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:text="@string/shops_list_area" />
+
+                <TextView
+                    android:id="@+id/txt_shop_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/ddown1"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:paddingTop="10dp"
+                    android:singleLine="true"
+                    android:text="@string/shops_list_all" />
+
+                <TextView
+                    android:id="@+id/txt_shop_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableRight="@drawable/ddown1"
+                    android:layout_weight="1"
+                    android:drawablePadding="3dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:text="@string/shops_list_order" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/shuaxin_shops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数据加载异常  请重试" />
+
+                <Button
+                    android:id="@+id/freshen_shops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/like"
+                    android:text="重试"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/list_shop"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:scrollingCache="false" >
+            </ListView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_list_below"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="97dp"
+        android:background="#900F0F0F"
+        android:orientation="horizontal"
+        android:paddingTop="1dp"
+        android:visibility="gone" >
+
+        <ListView
+            android:id="@+id/lv_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="#e6e6e6"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/darker_gray"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollingCache="false"
+            android:visibility="visible" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/lv_child"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="@drawable/parentitembc1"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/darker_gray"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollingCache="false"
+            >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_list_class"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="97dp"
+        android:background="#900F0F0F"
+        android:orientation="horizontal"
+        android:paddingTop="1dp"
+        android:visibility="gone" >
+
+        <ListView
+            android:id="@+id/lv_parent_class"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="#e6e6e6"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/darker_gray"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollingCache="false"
+            android:visibility="visible" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/lv_child_class"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:background="@drawable/parentitembc1"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/darker_gray"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollingCache="false"
+            >
+        </ListView>
+    </LinearLayout>
+
+</RelativeLayout>

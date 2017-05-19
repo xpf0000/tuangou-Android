@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.hkkj.csrx.myview.SearchView
+        android:id="@+id/search_orderpro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.hkkj.csrx.myview.SearchView>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container_orderpro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_order_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="4dp"
+            android:footerDividersEnabled="false"
+            android:cacheColorHint="@color/transparent"
+            android:listSelector="@android:color/transparent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

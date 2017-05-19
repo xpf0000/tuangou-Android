@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--//热卖-->
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+
+       <com.hkkj.csrx.myview.My_GridView
+           android:id="@+id/big_class"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:horizontalSpacing="0.0dip"
+           android:listSelector="@null"
+           android:numColumns="3"
+           android:stretchMode="columnWidth"></com.hkkj.csrx.myview.My_GridView>
+
+       <View
+           android:background="#e5e5e5"
+           android:layout_width="match_parent"
+           android:layout_height="10dp"></View>
+
+       <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:background="@color/white"
+           android:orientation="horizontal">
+
+           <TextView
+               android:id="@+id/miao"
+               android:textStyle="bold"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:padding="10dp"
+               android:text="猜你喜欢"
+               android:textColor="@color/shopname"
+               android:textSize="17sp" />
+
+           <View
+               android:layout_width="30dp"
+               android:layout_height="2dp"
+               android:layout_centerVertical="true"
+               android:layout_toLeftOf="@id/miao"
+               android:background="@color/shopname"></View>
+
+           <View
+               android:layout_width="30dp"
+               android:layout_height="2dp"
+               android:layout_centerVertical="true"
+               android:layout_toRightOf="@id/miao"
+               android:background="@color/shopname"></View>
+       </RelativeLayout>
+
+       <View
+           android:background="@color/linecolor"
+           android:layout_width="match_parent"
+           android:layout_height="1dp"></View>
+
+
+
+       <com.hkkj.csrx.myview.My_GridView
+           android:id="@+id/maill"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:listSelector="@null"
+           android:numColumns="1"
+           android:verticalSpacing="1dp"
+           android:background="@color/grarys"
+           android:stretchMode="columnWidth"></com.hkkj.csrx.myview.My_GridView>
+
+       <View
+           android:background="@color/linecolor"
+           android:layout_width="match_parent"
+           android:layout_height="1dp"></View>
+
+   </LinearLayout>
+
+</LinearLayout>

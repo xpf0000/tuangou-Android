@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:descendantFocusability="blocksDescendants">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        >
+
+        <TextView   android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:text="@string/leftday"
+            android:drawablePadding="5dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:textColor="@color/shops_discuss_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_order_state"
+            android:text="订单状态:"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"
+        android:layout_marginTop="8dp"/>
+    <com.hkkj.csrx.myview.MyListView
+        android:id="@+id/mylistview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:listSelector="@android:color/transparent"
+        android:descendantFocusability="beforeDescendants">
+
+    </com.hkkj.csrx.myview.MyListView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
+
+        <TextView   android:id="@+id/tv_paymoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:text="@string/leftday" />
+
+        <Button   android:id="@+id/btn_delete_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="取消订单"
+            android:gravity="center"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:background="@drawable/submit_btn_2"/>
+        <Button
+            android:id="@+id/btn_sure"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btn_delete_order"
+            android:background="@drawable/submit_btn_2"
+            android:gravity="center"
+            android:text="确认收货"
+            android:focusable="false"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btn_remind"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btn_delete_order"
+            android:background="@drawable/submit_btn_2"
+            android:gravity="center"
+            android:text="提醒发货"
+            android:focusable="false"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btn_hang"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btn_remind"
+            android:background="@drawable/submit_btn_2"
+            android:gravity="center"
+            android:text="订单挂起"
+            android:focusable="false"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+</LinearLayout>

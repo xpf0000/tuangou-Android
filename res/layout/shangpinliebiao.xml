@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/city_gray"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fc4d48"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@drawable/jt"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商品列表"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title">
+
+        <com.hkkj.csrx.myview.HeaderGridView
+            android:id="@+id/homeGid"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:columnWidth="80dp"
+            android:listSelector="@drawable/grid_select"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+           android:background="@color/white"
+            android:id="@+id/invis"
+            android:visibility="visible"
+            >
+
+            <ImageView
+                android:id="@+id/fenlei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@drawable/class01"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                />
+
+            <Button
+                android:id="@+id/searchbutton1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/city_gray"
+                android:drawablePadding="@dimen/big_10"
+                android:drawableRight="@drawable/search"
+                android:hint="请输入关键词"
+                android:gravity="left"
+                android:padding="5dp"
+                android:textSize="17sp" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    </LinearLayout>

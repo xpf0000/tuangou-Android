@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ResourceAsColor">
+        <ignore path="src/com/hkkj/csrx/activity/BusinessAssociation.java" />
+    </issue>
+    <issue id="UseSparseArrays">
+        <ignore path="src/com/hkkj/csrx/adapter/Mycollectadpater.java" />
+    </issue>
+</lint>

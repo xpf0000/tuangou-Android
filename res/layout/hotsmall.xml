@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gridback"
+    android:padding="5dp"
+    android:gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/zidingyi"
+        android:textSize="16dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/xiaotitle"
+        android:layout_below="@id/title"
+        android:text="@string/zidingyi"
+        android:textSize="16dp"
+        android:textColor="#999999"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/img"
+        android:layout_below="@id/xiaotitle"
+        android:src="@drawable/head"
+        android:layout_width="70dp"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:layout_height="52dp" />
+</LinearLayout>

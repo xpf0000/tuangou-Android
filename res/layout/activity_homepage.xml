@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line_normal" >
+    </View>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="9"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="2dp" >
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_main_rb_home_drawable"
+            android:text="@string/rb_home" />
+
+        <RadioButton
+            android:id="@+id/rb_merchant"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_rb_shops_drawable"
+            android:text="购物车" />
+
+       
+        <RadioButton
+            android:id="@+id/rb_mine"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_rb_mine_drawable"
+            android:text="@string/rb_mine" />
+
+        <RadioButton
+            android:id="@+id/rb_more"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_rb_more_drawable"
+            android:text="@string/set" />
+    </RadioGroup>
+
+</LinearLayout>

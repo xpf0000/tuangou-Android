@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/malllay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/mallcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:button="@drawable/shopcar_check" />
+
+        <ImageView
+            android:id="@+id/mallimg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mallcheck"
+            android:background="@drawable/nopic03" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/mallimg"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/mallimg"
+            android:text="@string/send" />
+        <TextView
+            android:id="@+id/spead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_below="@+id/title"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/gray"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/mallimg"
+            android:text="@string/send" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/mallimg"
+            android:layout_toRightOf="@id/mallimg"
+            android:text="@string/about"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/red" />
+        <ImageView
+            android:id="@+id/delect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_delete" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cartbutton"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/jian"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/cartminus" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/greyy" />
+
+        <Button
+            android:id="@+id/jia"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/cartadd" />
+    </LinearLayout>
+</LinearLayout>

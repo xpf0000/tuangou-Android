@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/metphead"
+        android:scaleType="centerCrop"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/photo_txt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-22dp"
+        android:background="#900F0F0F"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/about"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/metpname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:maxEms="11"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

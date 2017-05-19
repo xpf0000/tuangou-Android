@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#f6f6f6"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:background="#f6f6f6"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:id="@+id/hmallclasslay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/hmallclass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grarytxt"
+                android:drawableLeft="@drawable/shopclass"
+                android:text="分类" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0.5dp"
+            android:background="@color/greyy"
+            android:layout_height="30dp"></LinearLayout>
+        <TextView
+            android:id="@+id/hbrand"
+            android:textColor="@color/grarytxt"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="品牌" />
+        <LinearLayout
+            android:layout_width="0.5dp"
+            android:background="@color/greyy"
+            android:layout_height="30dp"></LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/horder"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textColor="@color/grarytxt"
+                android:text="排序" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0.5dp"
+            android:background="@color/greyy"
+            android:layout_height="30dp"></LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_height="match_parent"
+                android:textColor="@color/grarytxt"
+                android:src="@drawable/small_sort02" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
