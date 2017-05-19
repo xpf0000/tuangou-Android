@@ -10,6 +10,8 @@ dependencies {
     compile 'com.android.support:cardview-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
 
+    compile 'com.android.support:multidex:1.0.1'
+
     compile project(':library')
     compile project(':photolibrary')
     compile files('libs/android-async-http-1.4.5.jar')

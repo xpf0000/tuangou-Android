@@ -2,11 +2,10 @@ package com.hkkj.server;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Base64;
+import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
 
@@ -16,13 +15,9 @@ import com.baidu.location.BDNotifyListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
-import com.google.gson.Gson;
 import com.hkkj.csrx.activity.Bbs.MyHandler;
 import com.hkkj.csrx.activity.R;
 import com.hkkj.csrx.fragment.HomeFragment.HomeHandler;
-import com.hkkj.csrx.utils.CommonField;
-import com.hkkj.csrx.utils.StringtoJson;
-import com.hkkj.model.CityModel;
 import com.hkkj.xnet.ServicesAPI;
 import com.hkkj.xnet.XNetUtil;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
@@ -43,19 +38,13 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -66,7 +55,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @author zpp
  * @version1.0 技术支持 百度地图
  */
-public class location extends Application {
+public class location extends MultiDexApplication {
     public LocationClient mLocationClient = null;
     //	public GeofenceClient mGeofenceClient;
     public static String mData;// 定位成功控件
