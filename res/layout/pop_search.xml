@@ -4,11 +4,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.hkkj.csrx.myview.SearchView
+    <com.X.tcbj.myview.SearchView
         android:id="@+id/searchview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </com.hkkj.csrx.myview.SearchView>
+    </com.X.tcbj.myview.SearchView>
 
 </LinearLayout>

@@ -44,7 +44,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <com.hkkj.csrx.myview.ClearEditText
+        <com.X.tcbj.myview.ClearEditText
             android:id="@+id/filter_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 android:layout_centerInParent="true"
                 android:visibility="invisible" />
 
-            <com.hkkj.csrx.myview.SideBar
+            <com.X.tcbj.myview.SideBar
                 android:id="@+id/sidrbar"
                 android:layout_width="30.0dip"
                 android:background="@color/transparent"

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="APPTXTBlack">#333333</color>
+    <color name="APPPGBG">#f4f5f9</color>
     <color name="app_basic">#11c1f3</color>
+    <color name="tab_gray">#5e5e5e</color>
     <!-- 二级商圈背景显示 -->
     <color name="text_unpressed">@android:color/black</color>
     <color name="text_pressed">#35BBB0</color>
@@ -449,7 +452,7 @@
 
     <color name="gallery_background">#ff111111</color>
     <color name="gallery_alpha">#b0000000</color>
-    <color name="lighter_gray">#ffd3d3d3</color>
+    <color name="lighter_gray">#d9d9d9</color>
     <color name="simple_333333">#ff333333</color>
     <color name="simple_eeeeee">#ffeeeeee</color>
     <color name="simple_cccccc">#ffcccccc</color>

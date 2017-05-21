@@ -23,11 +23,11 @@
         <!--android:layout_width="fill_parent"-->
         <!--android:layout_height="fill_parent"-->
         <!--android:orientation="horizontal"></LinearLayout>-->
-    <com.hkkj.csrx.myview.FlowLayout
+    <com.X.tcbj.myview.FlowLayout
         android:id="@+id/threeclass"
         android:paddingLeft="10dp"
         f:horizontalSpacing="6dip"
         f:verticalSpacing="12dip"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"></com.hkkj.csrx.myview.FlowLayout>
+        android:layout_height="wrap_content"></com.X.tcbj.myview.FlowLayout>
 </LinearLayout>

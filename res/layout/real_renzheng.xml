@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/APPPGBG"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="10"
+        android:background="@color/app_basic"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="实名认证"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/jt"
+            android:clickable="true"
+            android:onClick="back"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/real_renzheng_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="12dp"
+            android:hint="请输入真实姓名"
+            android:lines="1"
+            android:inputType="phone"
+            />
+
+        <EditText
+            android:id="@+id/real_renzheng_ids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:hint="请输入身份证号"
+            android:lines="1"
+            android:inputType="phone"
+            android:layout_marginTop="1dp"
+            />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="身份证照片"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+
+            />
+
+        <ImageView
+            android:id="@+id/real_renzheng_pic"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="#c6c6c6"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="12dp"
+            android:scaleType="fitXY"
+            android:clickable="true"
+            android:onClick="chooseImg"
+            />
+
+
+
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/app_basic"
+            android:text="确定"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:onClick="do_renzheng"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

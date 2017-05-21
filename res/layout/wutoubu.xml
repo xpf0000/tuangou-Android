@@ -40,7 +40,7 @@
             android:layout_marginLeft="5dp"
             />
     </RelativeLayout>
-    <com.hkkj.csrx.myview.MyGridView
+    <com.X.tcbj.myview.MyGridView
         android:id="@+id/shopalbum"
         android:verticalSpacing="5dp"
         android:horizontalSpacing="5dp"
@@ -54,7 +54,7 @@
         android:layout_below="@+id/linlay"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content">
-    </com.hkkj.csrx.myview.MyGridView>
+    </com.X.tcbj.myview.MyGridView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="10dp"

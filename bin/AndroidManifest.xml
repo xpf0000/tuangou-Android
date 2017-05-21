@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hkkj.csrx.activity"
+    package="com.X.tcbj.activity"
     android:versionCode="28"
     android:versionName="2.9.3" >
 
@@ -42,7 +42,7 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
 
     <application
-        android:name="com.hkkj.server.location"
+        android:name="com.X.server.location"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -56,94 +56,94 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.GuideOneActivity" >
+        <activity android:name="com.X.tcbj.activity.GuideOneActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Facilitate" >
+        <activity android:name="com.X.tcbj.activity.Facilitate" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bussexchange" >
+        <activity android:name="com.X.tcbj.activity.Bussexchange" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Reply_post" >
+        <activity android:name="com.X.tcbj.activity.Reply_post" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bussanews" >
+        <activity android:name="com.X.tcbj.activity.Bussanews" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bussainfo" >
+        <activity android:name="com.X.tcbj.activity.Bussainfo" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.BusinesAinfo" >
+        <activity android:name="com.X.tcbj.activity.BusinesAinfo" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bamember" >
+        <activity android:name="com.X.tcbj.activity.Bamember" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.News_omment" >
+        <activity android:name="com.X.tcbj.activity.News_omment" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Pri_info" >
+        <activity android:name="com.X.tcbj.activity.Pri_info" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Report_post" >
+        <activity android:name="com.X.tcbj.activity.Report_post" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Photo_newsinfo" >
+        <activity android:name="com.X.tcbj.activity.Photo_newsinfo" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Loca_news" >
+        <activity android:name="com.X.tcbj.activity.Loca_news" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Info_info" >
+        <activity android:name="com.X.tcbj.activity.Info_info" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bbs_new_post" >
+        <activity android:name="com.X.tcbj.activity.Bbs_new_post" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Post_info" >
+        <activity android:name="com.X.tcbj.activity.Post_info" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.BusinessAssociation" >
+        <activity android:name="com.X.tcbj.activity.BusinessAssociation" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussList" >
+        <activity android:name="com.X.tcbj.activity.ShopsDiscussList" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.News_search" >
+        <activity android:name="com.X.tcbj.activity.News_search" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Privilegelist" >
+        <activity android:name="com.X.tcbj.activity.Privilegelist" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.GuideTwoActivity" >
+        <activity android:name="com.X.tcbj.activity.GuideTwoActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.GuideThreeActivity" >
+        <activity android:name="com.X.tcbj.activity.GuideThreeActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopsListActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopsListActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Myinfo" 
+        <activity android:name="com.X.tcbj.activity.Myinfo"
             android:configChanges="orientation|keyboardHidden"
             >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.MyCollect" >
+        <activity android:name="com.X.tcbj.activity.MyCollect" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.webiew" >
+        <activity android:name="com.X.tcbj.activity.webiew" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.MyComments" >
+        <activity android:name="com.X.tcbj.activity.MyComments" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.About" >
+        <activity android:name="com.X.tcbj.activity.About" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.RegistActivity" >
+        <activity android:name="com.X.tcbj.activity.RegistActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.LoginActivity" >
+        <activity android:name="com.X.tcbj.activity.LoginActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bbs" >
+        <activity android:name="com.X.tcbj.activity.Bbs" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Feedback" >
+        <activity android:name="com.X.tcbj.activity.Feedback" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Privileinfo" >
+        <activity android:name="com.X.tcbj.activity.Privileinfo" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopDetailsActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopDetailsActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopsDiscussActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopPrivilegeActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopPrivilegeActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Bbs_class" >
+        <activity android:name="com.X.tcbj.activity.Bbs_class" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopsDiscussListActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopsDiscussListActivity" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.MerchantsClassify" >
+        <activity android:name="com.X.tcbj.activity.MerchantsClassify" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Updatemyinfo" >
+        <activity android:name="com.X.tcbj.activity.Updatemyinfo" >
         </activity>
         <activity
-            android:name="com.hkkj.csrx.activity.testnews"
+            android:name="com.X.tcbj.activity.testnews"
             android:theme="@style/StyledIndicators" >
         </activity>
         <activity
-            android:name="com.hkkj.csrx.activity.Privile_search"
+            android:name="com.X.tcbj.activity.Privile_search"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
@@ -170,7 +170,7 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.ShopdateActivity" >
+        <activity android:name="com.X.tcbj.activity.ShopdateActivity" >
         </activity>
         <activity
             android:name=".CityListsActivity"
@@ -188,7 +188,7 @@
             android:enabled="true"
             android:process=":remote" >
         </service>
-        <service android:name="com.hkkj.server.HKService" >
+        <service android:name="com.X.server.HKService" >
         </service>
 
         <meta-data
@@ -213,21 +213,21 @@
             android:name="com.umeng.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Updatepowd" >
+        <activity android:name="com.X.tcbj.activity.Updatepowd" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.BusLine" >
+        <activity android:name="com.X.tcbj.activity.BusLine" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Driveline" >
+        <activity android:name="com.X.tcbj.activity.Driveline" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.Mymap" >
+        <activity android:name="com.X.tcbj.activity.Mymap" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.SeminarActivity" >
+        <activity android:name="com.X.tcbj.activity.SeminarActivity" >
         </activity>
         <activity
-            android:name="com.hkkj.csrx.activity.ThematicDetails"
+            android:name="com.X.tcbj.activity.ThematicDetails"
             android:theme="@style/StyledIndicators" >
         </activity>
-        <activity android:name="com.hkkj.csrx.activity.SemNewsInfo" >
+        <activity android:name="com.X.tcbj.activity.SemNewsInfo" >
         </activity>
 
         <meta-data

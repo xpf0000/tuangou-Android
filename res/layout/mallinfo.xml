@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
 
-    <com.hkkj.csrx.slidedetails.SlideDetailsLayout
+    <com.X.tcbj.slidedetails.SlideDetailsLayout
         android:id="@+id/slidedetails"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -263,7 +263,7 @@
                                 android:textColor="@color/black_gray" />
                         </LinearLayout>
 
-                        <com.hkkj.csrx.myview.MyGridView
+                        <com.X.tcbj.myview.MyGridView
                             android:id="@+id/guige"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
                             android:numColumns="4"
                             android:stretchMode="columnWidth"
                             android:verticalSpacing="10dp"
-                            android:visibility="gone"></com.hkkj.csrx.myview.MyGridView>
+                            android:visibility="gone"></com.X.tcbj.myview.MyGridView>
 
                         <com.zhy.view.flowlayout.TagFlowLayout
                             android:id="@+id/id_flowlayout"
@@ -348,10 +348,10 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grarytxt" />
 
-                        <com.hkkj.csrx.myview.MyListView
+                        <com.X.tcbj.myview.MyListView
                             android:id="@+id/comentlist"
                             android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"></com.hkkj.csrx.myview.MyListView>
+                            android:layout_height="wrap_content"></com.X.tcbj.myview.MyListView>
 
                         <LinearLayout
                             android:layout_width="fill_parent"
@@ -561,7 +561,7 @@
                     android:layout_height="fill_parent"></WebView>
             </LinearLayout>
         </ScrollView>
-    </com.hkkj.csrx.slidedetails.SlideDetailsLayout>
+    </com.X.tcbj.slidedetails.SlideDetailsLayout>
 
     <RelativeLayout
         android:id="@+id/title"

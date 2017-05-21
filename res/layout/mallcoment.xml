@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_height="wrap_content" />
-    <com.hkkj.csrx.myview.MyGridView
+    <com.X.tcbj.myview.MyGridView
         android:id="@+id/comimglist"
         android:layout_width="fill_parent"
         android:layout_below="@id/content"
@@ -64,5 +64,5 @@
         android:columnWidth="80dp"
         android:stretchMode="columnWidth"
         android:layout_height="wrap_content">
-    </com.hkkj.csrx.myview.MyGridView>
+    </com.X.tcbj.myview.MyGridView>
 </RelativeLayout>

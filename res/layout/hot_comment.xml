@@ -75,7 +75,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.hkkj.csrx.myview.MyListView
+        <com.X.tcbj.myview.MyListView
             android:id="@+id/hot_colist"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:text="已关注，点击删除" />
 
-    <com.hkkj.csrx.myview.My_GridView
+    <com.X.tcbj.myview.My_GridView
         android:id="@+id/att_gridview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:text="未关注，点击添加" />
 
-    <com.hkkj.csrx.myview.My_GridView
+    <com.X.tcbj.myview.My_GridView
         android:id="@+id/noatt_gridview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

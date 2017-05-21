@@ -10,7 +10,7 @@
        android:layout_height="wrap_content"
        >
 
-       <com.hkkj.csrx.myview.My_GridView
+       <com.X.tcbj.myview.My_GridView
            android:id="@+id/big_class"
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
            android:horizontalSpacing="0.0dip"
            android:listSelector="@null"
            android:numColumns="3"
-           android:stretchMode="columnWidth"></com.hkkj.csrx.myview.My_GridView>
+           android:stretchMode="columnWidth"></com.X.tcbj.myview.My_GridView>
 
        <View
            android:background="#e5e5e5"
@@ -64,7 +64,7 @@
 
 
 
-       <com.hkkj.csrx.myview.My_GridView
+       <com.X.tcbj.myview.My_GridView
            android:id="@+id/maill"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
            android:numColumns="1"
            android:verticalSpacing="1dp"
            android:background="@color/grarys"
-           android:stretchMode="columnWidth"></com.hkkj.csrx.myview.My_GridView>
+           android:stretchMode="columnWidth"></com.X.tcbj.myview.My_GridView>
 
        <View
            android:background="@color/linecolor"

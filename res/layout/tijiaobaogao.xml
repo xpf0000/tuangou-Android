@@ -65,7 +65,7 @@
             android:inputType="textMultiLine"
             />
         </RelativeLayout>
-        <com.hkkj.csrx.myview.MyGridView
+        <com.X.tcbj.myview.MyGridView
             android:id="@+id/comimglist1"
             android:layout_width="fill_parent"
             android:verticalSpacing="10dp"
@@ -77,7 +77,7 @@
             android:columnWidth="80dp"
             android:stretchMode="columnWidth"
             android:layout_height="wrap_content">
-        </com.hkkj.csrx.myview.MyGridView>
+        </com.X.tcbj.myview.MyGridView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"

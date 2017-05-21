@@ -5,7 +5,7 @@
     android:orientation="vertical"
     >
 
-    <com.hkkj.csrx.myview.My_GridView
+    <com.X.tcbj.myview.My_GridView
         android:id="@+id/head_class"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:numColumns="5"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="18dp"
-        android:stretchMode="columnWidth"></com.hkkj.csrx.myview.My_GridView>
+        android:stretchMode="columnWidth"></com.X.tcbj.myview.My_GridView>
     <View
         android:layout_marginTop="5dp"
         android:background="@color/linecolor"

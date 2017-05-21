@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.hkkj.csrx.activity;
+package com.X.tcbj.activity;
 
 public final class R {
     public static final class anim {
@@ -3065,7 +3065,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01001f, 0x7f010020
         };
         /**
-          <p>This symbol is the offset where the {@link com.hkkj.csrx.activity.R.attr#border_color}
+          <p>This symbol is the offset where the {@link com.X.tcbj.activity.R.attr#border_color}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 
@@ -3080,7 +3080,7 @@ containing a value of this type.
         */
         public static final int CircleImageView_border_color = 1;
         /**
-          <p>This symbol is the offset where the {@link com.hkkj.csrx.activity.R.attr#border_width}
+          <p>This symbol is the offset where the {@link com.X.tcbj.activity.R.attr#border_width}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 

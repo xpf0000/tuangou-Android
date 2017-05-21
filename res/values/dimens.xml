@@ -7,4 +7,5 @@
     <dimen name="small_10">5dp</dimen>
     <dimen name="big_10">20dp</dimen>
     <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="app_separator_offx">8dp</dimen>
 </resources>

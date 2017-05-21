@@ -38,32 +38,41 @@
             android:text="@string/rb_home" />
 
         <RadioButton
-            android:id="@+id/rb_merchant"
+            android:id="@+id/rb_near"
             style="@style/rb_main"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/selector_main_rb_shops_drawable"
-            android:text="购物车" />
+            android:text="附近" />
 
        
+        <RadioButton
+            android:id="@+id/rb_news"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_rb_mine_drawable"
+            android:text="资讯" />
+
+        <RadioButton
+            android:id="@+id/rb_order"
+            style="@style/rb_main"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_rb_more_drawable"
+            android:text="订单" />
+
         <RadioButton
             android:id="@+id/rb_mine"
             style="@style/rb_main"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:drawableTop="@drawable/selector_main_rb_mine_drawable"
-            android:text="@string/rb_mine" />
-
-        <RadioButton
-            android:id="@+id/rb_more"
-            style="@style/rb_main"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/selector_main_rb_more_drawable"
-            android:text="@string/set" />
+            android:drawableTop="@drawable/tab_user_selector"
+            android:text="我的" />
     </RadioGroup>
 
 </LinearLayout>

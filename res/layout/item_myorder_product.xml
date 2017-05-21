@@ -42,7 +42,7 @@
         android:layout_height="1dp"
         android:background="#F2F2F2"
         android:layout_marginTop="8dp"/>
-    <com.hkkj.csrx.myview.MyListView
+    <com.X.tcbj.myview.MyListView
         android:id="@+id/mylistview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,7 +51,7 @@
         android:listSelector="@android:color/transparent"
         android:descendantFocusability="beforeDescendants">
 
-    </com.hkkj.csrx.myview.MyListView>
+    </com.X.tcbj.myview.MyListView>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

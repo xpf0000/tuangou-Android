@@ -36,7 +36,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/title">
 
-        <com.hkkj.csrx.myview.HeaderGridView
+        <com.X.tcbj.myview.HeaderGridView
             android:id="@+id/homeGid"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

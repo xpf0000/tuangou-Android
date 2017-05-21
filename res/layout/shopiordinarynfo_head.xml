@@ -269,7 +269,7 @@
             android:layout_marginTop="-5dp"
             android:layout_height="0.5dp">
         </LinearLayout>
-        <com.hkkj.csrx.myview.MyGridView
+        <com.X.tcbj.myview.MyGridView
             android:id="@+id/shopalbum"
             android:verticalSpacing="10dp"
             android:horizontalSpacing="10dp"
@@ -281,7 +281,7 @@
             android:layout_width="fill_parent"
             android:layout_below="@+id/linlay"
             android:layout_height="wrap_content">
-        </com.hkkj.csrx.myview.MyGridView>
+        </com.X.tcbj.myview.MyGridView>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -322,12 +322,12 @@
             android:layout_marginTop="-5dp"
             android:layout_height="0.5dp">
         </LinearLayout>
-        <com.hkkj.csrx.myview.MyListView
+        <com.X.tcbj.myview.MyListView
             android:id="@+id/shopcoment"
             android:layout_width="fill_parent"
             android:layout_below="@+id/linlay3"
             android:layout_height="wrap_content">
-        </com.hkkj.csrx.myview.MyListView>
+        </com.X.tcbj.myview.MyListView>
         <LinearLayout
             android:id="@+id/linlay4"
             android:orientation="horizontal"

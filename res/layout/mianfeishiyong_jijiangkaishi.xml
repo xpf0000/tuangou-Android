@@ -287,13 +287,13 @@
                     android:layout_marginTop="1dp"
                     >
 
-                    <com.hkkj.csrx.myview.my_viewpage
+                    <com.X.tcbj.myview.my_viewpage
                         android:id="@+id/viewPager"
                         android:background="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         >
-                    </com.hkkj.csrx.myview.my_viewpage>
+                    </com.X.tcbj.myview.my_viewpage>
                 </LinearLayout>
 
                 <RelativeLayout

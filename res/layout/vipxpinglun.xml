@@ -153,13 +153,13 @@
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <com.hkkj.csrx.myview.MyGridView
+            <com.X.tcbj.myview.MyGridView
                 android:id="@+id/photos"
                 android:numColumns="5"
                 android:horizontalSpacing="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </com.hkkj.csrx.myview.MyGridView>
+            </com.X.tcbj.myview.MyGridView>
         </LinearLayout>
 
         <Button

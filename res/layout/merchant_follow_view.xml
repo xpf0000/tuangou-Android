@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.hkkj.csrx.myview.FollowListView
+    <com.X.tcbj.myview.FollowListView
         android:id="@+id/grid_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +15,6 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp" >
-    </com.hkkj.csrx.myview.FollowListView>
+    </com.X.tcbj.myview.FollowListView>
 
 </LinearLayout>

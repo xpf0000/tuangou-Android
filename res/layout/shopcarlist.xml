@@ -35,8 +35,8 @@
         android:layout_height="0.5dp"
         android:background="@color/greyy"></LinearLayout>
 
-    <com.hkkj.csrx.myview.MyListView
+    <com.X.tcbj.myview.MyListView
         android:id="@+id/malllist"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"></com.hkkj.csrx.myview.MyListView>
+        android:layout_height="wrap_content"></com.X.tcbj.myview.MyListView>
 </LinearLayout>

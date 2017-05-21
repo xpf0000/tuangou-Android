@@ -40,8 +40,8 @@ dependencies {
 
     compile 'info.hoang8f:android-segmented:1.0.6'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.1.2'
+    compile 'com.makeramen:roundedimageview:2.2.1'
     compile project(':flowlayout-lib')
-
 
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -57,7 +57,7 @@ dependencies {
     compile 'com.github.xpf0000:X-Cache-Android:1.0.3'
 
     compile 'org.greenrobot:eventbus:3.0.0'
-
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
 }
 
 android {

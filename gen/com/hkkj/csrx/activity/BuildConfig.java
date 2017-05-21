@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.hkkj.csrx.activity;
+package com.X.tcbj.activity;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

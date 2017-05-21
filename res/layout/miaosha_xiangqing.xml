@@ -35,7 +35,7 @@
             android:layout_centerHorizontal="true"
         />
     </RelativeLayout>
-        <com.hkkj.csrx.myview.ScrollViewContainer
+        <com.X.tcbj.myview.ScrollViewContainer
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="50dp"
@@ -406,12 +406,12 @@
                 />
         </RelativeLayout>
 
-       <com.hkkj.csrx.myview.MyListView
+       <com.X.tcbj.myview.MyListView
            android:id="@+id/comelist"
            android:background="@color/white"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
-       </com.hkkj.csrx.myview.MyListView>
+       </com.X.tcbj.myview.MyListView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -636,7 +636,7 @@
                 </WebView>
             </LinearLayout>
         </ScrollView>
-        </com.hkkj.csrx.myview.ScrollViewContainer>
+        </com.X.tcbj.myview.ScrollViewContainer>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
