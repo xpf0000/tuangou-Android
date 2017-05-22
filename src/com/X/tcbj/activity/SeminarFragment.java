@@ -28,7 +28,6 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.adapter.Comment_adpater;
 import com.X.tcbj.adapter.Information_adpater;
 import com.X.tcbj.adapter.SemPhNews;
 import com.X.tcbj.utils.Constant;
@@ -57,7 +56,7 @@ public class SeminarFragment extends Fragment {
 	int c = 0, areaId = 0, page = 1,  site = 0,iscanvote;
 	GridView meetingpops;
 	SemPhNews sempadapter;
-	Comment_adpater comadapter;
+	//Comment_adpater comadapter;
 	VoteAdapter voteadapter;
 	String canvote;
 	EditText comment_ed;
@@ -150,7 +149,7 @@ public class SeminarFragment extends Fragment {
 			if (newsinfo != null) {
 				infostr = newsinfo;
 				handler.sendEmptyMessage(1);
-				setcoment();
+				//setcoment();
 			} else {
 				String url;
 				if (Logn == 0) {
@@ -168,7 +167,7 @@ public class SeminarFragment extends Fragment {
 							+ "&pagesize=10";
 				}
 				getlist(url);
-				setcoment();
+				//setcoment();
 			}
 		} else if (Integer.parseInt(templateId) == 14) {
 			view = inflater.inflate(R.layout.semphnews, container, false);
@@ -211,7 +210,7 @@ public class SeminarFragment extends Fragment {
 				} else if (Integer.parseInt(templateId) == 12) {
 					getcomlist(infostr);
 					try {
-						comadapter.notifyDataSetChanged();
+						//comadapter.notifyDataSetChanged();
 					} catch (Exception e) {
 						Toast.makeText(getActivity(), "慢点点", Toast.LENGTH_SHORT).show();
 					}
@@ -649,10 +648,10 @@ public class SeminarFragment extends Fragment {
 		});
 	}
 
-	void setcoment() {
-		comadapter = new Comment_adpater(infoarray, getActivity(), handler);
-		newscolistView.setAdapter(comadapter);
-	}
+//	void setcoment() {
+//		comadapter = new Comment_adpater(infoarray, getActivity(), handler);
+//		newscolistView.setAdapter(comadapter);
+//	}
 
 	// 解析评论数据
 	void getcomlist(String str) {

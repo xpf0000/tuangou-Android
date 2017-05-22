@@ -13,7 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.X.server.DataCache;
+import com.X.server.MyEventBus;
+import com.X.tcbj.activity.UserFenhongVC;
 import com.X.tcbj.activity.UserRenzhengVC;
+import com.X.tcbj.activity.UserUnitsVC;
+import com.baidu.location.BDLocation;
 import com.csrx.data.PreferencesUtils;
 import com.X.tcbj.activity.LoginActivity;
 import com.X.tcbj.activity.MallInfo;
@@ -32,8 +36,12 @@ import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.ImageUtils;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,7 +64,12 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_mine, container, false);
+
+        EventBus.getDefault().register(this);
+
         intview();
+
+        initUI();
 
         return view;
     }
@@ -74,6 +87,42 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         nameTV = (TextView) view.findViewById(R.id.mine_name);
     }
 
+    private void initUI()
+    {
+        if(DataCache.getInstance().user == null)
+        {
+            head.setBackgroundResource(R.mipmap.user_head_big);
+            nameTV.setText("尚未登陆");
+        }
+        else
+        {
+            String url = DataCache.getInstance().user.getAvatar();
+            if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0)
+            {
+                url = "http://tg01.sssvip.net/"+DataCache.getInstance().user.getAvatar();
+            }
+
+            ImageLoader.getInstance().displayImage(url,head);
+
+            if(DataCache.getInstance().user.getIs_effect() == 1)
+            {
+                nameTV.setText(DataCache.getInstance().user.getReal_name());
+            }
+            else
+            {
+                if(DataCache.getInstance().user.isRezhenging())
+                {
+                    nameTV.setText("会员审核中");
+                }
+                else
+                {
+                    nameTV.setText("请提交认证");
+                }
+
+            }
+        }
+
+    }
 
 
     @Override
@@ -84,101 +133,94 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             Intent intent = new Intent();
             intent.setClass(getActivity(), LoginActivity.class);
             getActivity().startActivity(intent);
+            return;
         }
         else
         {
-            Intent intent = new Intent();
-            intent.setClass(getActivity(), UserRenzhengVC.class);
-            getActivity().startActivity(intent);
+            if(DataCache.getInstance().user.getIs_effect() != 1)
+            {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), UserRenzhengVC.class);
+                getActivity().startActivity(intent);
+                return;
+            }
+
         }
 
-
-
-//        int Logn = PreferencesUtils.getInt(getActivity(), "logn");
-//        Intent intent = new Intent();
-//        if (Logn == 0) {
-//            intent.setClass(getActivity(), LoginActivity.class);
-//            getActivity().startActivity(intent);
-//        } else {
-//            switch (v.getId()) {
-//                case R.id.order:
-//                    Constant.ordertype = 0;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.nomoney:
-//                    Constant.ordertype = 1;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.nodeliver:
-//                    Constant.ordertype = 2;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.noreceipt:
-//                    Constant.ordertype = 3;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.nocomment:
-//                    Constant.ordertype = 4;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.returngood:
-//                    Constant.ordertype = 11;
-//                    intent.setClass(getActivity(), MyOrderActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.myredpaper:
-//                    intent.setClass(getActivity(), Zhanghaoguanl.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.mycollect:
-//                    intent.setClass(getActivity(), MyCollectActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.mycomment:
-//                    intent.setClass(getActivity(), MyCollect.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.mytry:
-//                    intent.setClass(getActivity(), MyTryOutActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.myaddress:
-//                    intent.setClass(getActivity(), MyAddressActivity.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//                case R.id.loginmore:
-//                    intent.setClass(getActivity(), Myinfo.class);
-//                    getActivity().startActivity(intent);
-//                    break;
-//            }
-//        }
+        Intent intent = new Intent();
+        switch (v.getId()) {
+            case R.id.mine_layout0:
+                intent.setClass(getActivity(), Myinfo.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mine_layout1:
+                intent.setClass(getActivity(), UserUnitsVC.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mine_layout2:
+                intent.setClass(getActivity(), UserFenhongVC.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mine_layout3:
+                intent.setClass(getActivity(), MyCollectActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mine_layout4:
+                intent.setClass(getActivity(), MyCollect.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.returngood:
+                Constant.ordertype = 11;
+                intent.setClass(getActivity(), MyOrderActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.myredpaper:
+                intent.setClass(getActivity(), Zhanghaoguanl.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mycollect:
+                intent.setClass(getActivity(), MyCollectActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mycomment:
+                intent.setClass(getActivity(), MyCollect.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.mytry:
+                intent.setClass(getActivity(), MyTryOutActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.myaddress:
+                intent.setClass(getActivity(), MyAddressActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.loginmore:
+                intent.setClass(getActivity(), Myinfo.class);
+                getActivity().startActivity(intent);
+                break;
+        }
 
 
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
-        int Logn = PreferencesUtils.getInt(getActivity(), "logn");
-        if (Logn != 0) {
-//            getCount();
-//            getUserinfo();
-        } else {
-//            user_head.setImageResource(R.drawable.user_face);
-//            number.setText("请登录");
-//            userinfo.setVisibility(View.GONE);
-//            nomoneycount.setText("0");
-//            nodelivercount.setText("0");
-//            receiptcount.setText("0");
-//            nocommentcount.setText("0");
-//            returngoodcount.setText("0");
-//            number.setCompoundDrawables(null, null, null, null);
+        DataCache.getInstance().getUinfo();
+    }
+
+    @Subscribe
+    public void getEventmsg(MyEventBus myEventBus) {
+        if (myEventBus.getMsg().equals("UserAccountChange")) {
+
+            initUI();
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        EventBus.getDefault().unregister(this);
     }
 }

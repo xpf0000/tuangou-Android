@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.X.model.RenzhengModel;
 import com.X.model.UserModel;
 import com.X.server.DataCache;
 import com.X.tcbj.utils.DensityUtil;
@@ -22,6 +23,7 @@ import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.jph.takephoto.app.TakePhotoActivity;
 import com.jph.takephoto.model.TResult;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.robin.lazy.cache.CacheLoaderManager;
 
 import java.io.File;
@@ -46,6 +48,8 @@ public class UserRenzhengVC extends TakePhotoActivity {
     AlertView alertView;
 
     Bitmap idsBitmap;
+
+    RenzhengModel renzhenginfo;
 
     int uid = 0;
 
@@ -96,14 +100,43 @@ public class UserRenzhengVC extends TakePhotoActivity {
             }
         });
 
+        getinfo();
+
     }
 
+    public void getinfo()
+    {
+        String uid = DataCache.getInstance().user.getId()+"";
+        XNetUtil.Handle(APPService.user_getRenzhenginfo(uid), new XNetUtil.OnHttpResult<RenzhengModel>() {
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onSuccess(RenzhengModel model) {
+
+                renzhenginfo = model;
+                initUI();
+
+            }
+        });
+    }
+
+    public void initUI()
+    {
+        if(renzhenginfo != null)
+        {
+            nameET.setText(renzhenginfo.getReal_name());
+            idsET.setText(renzhenginfo.getId_number());
+            ImageLoader.getInstance().displayImage(renzhenginfo.getId_url(),idsIV);
+        }
+    }
 
     public void back(View v)
     {
         finish();
     }
-
 
     public void chooseImg(View v)
     {
@@ -113,6 +146,12 @@ public class UserRenzhengVC extends TakePhotoActivity {
 
     public void do_renzheng(View v)
     {
+        if(renzhenginfo == null && idsBitmap == null)
+        {
+            XActivityindicator.showToast("请上传身份证照片");
+            return;
+        }
+
         String name = nameET.getText().toString().trim();
         String ids = idsET.getText().toString().trim();
 
@@ -120,7 +159,11 @@ public class UserRenzhengVC extends TakePhotoActivity {
         params.put("uid", XAPPUtil.createBody(uid+""));
         params.put("name", XAPPUtil.createBody(name));
         params.put("ids", XAPPUtil.createBody(ids));
-        params.put("file\"; filename=\"xtest.jpg",XAPPUtil.createBody(idsBitmap));
+
+        if(renzhenginfo == null)
+        {
+            params.put("file\"; filename=\"xtest.jpg",XAPPUtil.createBody(idsBitmap));
+        }
 
         XNetUtil.Handle(APPService.user_do_renzheng(params), "提交成功,请等待审核", null, new XNetUtil.OnHttpResult<Boolean>() {
             @Override

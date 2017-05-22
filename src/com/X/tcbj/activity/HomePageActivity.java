@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.X.server.DataCache;
 import com.X.tcbj.fragment.NewsFragment;
 import com.csrx.data.PreferencesUtils;
 import com.csrx.http.AbHttpUtil;
@@ -270,7 +271,7 @@ public class HomePageActivity extends FragmentActivity implements
 				break;
 
 				case R.id.rb_mine:
-
+					DataCache.getInstance().getUinfo();
 					if (mineFragment == null) {
 						mineFragment = new MineFragment();
 						transaction.add(R.id.ll_content, mineFragment);

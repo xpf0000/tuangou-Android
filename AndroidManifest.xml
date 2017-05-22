@@ -112,6 +112,15 @@
         <activity
             android:name="com.X.tcbj.activity.Info_info"
             android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".UserUnitsVC"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".UserFenhongVC"
+            android:screenOrientation="portrait"></activity>
+
         <activity
             android:name="com.X.tcbj.activity.Bbs_new_post"
             android:screenOrientation="portrait"></activity>

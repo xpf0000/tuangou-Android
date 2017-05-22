@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="#ffffff"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打分"
+        android:textSize="13sp"
+        android:textColor="@color/APPTXTBlack"
+        android:layout_marginRight="8dp"
+        />
+
+    <ImageView
+        android:id="@+id/comment_cell_star0"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/star2"
+        />
+    <ImageView
+        android:id="@+id/comment_cell_star1"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/star2"
+        />
+    <ImageView
+        android:id="@+id/comment_cell_star2"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/star2"
+        />
+    <ImageView
+        android:id="@+id/comment_cell_star3"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/star2"
+        />
+    <ImageView
+        android:id="@+id/comment_cell_star4"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/star2"
+        />
+
+    <TextView
+        android:id="@+id/comment_cell_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="5月10日"
+        android:textSize="13sp"
+        android:textColor="#999999"
+        />
+
+
+
+
+
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/comment_cell_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/APPTXTBlack"
+        android:textSize="15sp"
+        android:text="很好，去过很多次了 环境好
+牛排味道也不错"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/comment_cell_pics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:scrollbars="none"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="14dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:padding="6dp"
+        >
+
+<ImageView
+    android:id="@+id/comment_cell_shopimg"
+    android:layout_width="42dp"
+    android:layout_height="42dp"
+    android:src="@drawable/default_error"
+    />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+
+            <TextView
+                android:id="@+id/comment_cell_shopname"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/APPTXTBlack"
+                android:text="好牛哥披萨"
+                android:lines="1"
+                />
+
+            <TextView
+                android:id="@+id/comment_cell_shoptype"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:text="好牛哥披萨"
+                android:lines="1"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

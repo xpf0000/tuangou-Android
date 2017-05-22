@@ -2,8 +2,14 @@ package com.X.xnet;
 
 import com.X.model.CityModel;
 import com.X.model.HomeModel;
+import com.X.model.RenzhengModel;
+import com.X.model.UserCollectModel;
+import com.X.model.UserCommentModel;
+import com.X.model.UserFenhongModel;
 import com.X.model.UserModel;
+import com.X.model.UserUnitsModel;
 
+import java.util.List;
 import java.util.Map;
 import okhttp3.RequestBody;
 import retrofit2.http.GET;
@@ -44,9 +50,53 @@ public interface ServicesAPI {
          @Query("tj") String tj
  );
 
+ @POST("?ctl=user&act=dologin&r_type=1&isapp=true")
+ Observable<HttpResult<UserModel>> user_dologin(
+         @Query("user_key") String user_key,
+         @Query("user_pwd") String pass
+ );
+
+ @POST("?ctl=user&act=getUinfo&r_type=1&isapp=true")
+ Observable<HttpResult<UserModel>> user_getUinfo(
+         @Query("uid") String uid,
+         @Query("uname") String uname
+ );
+
+ @POST("?ctl=user&act=getRenzhenginfo&r_type=1&isapp=true")
+ Observable<HttpResult<RenzhengModel>> user_getRenzhenginfo(
+         @Query("uid") String uid
+ );
+
+ @POST("?ctl=user&act=getUnitsInfo&r_type=1&isapp=true")
+ Observable<HttpResult<UserUnitsModel>> user_getUnitsInfo(
+         @Query("uid") String uid,
+         @Query("uname") String uname
+ );
+
+ @POST("?ctl=user&act=fenhongCount&r_type=1&isapp=true")
+ Observable<HttpResult<UserFenhongModel>> user_fenhongCount(
+         @Query("uid") String uid
+ );
+
+ @POST("?ctl=uc_collect&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<UserCollectModel>> user_collectlist(
+         @Query("uid") String uid,
+         @Query("page") String page
+ );
+
+ @POST("?ctl=uc_review&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<UserCommentModel>> user_commentlist(
+         @Query("uid") String uid,
+         @Query("page") String page
+ );
+
  @Multipart
  @POST("?ctl=uc_account&act=do_renzheng&r_type=1&isapp=true")//用户认证
  Observable<HttpResult<Object>> user_do_renzheng(@PartMap Map<String, RequestBody> params);
+
+ @Multipart
+ @POST("?ctl=uc_account&act=app_upload_avatar&r_type=1&isapp=true")//用户上传头像
+ Observable<HttpResult<Object>> app_upload_avatar(@PartMap Map<String, RequestBody> params);
 
  @Multipart
  @POST("?service=User.headEdit")//上传用户头像

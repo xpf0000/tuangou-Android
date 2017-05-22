@@ -30,6 +30,8 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringBufferInputStream;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.MediaType;
@@ -443,5 +445,29 @@ public class XAPPUtil {
         }
         return inSampleSize;
     }
+
+
+    public static String UnixToDate(String time) {
+
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd");
+        @SuppressWarnings("unused")
+        long lcc = Long.valueOf(time);
+        int i = Integer.parseInt(time);
+        String times = sdr.format(new Date(i * 1000L));
+        return times;
+
+    }
+
+    public static String UnixToTime(String time) {
+
+        SimpleDateFormat sdr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        @SuppressWarnings("unused")
+        long lcc = Long.valueOf(time);
+        int i = Integer.parseInt(time);
+        String times = sdr.format(new Date(i * 1000L));
+        return times;
+
+    }
+
 
 }

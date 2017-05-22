@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.adapter.Comment_adpater;
 import com.X.tcbj.myview.MyListView;
 import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.HttpRequest;
@@ -48,7 +47,7 @@ public class News_omment extends Activity {
     HashMap<String, Object> hashMap;
     String hotinfo, info, myinfo, newsID, title, commentCount, distinctCount,
             userID, cimstr, commenturl;
-    Comment_adpater adpater, listadpater;
+    //Comment_adpater adpater, listadpater;
     DisplayMetrics dm;
     int pageIndex = 1, totalRecord = 0, c, areaID;
     LinearLayout mylistciew, comment_shuaxin, send_commeent;
@@ -249,7 +248,7 @@ public class News_omment extends Activity {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                    listadpater.notifyDataSetChanged();
+                    //listadpater.notifyDataSetChanged();
                     if (pageIndex == c) {
                         setLoadMoreText(R.string.loading_all);
                     } else {
@@ -382,7 +381,7 @@ public class News_omment extends Activity {
                     handler.sendEmptyMessage(2);
                     break;
                 case 9:
-                    listadpater.notifyDataSetChanged();
+                    //listadpater.notifyDataSetChanged();
                     comment_shuaxin.setVisibility(View.GONE);
                     loadMoreView.setVisibility(View.VISIBLE);
                     mylistciew.setVisibility(View.VISIBLE);
@@ -515,13 +514,13 @@ public class News_omment extends Activity {
     }
 
     public void sethotlust() {
-        adpater = new Comment_adpater(infoarray, News_omment.this, handler);
-        hot_colist.setAdapter(adpater);
+//        adpater = new Comment_adpater(infoarray, News_omment.this, handler);
+//        hot_colist.setAdapter(adpater);
     }
 
     public void setlust() {
-        listadpater = new Comment_adpater(array, News_omment.this, handler);
-        new_colist.setAdapter(listadpater);
+//        listadpater = new Comment_adpater(array, News_omment.this, handler);
+//        new_colist.setAdapter(listadpater);
     }
 
 }

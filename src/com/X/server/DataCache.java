@@ -2,8 +2,11 @@ package com.X.server;
 
 import com.X.model.CityModel;
 import com.X.model.UserModel;
+import com.X.xnet.XAPPUtil;
 import com.X.xnet.XNetUtil;
 import com.robin.lazy.cache.CacheLoaderManager;
+
+import org.greenrobot.eventbus.EventBus;
 
 import static com.X.server.location.APPService;
 
@@ -50,6 +53,36 @@ public class DataCache {
             });
         }
 
+
+    }
+
+    public void getUinfo()
+    {
+        if(user == null)
+        {
+            return;
+        }
+
+        XNetUtil.Handle(APPService.user_getUinfo(user.getId() + "", user.getUser_name()), new XNetUtil.OnHttpResult<UserModel>() {
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onSuccess(UserModel userModel) {
+
+                if(userModel != null)
+                {
+                    user = userModel;
+
+                    XAPPUtil.saveAPPCache("User",userModel);
+
+                    EventBus.getDefault().post(new MyEventBus("UserAccountChange"));
+
+                }
+            }
+        });
 
     }
 
