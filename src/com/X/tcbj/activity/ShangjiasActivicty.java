@@ -18,9 +18,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baidu.location.LocationClient;
 import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.adapter.ClassAdapter;
 import com.X.tcbj.adapter.MerchantListAdapter;
-import com.X.tcbj.myview.MyClassPop;
 import com.X.tcbj.myview.MyoneClasspop;
 import com.X.tcbj.utils.Constant;
 import com.X.server.location;
@@ -40,7 +38,7 @@ public class ShangjiasActivicty extends Activity implements View.OnClickListener
     TextView allqu, allmall, allsort;
     ListView prilist;
     SwipeRefreshLayout swipe_refresh;
-    MyClassPop myClassPop;
+//    MyClassPop myClassPop;
     MyoneClasspop myoneClasspop;
     LinearLayout layout;
     ImageView logn_img, search;
@@ -254,7 +252,7 @@ public class ShangjiasActivicty extends Activity implements View.OnClickListener
 
     private void intview()
     {
-        myClassPop = new MyClassPop();
+//        myClassPop = new MyClassPop();
         myoneClasspop = new MyoneClasspop();
         layout = (LinearLayout) findViewById(R.id.layout);
         logn_img = (ImageView) findViewById(R.id.logn_img);
@@ -356,37 +354,37 @@ public class ShangjiasActivicty extends Activity implements View.OnClickListener
      * 筛选条件监听
      */
     private void setclasspop() {
-        myClassPop.showclasspop(classList, classmoreList, ShangjiasActivicty.this, layout);
-        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
-            @Override
-            public void onRefresh(int position, ClassAdapter smadapter) {
-                if (position == 0) {
-                    setClassList(classstr);
-                } else {
-                    setClassList(classstr, position - 1);
-                }
-                bigclass = classList.get(position).get("id");
-                smadapter.notifyDataSetChanged();
-            }
-        });
-        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
-            @Override
-            public void onRefresh(int position) {
-                bigClass = bigclass;
-                page = 1;
-                smallClass = classmoreList.get(position).get("id");
-                url = Constant.url+"storelistnearby?areaId="
-                        + areaid + "&page=" + page
-                        + "&pageSize=10&orVip=0&orCard=0&orAuth=0&bigClassId="
-                        + bigClass + "&smallClassId=" + smallClass + "&bigAreaId="
-                        + areatownid + "&smallAreaId=" + quanid +"&key=&order="
-                        +orderId+"&Map_Latitude="+latitude+"&Map_Longitude="+longitude;
-                getPrilist(1);
-                allmall.setText(classmoreList.get(position).get("name"));
-                myClassPop.popupWindow.dismiss();
-                prilist.setSelection(0);
-            }
-        });
+//        myClassPop.showclasspop(classList, classmoreList, ShangjiasActivicty.this, layout);
+//        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
+//            @Override
+//            public void onRefresh(int position, ClassAdapter smadapter) {
+//                if (position == 0) {
+//                    setClassList(classstr);
+//                } else {
+//                    setClassList(classstr, position - 1);
+//                }
+//                bigclass = classList.get(position).get("id");
+//                smadapter.notifyDataSetChanged();
+//            }
+//        });
+//        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
+//            @Override
+//            public void onRefresh(int position) {
+//                bigClass = bigclass;
+//                page = 1;
+//                smallClass = classmoreList.get(position).get("id");
+//                url = Constant.url+"storelistnearby?areaId="
+//                        + areaid + "&page=" + page
+//                        + "&pageSize=10&orVip=0&orCard=0&orAuth=0&bigClassId="
+//                        + bigClass + "&smallClassId=" + smallClass + "&bigAreaId="
+//                        + areatownid + "&smallAreaId=" + quanid +"&key=&order="
+//                        +orderId+"&Map_Latitude="+latitude+"&Map_Longitude="+longitude;
+//                getPrilist(1);
+//                allmall.setText(classmoreList.get(position).get("name"));
+//                myClassPop.popupWindow.dismiss();
+//                prilist.setSelection(0);
+//            }
+//        });
     }
     private void setorderpop() {
         myoneClasspop.showclasspop(orderList, ShangjiasActivicty.this, layout);
@@ -418,37 +416,37 @@ public class ShangjiasActivicty extends Activity implements View.OnClickListener
         });
     }
     private void setqupop() {
-        myClassPop.showclasspop(areaList, areaclassList, ShangjiasActivicty.this, layout);
-        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
-            @Override
-            public void onRefresh(int position, ClassAdapter smadapter) {
-                if (position == 0) {
-                    setAreaList(areastr);
-                } else {
-                    setAreaclassList(areastr, position - 1);
-                }
-                areaTownid = areaList.get(position).get("id");
-                smadapter.notifyDataSetChanged();
-            }
-        });
-        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
-            @Override
-            public void onRefresh(int position) {
-                areatownid = areaTownid;
-                page = 1;
-                quanid = areaclassList.get(position).get("id");
-                url = Constant.url+"storelistnearby?areaId="
-                        + areaid + "&page=" + page
-                        + "&pageSize=10&orVip=0&orCard=0&orAuth=0&bigClassId="
-                        + bigClass + "&smallClassId=" + smallClass + "&bigAreaId="
-                        + areatownid + "&smallAreaId=" + quanid +"&key=&order="
-                        +orderId+"&Map_Latitude="+latitude+"&Map_Longitude="+longitude;
-                getPrilist(1);
-                allqu.setText(areaclassList.get(position).get("name"));
-                myClassPop.popupWindow.dismiss();
-                prilist.setSelection(0);
-            }
-        });
+//        myClassPop.showclasspop(areaList, areaclassList, ShangjiasActivicty.this, layout);
+//        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
+//            @Override
+//            public void onRefresh(int position, ClassAdapter smadapter) {
+//                if (position == 0) {
+//                    setAreaList(areastr);
+//                } else {
+//                    setAreaclassList(areastr, position - 1);
+//                }
+//                areaTownid = areaList.get(position).get("id");
+//                smadapter.notifyDataSetChanged();
+//            }
+//        });
+//        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
+//            @Override
+//            public void onRefresh(int position) {
+//                areatownid = areaTownid;
+//                page = 1;
+//                quanid = areaclassList.get(position).get("id");
+//                url = Constant.url+"storelistnearby?areaId="
+//                        + areaid + "&page=" + page
+//                        + "&pageSize=10&orVip=0&orCard=0&orAuth=0&bigClassId="
+//                        + bigClass + "&smallClassId=" + smallClass + "&bigAreaId="
+//                        + areatownid + "&smallAreaId=" + quanid +"&key=&order="
+//                        +orderId+"&Map_Latitude="+latitude+"&Map_Longitude="+longitude;
+//                getPrilist(1);
+//                allqu.setText(areaclassList.get(position).get("name"));
+//                myClassPop.popupWindow.dismiss();
+//                prilist.setSelection(0);
+//            }
+//        });
     }
 
     private void setClassList(String s) {

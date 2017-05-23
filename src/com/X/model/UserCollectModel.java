@@ -106,8 +106,8 @@ public class UserCollectModel
         private String cid;
         private String icon;
         private String sub_name;
-        private int origin_price;
-        private int current_price;
+        private double origin_price;
+        private double current_price;
         private String buy_count;
         private String brief;
 
@@ -153,19 +153,19 @@ public class UserCollectModel
             this.sub_name = sub_name;
         }
 
-        public int getOrigin_price() {
+        public double getOrigin_price() {
             return origin_price;
         }
 
-        public void setOrigin_price(int origin_price) {
+        public void setOrigin_price(double origin_price) {
             this.origin_price = origin_price;
         }
 
-        public int getCurrent_price() {
+        public double getCurrent_price() {
             return current_price;
         }
 
-        public void setCurrent_price(int current_price) {
+        public void setCurrent_price(double current_price) {
             this.current_price = current_price;
         }
 

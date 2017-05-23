@@ -16,7 +16,11 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.X.server.DataCache;
+import com.X.tcbj.fragment.NearbyFragment;
 import com.X.tcbj.fragment.NewsFragment;
+import com.X.tcbj.utils.XPostion;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
 import com.csrx.data.PreferencesUtils;
 import com.csrx.http.AbHttpUtil;
 import com.csrx.http.AbStringHttpResponseListener;
@@ -66,7 +70,7 @@ public class HomePageActivity extends FragmentActivity implements
 	private RadioButton home, near, news, order, mine;
 	private FragmentTransaction transaction;
 	public HomeFragment homeFragment;
-	public AttentionFragment nearFragment;
+	public NearbyFragment nearFragment;
 	public MineFragment mineFragment;
 	public MoreFragment orderFragment;
 	public NewsFragment newsFragment;
@@ -152,6 +156,7 @@ public class HomePageActivity extends FragmentActivity implements
 		}catch (Exception e){
 
 		}
+
 	}
 
 	public void initComponents() {
@@ -200,7 +205,7 @@ public class HomePageActivity extends FragmentActivity implements
 				break;
 			case R.id.rb_near:
 				if (nearFragment == null) {
-					nearFragment = new AttentionFragment();
+					nearFragment = new NearbyFragment();
 					transaction.add(R.id.ll_content, nearFragment);
 				}
 				if (homeFragment != null) {
@@ -392,9 +397,11 @@ public class HomePageActivity extends FragmentActivity implements
 		}
 	}
 
+
 	public void onResume() {
 		super.onResume();
 		MobclickAgent.onResume(this); // 统计时长
+        XPostion.getInstance().stop();
 	}
 
 	public void onPause() {

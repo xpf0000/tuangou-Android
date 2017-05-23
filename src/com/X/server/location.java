@@ -9,6 +9,7 @@ import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
 
+import com.X.tcbj.utils.XPostion;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.BDNotifyListener;
@@ -218,6 +219,7 @@ public class location extends MultiDexApplication {
 
         initImageLoader();
 
+        XPostion.getInstance().start();
     }
 
 

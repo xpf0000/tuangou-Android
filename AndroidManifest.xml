@@ -97,6 +97,15 @@
         <activity
             android:name="com.X.tcbj.activity.News_omment"
             android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".APPConfig"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.X.tcbj.utils.XHtmlVC"
+            android:screenOrientation="portrait"></activity>
+
         <activity
             android:name="com.X.tcbj.activity.Pri_info"
             android:screenOrientation="portrait"></activity>

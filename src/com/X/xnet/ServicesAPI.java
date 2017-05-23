@@ -2,7 +2,11 @@ package com.X.xnet;
 
 import com.X.model.CityModel;
 import com.X.model.HomeModel;
+import com.X.model.NearbyModel;
 import com.X.model.RenzhengModel;
+import com.X.model.TuanCateModel;
+import com.X.model.TuanNavModel;
+import com.X.model.TuanQuanModel;
 import com.X.model.UserCollectModel;
 import com.X.model.UserCommentModel;
 import com.X.model.UserFenhongModel;
@@ -34,7 +38,11 @@ public interface ServicesAPI {
     Observable<HttpResult<Object>> city_city_change(@Query("city_id") String city_id);
 
     @GET("?ctl=index&act=index&r_type=1&isapp=true")
-    Observable<HttpResult<HomeModel>> app_index(@Query("city_id") String city_id);
+    Observable<HttpResult<HomeModel>> app_index(
+            @Query("city_id") String city_id,
+            @Query("xpoint") double xpoint,
+            @Query("ypoint") double ypoint
+    );
 
     @GET("?ctl=sms&act=send_sms_code&r_type=1&isapp=true&unique=1")
     Observable<HttpResult<Object>> sms_send_code(@Query("mobile") String mobile);
@@ -88,6 +96,33 @@ public interface ServicesAPI {
  Observable<HttpResult<UserCommentModel>> user_commentlist(
          @Query("uid") String uid,
          @Query("page") String page
+ );
+
+//附近团购
+ @POST("?ctl=tuan&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<NearbyModel>> tuan_index(
+         @Query("page") String page,
+         @Query("city_id") String city_id,
+         @Query("cate_id") String cate_id,
+         @Query("tid") String tid,
+         @Query("qid") String qid,
+         @Query("order_type") String order_type,
+         @Query("xpoint") double xpoint,
+         @Query("ypoint") double ypoint
+ );
+
+ //团购列表排序筛选项
+ @POST("?ctl=tuan&act=nav_list&r_type=1&isapp=true")
+ Observable<HttpResult<List<TuanNavModel>>> tuan_nav_list();
+
+ //团购列表分类筛选项
+ @POST("?ctl=tuan&act=cate_list&r_type=1&isapp=true")
+ Observable<HttpResult<List<TuanCateModel>>> tuan_cate_list();
+
+ //团购列表区域筛选项
+ @POST("?ctl=tuan&act=quan_list&r_type=1&isapp=true")
+ Observable<HttpResult<List<TuanQuanModel>>> tuan_quan_list(
+         @Query("city_id") String city_id
  );
 
  @Multipart

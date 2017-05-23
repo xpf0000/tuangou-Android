@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.X.server.DataCache;
 import com.X.tcbj.activity.R;
 import com.robin.lazy.cache.CacheLoaderManager;
 
@@ -57,8 +58,7 @@ public class XAPPUtil {
 
     final static public boolean APPCheckIsLogin()
     {
-        return false;
-//        return !LocationApplication.APPDataCache.User.getUid().equals("");
+        return DataCache.getInstance().user != null;
     }
 
     public static boolean isPhone(String str)

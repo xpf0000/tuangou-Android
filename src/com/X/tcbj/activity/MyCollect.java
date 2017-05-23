@@ -178,8 +178,6 @@ public class MyCollect extends Activity {
 				}
 
 				productList.addAll(model.getItem());
-				productList.addAll(model.getItem());
-				productList.addAll(model.getItem());
 				adapter.notifyDataSetChanged();
 
 			}

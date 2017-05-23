@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.X.tcbj.activity.R;
-import com.X.tcbj.adapter.ClassAdapter;
+//import com.X.tcbj.adapter.ClassAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class MyoneClasspop {
     View popView;
     public PopupWindow popupWindow;
-    ClassAdapter adapter;
+    //ClassAdapter adapter;
     int positions, getPositions;
     private MyPopwindowsListener mListViewListener;
     public void showclasspop(final ArrayList<HashMap<String, String>> classList, Context context, View view) {
@@ -36,18 +36,18 @@ public class MyoneClasspop {
         popupWindow.update();
         popupWindow.showAsDropDown(view);
         ListView bigclass = (ListView) popView.findViewById(R.id.bigclass);
-        adapter = new ClassAdapter(classList, context);
-        bigclass.setAdapter(adapter);
-        bigclass.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                classList.get(positions).put("check", "false");
-                positions = position;
-                startLoadMore();
-                classList.get(position).put("check", "true");
-                adapter.notifyDataSetChanged();
-            }
-        });
+        //adapter = new ClassAdapter(classList, context);
+        //bigclass.setAdapter(adapter);
+//        bigclass.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                classList.get(positions).put("check", "false");
+//                positions = position;
+//                startLoadMore();
+//                classList.get(position).put("check", "true");
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
     }
     public void setMyPopwindowswListener(MyPopwindowsListener l) {
         mListViewListener = l;

@@ -214,7 +214,7 @@ public class HomeModel implements Serializable {
          */
 
         private String id;
-        private int distance;
+        private double distance;
         private double ypoint;
         private double xpoint;
         private String name;
@@ -250,11 +250,11 @@ public class HomeModel implements Serializable {
             this.id = id;
         }
 
-        public int getDistance() {
+        public double getDistance() {
             return distance;
         }
 
-        public void setDistance(int distance) {
+        public void setDistance(double distance) {
             this.distance = distance;
         }
 

@@ -14,6 +14,9 @@ import com.X.model.UserCollectModel;
 import com.X.model.UserCommentModel;
 import com.X.tcbj.activity.R;
 import com.X.xnet.XAPPUtil;
+import com.X.xnet.XNetUtil;
+import com.bigkoo.alertview.AlertView;
+import com.bigkoo.alertview.OnItemClickListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ public class CommentAdapter extends BaseAdapter {
         this.context = context;
 
     }
+
 
     @Override
     public int getCount() {
@@ -82,42 +86,44 @@ public class CommentAdapter extends BaseAdapter {
             getItemView = (CommentAdapter.getItemView) convertView.getTag();
         }
 
-//        ImageView[] views = {
-//                getItemView.star0,
-//                getItemView.star1,
-//                getItemView.star2,
-//                getItemView.star3,
-//                getItemView.star4};
-//
-//
-//        int star = Integer.parseInt(productList.get(position).getPoint());
-//
-//        for (int i = 0; i < 5; i++) {
-//
-//            if(i < star)
-//            {
-//                views[i].setBackgroundResource(R.drawable.star);
-//            }
-//            else
-//            {
-//                views[i].setBackgroundResource(R.drawable.star2);
-//            }
-//
-//        }
-//
-//        views = null;
+        ImageView[] views = {
+                getItemView.star0,
+                getItemView.star1,
+                getItemView.star2,
+                getItemView.star3,
+                getItemView.star4};
+
+
+        int star = Integer.parseInt(productList.get(position).getPoint());
+
+        XNetUtil.APPPrintln("star: "+star);
+
+        for (int i = 0; i < 5; i++) {
+
+            if(i < star)
+            {
+                views[i].setImageResource(R.drawable.star);
+            }
+            else
+            {
+                views[i].setImageResource(R.drawable.star2);
+            }
+
+        }
+
+        views = null;
 
         getItemView.time.setText(productList.get(position).getCreate_time());
         getItemView.content.setText(productList.get(position).getContent());
 
-//        String url = productList.get(position).getIcon();
-//
-//        if(url.indexOf("http://") < 0)
-//        {
-//            url = "http://tg01.sssvip.net/" + url;
-//        }
-//
-//        imageLoader.displayImage(url,getItemView.shopImg);
+        String url = productList.get(position).getIcon();
+
+        if(url.indexOf("http://") < 0)
+        {
+            url = "http://tg01.sssvip.net/" + url;
+        }
+
+        imageLoader.displayImage(url,getItemView.shopImg);
 
         getItemView.shopname.setText(productList.get(position).getName());
         getItemView.shoptype.setText(productList.get(position).getSub_name());

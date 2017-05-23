@@ -13,14 +13,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.X.tcbj.myview.TuanQuanPop;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baidu.location.LocationClient;
 import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.adapter.ClassAdapter;
 import com.X.tcbj.adapter.PrivilelistAdpater;
-import com.X.tcbj.myview.MyClassPop;
 import com.X.tcbj.myview.MyoneClasspop;
 import com.X.tcbj.utils.Constant;
 import com.X.server.location;
@@ -43,7 +42,7 @@ public class Privilegelist extends Activity implements View.OnClickListener {
     ArrayList<HashMap<String, String>> classmoreList = new ArrayList<>();
     ArrayList<HashMap<String, String>> orderList = new ArrayList<>();
     HashMap<String, String> hashMap;
-    MyClassPop myClassPop;
+    TuanQuanPop quanPop;
     LinearLayout layout;
     int page = 1;
     String bigClass = "0", smallClass = "0", areatownid = "0", quanid = "0", orderId = "0";
@@ -78,8 +77,10 @@ public class Privilegelist extends Activity implements View.OnClickListener {
     }
 
     private void intview() {
-        myClassPop = new MyClassPop();
+        quanPop = new TuanQuanPop();
+
         myoneClasspop = new MyoneClasspop();
+
         layout = (LinearLayout) findViewById(R.id.layout);
         logn_img = (ImageView) findViewById(R.id.logn_img);
         logn_img.setOnClickListener(this);
@@ -419,69 +420,69 @@ public class Privilegelist extends Activity implements View.OnClickListener {
      * 筛选条件监听
      */
     private void setclasspop() {
-        myClassPop.showclasspop(classList, classmoreList, Privilegelist.this, layout);
-        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
-            @Override
-            public void onRefresh(int position, ClassAdapter smadapter) {
-                if (position == 0) {
-                    setClassList(classstr);
-                } else {
-                    setClassList(classstr, position - 1);
-                }
-                bigclass = classList.get(position).get("id");
-                smadapter.notifyDataSetChanged();
-            }
-        });
-        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
-            @Override
-            public void onRefresh(int position) {
-                bigClass = bigclass;
-                page = 1;
-                smallClass = classmoreList.get(position).get("id");
-                url = Constant.url + "GetIdlistPrmNearby?areaId="
-                        + areaid + "&page=" + page + "&pageSize=10&bigClassId="
-                        + bigClass + "&smallClassId=" + smallClass + "&areaTownId="
-                        + areatownid + "&quanId=" + quanid + "&orderId=" + orderId
-                        + "&order=0&Map_Latitude="+Map_Latitude+"&Map_Longitude="+Map_Longitude;;
-                getPrilist(1);
-                allmall.setText(classmoreList.get(position).get("name"));
-                myClassPop.popupWindow.dismiss();
-                prilist.setSelection(0);
-            }
-        });
+//        myClassPop.showclasspop(classList, classmoreList, Privilegelist.this, layout);
+//        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
+//            @Override
+//            public void onRefresh(int position, ClassAdapter smadapter) {
+//                if (position == 0) {
+//                    setClassList(classstr);
+//                } else {
+//                    setClassList(classstr, position - 1);
+//                }
+//                bigclass = classList.get(position).get("id");
+//                smadapter.notifyDataSetChanged();
+//            }
+//        });
+//        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
+//            @Override
+//            public void onRefresh(int position) {
+//                bigClass = bigclass;
+//                page = 1;
+//                smallClass = classmoreList.get(position).get("id");
+//                url = Constant.url + "GetIdlistPrmNearby?areaId="
+//                        + areaid + "&page=" + page + "&pageSize=10&bigClassId="
+//                        + bigClass + "&smallClassId=" + smallClass + "&areaTownId="
+//                        + areatownid + "&quanId=" + quanid + "&orderId=" + orderId
+//                        + "&order=0&Map_Latitude="+Map_Latitude+"&Map_Longitude="+Map_Longitude;;
+//                getPrilist(1);
+//                allmall.setText(classmoreList.get(position).get("name"));
+//                myClassPop.popupWindow.dismiss();
+//                prilist.setSelection(0);
+//            }
+//        });
     }
 
     private void setqupop() {
-        myClassPop.showclasspop(areaList, areaclassList, Privilegelist.this, layout);
-        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
-            @Override
-            public void onRefresh(int position, ClassAdapter smadapter) {
-                if (position == 0) {
-                    setAreaList(areastr);
-                } else {
-                    setAreaclassList(areastr, position - 1);
-                }
-                areaTownid = areaList.get(position).get("id");
-                smadapter.notifyDataSetChanged();
-            }
-        });
-        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
-            @Override
-            public void onRefresh(int position) {
-                areatownid = areaTownid;
-                page = 1;
-                quanid = areaclassList.get(position).get("id");
-                url = Constant.url + "GetIdlistPrmNearby?areaId="
-                        + areaid + "&page=" + page + "&pageSize=10&bigClassId="
-                        + bigClass + "&smallClassId=" + smallClass + "&areaTownId="
-                        + areatownid + "&quanId=" + quanid + "&orderId=" + orderId
-                        + "&order=0&Map_Latitude="+Map_Latitude+"&Map_Longitude="+Map_Longitude;;
-                getPrilist(1);
-                allqu.setText(areaclassList.get(position).get("name"));
-                myClassPop.popupWindow.dismiss();
-                prilist.setSelection(0);
-            }
-        });
+//        myClassPop.showclasspop(areaList, areaclassList, Privilegelist.this, layout);
+//        myClassPop.setMyPopwindowswListener(new MyClassPop.MyPopwindowsListener() {
+//            @Override
+//            public void onRefresh(int position, ClassAdapter smadapter) {
+//                if (position == 0) {
+//                    setAreaList(areastr);
+//                } else {
+//                    setAreaclassList(areastr, position - 1);
+//                }
+//                areaTownid = areaList.get(position).get("id");
+//                smadapter.notifyDataSetChanged();
+//            }
+//        });
+//        myClassPop.setMyPopwindowswsmListener(new MyClassPop.MyPopwindowsmListener() {
+//            @Override
+//            public void onRefresh(int position) {
+//                areatownid = areaTownid;
+//                page = 1;
+//                quanid = areaclassList.get(position).get("id");
+//                url = Constant.url + "GetIdlistPrmNearby?areaId="
+//                        + areaid + "&page=" + page + "&pageSize=10&bigClassId="
+//                        + bigClass + "&smallClassId=" + smallClass + "&areaTownId="
+//                        + areatownid + "&quanId=" + quanid + "&orderId=" + orderId
+//                        + "&order=0&Map_Latitude="+Map_Latitude+"&Map_Longitude="+Map_Longitude;;
+//                getPrilist(1);
+//                allqu.setText(areaclassList.get(position).get("name"));
+//                myClassPop.popupWindow.dismiss();
+//                prilist.setSelection(0);
+//            }
+//        });
     }
 
     private void setOrderList() {

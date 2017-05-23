@@ -37,6 +37,7 @@ import com.X.tcbj.utils.GetVersion;
 import com.X.model.HomeModel;
 import com.X.server.DataCache;
 import com.X.server.location;
+import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XNetUtil;
 
 import java.util.ArrayList;
@@ -93,11 +94,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         intview();
         getBanner();
-       // getSmlHot();
-
-//        if (Constant.status == 0) {
-//            getNewVer();
-//        }
 
         Information_adpater information_adpater = new Information_adpater(getActivity(), new ArrayList<HashMap<String, Object>>());
         smoothListView.setAdapter(information_adpater);
@@ -327,7 +323,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     //首页banner图
     private void getBanner() {
 
-        XNetUtil.Handle(APPService.app_index(DataCache.getInstance().nowCity.getId()), new XNetUtil.OnHttpResult<HomeModel>() {
+        double x = 0.0,y=0.0;
+
+        if(XPostion.getInstance().getPostion() != null)
+        {
+            x = XPostion.getInstance().getPostion().getLongitude();
+            y = XPostion.getInstance().getPostion().getLatitude();
+        }
+
+
+        XNetUtil.Handle(APPService.app_index(DataCache.getInstance().nowCity.getId(),x,y), new XNetUtil.OnHttpResult<HomeModel>() {
             @Override
             public void onError(Throwable e) {
             }

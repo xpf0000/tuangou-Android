@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
+import com.X.tcbj.activity.APPConfig;
 import com.X.tcbj.activity.UserFenhongVC;
 import com.X.tcbj.activity.UserRenzhengVC;
 import com.X.tcbj.activity.UserUnitsVC;
@@ -128,23 +129,26 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if(DataCache.getInstance().user == null)
+        if(v.getId() != R.id.mine_layout7)
         {
-            Intent intent = new Intent();
-            intent.setClass(getActivity(), LoginActivity.class);
-            getActivity().startActivity(intent);
-            return;
-        }
-        else
-        {
-            if(DataCache.getInstance().user.getIs_effect() != 1)
+            if(DataCache.getInstance().user == null)
             {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), UserRenzhengVC.class);
+                intent.setClass(getActivity(), LoginActivity.class);
                 getActivity().startActivity(intent);
                 return;
             }
+            else
+            {
+                if(DataCache.getInstance().user.getIs_effect() != 1)
+                {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), UserRenzhengVC.class);
+                    getActivity().startActivity(intent);
+                    return;
+                }
 
+            }
         }
 
         Intent intent = new Intent();
@@ -169,33 +173,16 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 intent.setClass(getActivity(), MyCollect.class);
                 getActivity().startActivity(intent);
                 break;
-            case R.id.returngood:
-                Constant.ordertype = 11;
+            case R.id.mine_layout5:
                 intent.setClass(getActivity(), MyOrderActivity.class);
                 getActivity().startActivity(intent);
                 break;
-            case R.id.myredpaper:
+            case R.id.mine_layout6:
                 intent.setClass(getActivity(), Zhanghaoguanl.class);
                 getActivity().startActivity(intent);
                 break;
-            case R.id.mycollect:
-                intent.setClass(getActivity(), MyCollectActivity.class);
-                getActivity().startActivity(intent);
-                break;
-            case R.id.mycomment:
-                intent.setClass(getActivity(), MyCollect.class);
-                getActivity().startActivity(intent);
-                break;
-            case R.id.mytry:
-                intent.setClass(getActivity(), MyTryOutActivity.class);
-                getActivity().startActivity(intent);
-                break;
-            case R.id.myaddress:
-                intent.setClass(getActivity(), MyAddressActivity.class);
-                getActivity().startActivity(intent);
-                break;
-            case R.id.loginmore:
-                intent.setClass(getActivity(), Myinfo.class);
+            case R.id.mine_layout7:
+                intent.setClass(getActivity(), APPConfig.class);
                 getActivity().startActivity(intent);
                 break;
         }

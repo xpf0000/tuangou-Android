@@ -13,40 +13,36 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.X.model.HomeModel;
+import com.X.model.NearbyModel;
+import com.X.model.TuanModel;
+import com.X.tcbj.activity.R;
+import com.X.tcbj.utils.ImageUtils;
 import com.X.tcbj.utils.XPostion;
+import com.X.xnet.XNetUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
-import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.activity.R;
-import com.X.tcbj.utils.ImageUtils;
-import com.X.model.HomeModel;
-import com.X.xnet.XNetUtil;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
 /**
- * Created by admins on 2015/9/21.
+ * Created by Administrator on 2017/5/23 0023.
  */
-public class HomeAdapter extends BaseAdapter {
-    List<HomeModel.DealListBean> abscure_list;
-    Context context;
-    com.nostra13.universalimageloader.core.ImageLoader ImageLoader;
-    DisplayImageOptions options;
-    ImageUtils ImageUtils ;
-    ImageLoadingListener animateFirstListener;
 
-    public HomeAdapter(List<HomeModel.DealListBean> abscure_list,
+public class TuanAdapter extends BaseAdapter {
+    List<TuanModel> abscure_list;
+    Context context;
+    ImageLoader imageLoader;
+    com.X.tcbj.utils.ImageUtils ImageUtils ;
+
+    public TuanAdapter(List<TuanModel> abscure_list,
                        Context context) {
         this.abscure_list = abscure_list;
         this.context = context;
         ImageUtils = new ImageUtils();
-        ImageLoader = ImageLoader.getInstance();
-        ImageLoader.init(ImageLoaderConfiguration.createDefault(context));
-        animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
+        imageLoader = ImageLoader.getInstance();
 
         XPostion.getInstance().OnUpdatePostion(new XPostion.XPostionListener() {
             @Override
@@ -93,53 +89,32 @@ public class HomeAdapter extends BaseAdapter {
         getItemView.contents.setText("￥" + abscure_list.get(position).getOrigin_price());
         getItemView.date.setText(abscure_list.get(position).getSub_name());
         String str;
-       try {
-           if (Integer.parseInt(abscure_list.get(position).getBuy_count())==0){
-               getItemView.txt.setVisibility(View.GONE);
-               getItemView.sell.setVisibility(View.GONE);
-           }else if (Integer.parseInt(abscure_list.get(position).getBuy_count())>=10000){
-               String SellCount=Integer.parseInt(abscure_list.get(position).getBuy_count())/10000+"";
-               str =(Integer.parseInt(abscure_list.get(position).getBuy_count())/10000)+"万件";
-               SpannableStringBuilder stringBuilder = new SpannableStringBuilder(str);
-               stringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#ffff4040")), 0,SellCount.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-               getItemView.sell.setText(stringBuilder);
-           }
-           else {
-               getItemView.txt.setVisibility(View.VISIBLE);
-               getItemView.sell.setVisibility(View.VISIBLE);
-               str=abscure_list.get(position).getBuy_count()+"件";
-               SpannableStringBuilder stringBuilder = new SpannableStringBuilder(str);
-               stringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#ffff4040")), 0, abscure_list.get(position).getBuy_count().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-               getItemView.sell.setText(stringBuilder);
-           }
-       }catch (Exception e){
-           getItemView.txt.setVisibility(View.GONE);
-           getItemView.sell.setVisibility(View.GONE);
-           e.printStackTrace();
-       }
-
-        options=ImageUtils.setnoOptions();
-        int a= PreferencesUtils.getInt(context, "photo");
-        if (a==1){
-            ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                    animateFirstListener);
-        }else {
-           String urls=  ImageLoader.getDiscCache().get(url).getPath();
-           boolean bloo= ImageUtils.fileIsExists(urls);
-           if (bloo){
-               ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                       animateFirstListener);
-           }else {
-               getItemView.lehuiimg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                            animateFirstListener);
-                    getItemView.lehuiimg.setClickable(false);
-                }
-            });
-           }
+        try {
+            if (Integer.parseInt(abscure_list.get(position).getBuy_count())==0){
+                getItemView.txt.setVisibility(View.GONE);
+                getItemView.sell.setVisibility(View.GONE);
+            }else if (Integer.parseInt(abscure_list.get(position).getBuy_count())>=10000){
+                String SellCount=Integer.parseInt(abscure_list.get(position).getBuy_count())/10000+"";
+                str =(Integer.parseInt(abscure_list.get(position).getBuy_count())/10000)+"万件";
+                SpannableStringBuilder stringBuilder = new SpannableStringBuilder(str);
+                stringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#ffff4040")), 0,SellCount.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                getItemView.sell.setText(stringBuilder);
+            }
+            else {
+                getItemView.txt.setVisibility(View.VISIBLE);
+                getItemView.sell.setVisibility(View.VISIBLE);
+                str=abscure_list.get(position).getBuy_count()+"件";
+                SpannableStringBuilder stringBuilder = new SpannableStringBuilder(str);
+                stringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#ffff4040")), 0, abscure_list.get(position).getBuy_count().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                getItemView.sell.setText(stringBuilder);
+            }
+        }catch (Exception e){
+            getItemView.txt.setVisibility(View.GONE);
+            getItemView.sell.setVisibility(View.GONE);
+            e.printStackTrace();
         }
+
+        imageLoader.displayImage(url, getItemView.lehuiimg);
 
         double la =  abscure_list.get(position).getYpoint();
         double lo =  abscure_list.get(position).getXpoint();

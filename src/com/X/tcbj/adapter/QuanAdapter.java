@@ -8,19 +8,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.X.model.TuanQuanModel;
 import com.X.tcbj.activity.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by admins on 2016/7/7.
  */
-public class ClassAdapter extends BaseAdapter {
-    ArrayList<HashMap<String, String>> classList;
+public class QuanAdapter extends BaseAdapter {
+
+    public List<TuanQuanModel> classList;
     Context context;
 
-    public ClassAdapter(ArrayList<HashMap<String, String>> classList, Context context) {
+    public QuanAdapter(List<TuanQuanModel> classList, Context context) {
         this.classList = classList;
         this.context = context;
     }
@@ -45,8 +48,8 @@ public class ClassAdapter extends BaseAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.class_item, null);
         getItem getItem=new getItem();
         getItem.name=(TextView)convertView.findViewById(R.id.name);
-        getItem.name.setText(classList.get(position).get("name"));
-        if (classList.get(position).get("check").equals("true")){
+        getItem.name.setText(classList.get(position).getName());
+        if (classList.get(position).isChecked()){
             getItem.name.setTextColor(Color.parseColor("#ff0000"));
             convertView.setBackgroundColor(Color.parseColor("#ffc5c5c5"));
         }
