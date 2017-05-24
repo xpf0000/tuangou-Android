@@ -15,11 +15,49 @@ public class HandleJSMsg {
         Integer type=obj.getInteger("type");
         String msg=obj.getString("msg");
 
-        if(type == 0)  //url 跳转
+        if(type == 1)  //返回
         {
-
-
+            vc.finish();
         }
+        else if(type == 2)  //分享
+        {
+            if(vc instanceof XHtmlVC)
+            {
+                ((XHtmlVC)vc).doShare();
+            }
+        }
+        else if(type == 3) //收藏
+        {
+            if(vc instanceof XHtmlVC)
+            {
+                ((XHtmlVC)vc).doCollect();
+            }
+        }
+        else if(type == 4) //图文详情
+        {
+            if(vc instanceof XHtmlVC)
+            {
+                ((XHtmlVC)vc).toPicInfo();
+            }
+        }
+        else if(type == 5) //其他团购
+        {
+            Integer id=obj.getInteger("id");
+            if(vc instanceof XHtmlVC)
+            {
+                ((XHtmlVC)vc).toOtherTuangou(id);
+            }
+        }
+        else if(type == 6) //其他团购
+        {
+            if(vc instanceof XHtmlVC)
+            {
+                ((XHtmlVC)vc).doBuy();
+            }
+        }
+
+
+
 
     }
 

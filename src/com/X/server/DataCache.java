@@ -1,6 +1,7 @@
 package com.X.server;
 
 import com.X.model.CityModel;
+import com.X.model.SearchKeyModel;
 import com.X.model.UserModel;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XNetUtil;
@@ -33,6 +34,8 @@ public class DataCache {
     public boolean msgshow = false;
     public CityModel.CityListBean.ItemsBean nowCity = null;
     public UserModel user = null;
+
+    public SearchKeyModel searchKeys;
 
     public void init()
     {
@@ -90,6 +93,8 @@ public class DataCache {
     {
         nowCity = CacheLoaderManager.getInstance().loadSerializable("NowCity");
         user = CacheLoaderManager.getInstance().loadSerializable("User");
+        searchKeys = CacheLoaderManager.getInstance().loadSerializable("SearchKeys");
+        if(searchKeys == null){searchKeys = new SearchKeyModel();}
     }
 
 }

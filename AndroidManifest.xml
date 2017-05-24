@@ -103,6 +103,14 @@
             android:screenOrientation="portrait"></activity>
 
         <activity
+            android:name=".OrderSubmitVC"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".OrderPayVC"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
             android:name="com.X.tcbj.utils.XHtmlVC"
             android:screenOrientation="portrait"></activity>
 

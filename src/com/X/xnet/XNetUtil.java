@@ -241,7 +241,9 @@ public class XNetUtil {
 
             if(success != null)
             {
-                XActivityindicator.create(location.context).showSuccessWithStatus(success);
+                String msg = httpResult.getInfo();
+                msg = msg == null ? success : msg;
+                XActivityindicator.create(location.context).showSuccessWithStatus(msg);
             }
 
             return true;

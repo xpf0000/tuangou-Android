@@ -111,6 +111,16 @@ public interface ServicesAPI {
          @Query("ypoint") double ypoint
  );
 
+ //团购搜索
+ @POST("?ctl=tuan&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<NearbyModel>> tuan_search(
+         @Query("page") String page,
+         @Query("city_id") String city_id,
+         @Query("keyword") String keyword,
+         @Query("xpoint") double xpoint,
+         @Query("ypoint") double ypoint
+ );
+
  //团购列表排序筛选项
  @POST("?ctl=tuan&act=nav_list&r_type=1&isapp=true")
  Observable<HttpResult<List<TuanNavModel>>> tuan_nav_list();
@@ -124,6 +134,15 @@ public interface ServicesAPI {
  Observable<HttpResult<List<TuanQuanModel>>> tuan_quan_list(
          @Query("city_id") String city_id
  );
+
+
+ //团购列表区域筛选项
+ @POST("?ctl=deal&act=app_do_collect&r_type=1&isapp=true")
+ Observable<HttpResult<Object>> do_collect(
+         @Query("uid") String uid,
+         @Query("id") String id
+ );
+
 
  @Multipart
  @POST("?ctl=uc_account&act=do_renzheng&r_type=1&isapp=true")//用户认证

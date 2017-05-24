@@ -6,22 +6,22 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="10"
-        android:background="#fc4d48"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/app_basic"
         android:gravity="center"
         android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/secrch_bg"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            >
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/shopSearch"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -31,8 +31,11 @@
                 android:drawableLeft="@drawable/search_icon"
                 android:hint="请输入搜索关键词"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-                android:textSize="15.0dip" />
+                android:lines="1"
+                android:inputType="text"
+                android:textSize="15.0dip"
+                android:imeOptions="actionSearch"
+                />
 
             <ImageView
                 android:id="@+id/cancel"
@@ -44,26 +47,106 @@
 
         <TextView
             android:id="@+id/quxiao"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="4"
-            android:text="搜索"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:padding="8dp"
+            android:text="取消"
             android:textColor="#ffffff"
             android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@color/APPPGBG"
+        >
 
-        <com.X.tcbj.myview.KeywordsFlow
-            android:id="@+id/keywordsflow"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+        <LinearLayout
+            android:id="@+id/search_lishi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="历史搜索"
+                android:padding="14dp"
+                android:textColor="#999999"
+                android:textSize="16sp"
+                />
+
+            <ListView
+                android:id="@+id/search_lishi_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:dividerHeight="0.5dp"
+                android:divider="@color/city_gray"
+                android:layout_weight="1"
+                >
+            </ListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/city_gray"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:padding="14dp"
+                android:textColor="#999999"
+                android:text="清除历史记录"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:onClick="do_clean"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/search_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone"
+            >
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/search_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/city_gray"
+                    android:dividerHeight="0.5dp"
+                    >
+
+
+                </ListView>
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+
+
     </LinearLayout>
 
 </LinearLayout>

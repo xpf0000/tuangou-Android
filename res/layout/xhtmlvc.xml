@@ -5,9 +5,9 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/xhtml_navbar"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-
         android:background="@color/app_basic"
         android:orientation="horizontal">
 

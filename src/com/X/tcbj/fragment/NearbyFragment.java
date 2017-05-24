@@ -1,5 +1,6 @@
 package com.X.tcbj.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,11 +21,13 @@ import com.X.model.TuanModel;
 import com.X.model.TuanNavModel;
 import com.X.model.TuanQuanModel;
 import com.X.server.DataCache;
+import com.X.tcbj.activity.HotSearch;
 import com.X.tcbj.activity.R;
 import com.X.tcbj.adapter.TuanAdapter;
 import com.X.tcbj.myview.TuanCatePop;
 import com.X.tcbj.myview.TuanNavPop;
 import com.X.tcbj.myview.TuanQuanPop;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
@@ -39,7 +43,7 @@ import static com.X.server.location.APPService;
  * Created by Administrator on 2017/5/23 0023.
  */
 
-public class NearbyFragment extends Fragment implements View.OnClickListener
+public class NearbyFragment extends Fragment
 {
     private  View view;
     TextView allqu, allmall, allsort;
@@ -53,13 +57,8 @@ public class NearbyFragment extends Fragment implements View.OnClickListener
     LinearLayout layout;
     ImageView search;
 
-
     int page = 1;
-
     boolean end = false;
-
-    HashMap<String, Object> hashMap;
-    HashMap<String, String> hashMap1;
 
     List<TuanQuanModel> quanList = new ArrayList<>();
     List<TuanCateModel> cateList = new ArrayList<>();
@@ -201,7 +200,15 @@ public class NearbyFragment extends Fragment implements View.OnClickListener
         layout.setVisibility(View.VISIBLE);
         search = (ImageView) view.findViewById(R.id.search);
         search.setVisibility(View.VISIBLE);
-        search.setOnClickListener(this);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), HotSearch.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         allqu = (TextView) view.findViewById(R.id.allqu);
         allqu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,7 +237,6 @@ public class NearbyFragment extends Fragment implements View.OnClickListener
 
 
         prilist = (ListView) view.findViewById(R.id.prilist);
-        //prilist.setOnItemClickListener(this);// 点击进入商家详情
         swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -262,32 +268,30 @@ public class NearbyFragment extends Fragment implements View.OnClickListener
             }
         });
 
+        prilist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                to_info(position);
+
+            }
+        });
+
     }
 
-//    @Override
-//    public void onClick(View v)
-//    {
-//        switch (v.getId()) {
-//            case R.id.allqu:
-//                setqupop();
-//                break;
-//            case R.id.allmall:
-//                setclasspop();
-//                break;
-//            case R.id.search:
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), HotSearch.class);
-//                getActivity().startActivity(intent);
-//                break;
-//            case R.id.logn_img:
-//                getActivity().finish();
-//                break;
-//            case R.id.allsort:
-//                setorderpop();
-//                break;
-//        }
-//
-//    }
+    private void to_info(int p)
+    {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), XHtmlVC.class);
+        intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                "act=app_index&data_id="+tuanList.get(p).getId()+
+                "&city_id="+DataCache.getInstance().nowCity.getId());
+        intent.putExtra("id",tuanList.get(p).getId());
+        intent.putExtra("tuanModel",tuanList.get(p));
+        intent.putExtra("hideNavBar",true);
+        getActivity().startActivity(intent);
+    }
+
 
     /**
      * 获取分类数据
@@ -388,136 +392,4 @@ public class NearbyFragment extends Fragment implements View.OnClickListener
 
     }
 
-
-
-//    private void setArrayList(String s) {
-//        JSONObject jsonObject = JSON.parseObject(s);
-//        if (jsonObject.getIntValue("status") == 0) {
-//            JSONArray jsonArray = jsonObject.getJSONArray("list");
-//            for (int i = 0; i < jsonArray.size(); i++) {
-//                hashMap = new HashMap<>();
-//                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-//                hashMap.put("id",jsonObject1.getString("id"));
-//                hashMap.put(
-//                        "imgURL",
-//                        jsonObject1.getString("url") == null ? "" : jsonObject1
-//                                .getString("url"));
-//                hashMap.put(
-//                        "name",
-//                        jsonObject1.getString("name") == null ? "" : jsonObject1
-//                                .getString("name"));
-//                hashMap.put(
-//                        "type",
-//                        jsonObject1.getString("type") == null ? "" : jsonObject1
-//                                .getString("type"));
-//                hashMap.put(
-//                        "area",
-//                        jsonObject1.getString("area") == null ? "" : jsonObject1
-//                                .getString("area"));
-//                hashMap.put(
-//                        "isvip",
-//                        jsonObject1.getString("isvip") == null ? "" : jsonObject1
-//                                .getString("isvip"));
-//                hashMap.put("iscard", jsonObject1.getString("iscard") == null ? ""
-//                        : jsonObject1.getString("iscard"));
-//                hashMap.put("isauth", jsonObject1.getString("isauth") == null ? ""
-//                        : jsonObject1.getString("isauth"));
-//                hashMap.put("isrec", jsonObject1.getString("isrec") == null ? ""
-//                        : jsonObject1.getString("isrec"));
-//                hashMap.put("starnum", jsonObject1.getString("starnum") == null ? ""
-//                        : jsonObject1.getString("starnum"));
-//                hashMap.put(
-//                        "FatherClass",
-//                        jsonObject1.getString("FatherClass") == null ? "" : jsonObject1
-//                                .getString("FatherClass"));
-//                hashMap.put("SubClass", jsonObject1.getString("SubClass") == null ? ""
-//                        :jsonObject1.getString("SubClass"));
-//                hashMap.put(
-//                        "ClassName",
-//                        jsonObject1.getString("ClassName") == null ? "" : jsonObject1
-//                                .getString("ClassName"));
-//                hashMap.put("AreaCircle", jsonObject1.get("AreaCircle") == null ? ""
-//                        : jsonObject1.getString("AreaCircle"));
-//                hashMap.put("Map_Longitude", jsonObject1.getString("Map_Longitude") == null ? ""
-//                        : jsonObject1.getString("Map_Longitude"));
-//                hashMap.put("Map_Latitude", jsonObject1.getString("Map_Latitude") == null ? ""
-//                        : jsonObject1.getString("Map_Latitude"));
-//                hashMap.put("longitude", longitude);
-//                hashMap.put("latitude", latitude);
-//                arrayList.add(hashMap);
-//            }
-//        } else {
-//            if (page != 1) {
-//                page--;
-//            }
-//            Toast.makeText(getActivity(), "暂无更多", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
-//    /**
-//     * 点击进入商家详情页
-//     */
-//    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//        Constant.SHOP_ID = arrayList.get(arg2).get("id").toString();// 记录商家id
-//        // 把商铺ID写入xml文件中
-//        PreferencesUtils.putString(getActivity(), "storeID", arrayList
-//                .get(arg2).get("id").toString());
-//        if (arrayList.get(arg2).get("isvip").equals("2")){
-//            Intent intent = new Intent(getActivity(),
-//                    shangjiavip.class);
-//            try{
-//                intent.putExtra("longitude", Double.parseDouble(arrayList.get(arg2).get("Map_Longitude").toString()));
-//                intent.putExtra("latitude", Double.parseDouble(arrayList.get(arg2).get("Map_Latitude").toString()));
-//            }catch (Exception e){
-//                intent.putExtra("longitude", 0.0);
-//                intent.putExtra("latitude", 0.0);
-//            }
-//            intent.putExtra("FatherClass", arrayList.get(arg2).get("FatherClass").toString());
-//            intent.putExtra("SubClass",arrayList.get(arg2).get("SubClass").toString());
-//            intent.putExtra("area", arrayList.get(arg2).get("area").toString());
-//            startActivity(intent);
-//        }else if (arrayList.get(arg2).get("isauth").toString().equals("2")){
-//            Intent intent = new Intent(getActivity(),
-//                    ShopVipInfo.class);
-//            try{
-//                intent.putExtra("longitude", Double.parseDouble(arrayList.get(arg2).get("Map_Longitude").toString()));
-//                intent.putExtra("latitude", Double.parseDouble(arrayList.get(arg2).get("Map_Latitude").toString()));
-//            }catch (Exception e){
-//                intent.putExtra("longitude", 0.0);
-//                intent.putExtra("latitude", 0.0);
-//            }
-//            intent.putExtra("FatherClass", arrayList.get(arg2).get("FatherClass").toString());
-//            intent.putExtra("SubClass",arrayList.get(arg2).get("SubClass").toString());
-//            intent.putExtra("area", arrayList.get(arg2).get("area").toString());
-//            startActivity(intent);
-//        }
-//        else {
-//            Intent intent = new Intent(getActivity(),
-//                    ShopDetailsActivity.class);
-//            try{
-//                intent.putExtra("longitude", Double.parseDouble(arrayList.get(arg2).get("Map_Longitude").toString()));
-//                intent.putExtra("latitude", Double.parseDouble(arrayList.get(arg2).get("Map_Latitude").toString()));
-//            }catch (Exception e){
-//                intent.putExtra("longitude", 0.0);
-//                intent.putExtra("latitude", 0.0);
-//            }
-//            intent.putExtra("FatherClass", arrayList.get(arg2).get("FatherClass").toString());
-//            intent.putExtra("SubClass", arrayList.get(arg2).get("SubClass").toString());
-//            intent.putExtra("area", arrayList.get(arg2).get("area").toString());
-//            startActivity(intent);
-//        }
-//    }
-
-
-
-
-
-
-
-    @Override
-    public void onClick(View v)
-    {
-
-
-    }
 }

@@ -1,10 +1,12 @@
 package com.X.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/5/23 0023.
  */
 
-public class TuanModel {
+public class TuanModel implements Serializable{
 
     /**
      * id : 104
@@ -65,6 +67,25 @@ public class TuanModel {
     private Object location_avg_point;
     private Object area_name;
     private int is_today;
+
+    private int num;
+    private double total_price;
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
+    }
 
     public String getId() {
         return id;

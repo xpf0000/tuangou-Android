@@ -91,8 +91,12 @@ public class XPostion implements BDLocationListener {
 
     public void stop()
     {
-        mLocClient.stop();
-        mLocClient.unRegisterLocationListener(this);
-        mLocClient = null;
+        if(mLocClient != null)
+        {
+            mLocClient.stop();
+            mLocClient.unRegisterLocationListener(this);
+            mLocClient = null;
+        }
+
     }
 }
