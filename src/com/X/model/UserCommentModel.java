@@ -8,20 +8,14 @@ import java.util.List;
 
 public class UserCommentModel {
 
-
-    /**
-     * item : [{"type":"deal","data_id":"100","content":"asdfasdfjaks很不错 推荐前往","create_time":"2017-05-10","reply_time":"","reply_content":"","name":"xpf003一号商家1号团购","point":"5","oimages":["http://tg01.sssvip.net/public/comment/201705/10/20/7c42bb018d7707cd1ff680c715979fab98.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/860c81391362263755c17da90fdb09e714.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/06c931371d068b08a4990a1c74e3571e53.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/23ff431f9987bf6c3e8bb71e52b8505857.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/702a6f18b8b98fb47116a2d880ffbcc352.jpg"]}]
-     * page : {"page":1,"page_total":1,"page_size":10,"data_total":"1"}
-     */
-
-    private PageBean page;
+    private PageModel page;
     private List<ItemBean> item;
 
-    public PageBean getPage() {
+    public PageModel getPage() {
         return page;
     }
 
-    public void setPage(PageBean page) {
+    public void setPage(PageModel page) {
         this.page = page;
     }
 
@@ -31,52 +25,6 @@ public class UserCommentModel {
 
     public void setItem(List<ItemBean> item) {
         this.item = item;
-    }
-
-    public static class PageBean {
-        /**
-         * page : 1
-         * page_total : 1
-         * page_size : 10
-         * data_total : 1
-         */
-
-        private int page;
-        private int page_total;
-        private int page_size;
-        private String data_total;
-
-        public int getPage() {
-            return page;
-        }
-
-        public void setPage(int page) {
-            this.page = page;
-        }
-
-        public int getPage_total() {
-            return page_total;
-        }
-
-        public void setPage_total(int page_total) {
-            this.page_total = page_total;
-        }
-
-        public int getPage_size() {
-            return page_size;
-        }
-
-        public void setPage_size(int page_size) {
-            this.page_size = page_size;
-        }
-
-        public String getData_total() {
-            return data_total;
-        }
-
-        public void setData_total(String data_total) {
-            this.data_total = data_total;
-        }
     }
 
     public static class ItemBean {

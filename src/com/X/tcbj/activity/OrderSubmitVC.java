@@ -126,6 +126,7 @@ public class OrderSubmitVC extends BaseActivity {
         bundle.putSerializable("model",tuanModel);
 
         pushVC(OrderPayVC.class,bundle);
+        finish();
 
     }
 

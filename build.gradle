@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile 'fr.baloomba:viewpagerindicator:2.4.2'
+//    compile 'fr.baloomba:viewpagerindicator:2.4.2'
     compile files('libs/universal-image-loader-1.9.4.jar')
 
     compile 'com.android.support:design:24.2.0'
@@ -58,6 +58,9 @@ dependencies {
 
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jph.takephoto:takephoto_library:4.0.3'
+
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 }
 
 android {

@@ -18,17 +18,14 @@ import android.widget.Toast;
 import com.X.server.DataCache;
 import com.X.tcbj.fragment.NearbyFragment;
 import com.X.tcbj.fragment.NewsFragment;
+import com.X.tcbj.fragment.UOrderFragment;
 import com.X.tcbj.utils.XPostion;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.csrx.data.PreferencesUtils;
 import com.csrx.http.AbHttpUtil;
 import com.csrx.http.AbStringHttpResponseListener;
 import com.csrx.util.AbAppUtil;
-import com.X.tcbj.fragment.AttentionFragment;
 import com.X.tcbj.fragment.HomeFragment;
 import com.X.tcbj.fragment.MineFragment;
-import com.X.tcbj.fragment.MoreFragment;
 import com.X.tcbj.utils.CommonField;
 import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.HttpRequest;
@@ -72,7 +69,7 @@ public class HomePageActivity extends FragmentActivity implements
 	public HomeFragment homeFragment;
 	public NearbyFragment nearFragment;
 	public MineFragment mineFragment;
-	public MoreFragment orderFragment;
+	public UOrderFragment orderFragment;
 	public NewsFragment newsFragment;
 	private boolean isNet;
 
@@ -254,7 +251,7 @@ public class HomePageActivity extends FragmentActivity implements
 				break;
 			case R.id.rb_order:
 				if (orderFragment == null) {
-					orderFragment = new MoreFragment();
+					orderFragment = new UOrderFragment();
 					transaction.add(R.id.ll_content, orderFragment);
 				}
 				if (nearFragment != null) {

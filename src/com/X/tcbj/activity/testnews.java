@@ -29,7 +29,6 @@ import com.X.tcbj.myview.My_GridView;
 import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.HttpRequest;
 import com.X.tcbj.utils.MyhttpRequest;
-import com.viewpagerindicator.TabPageIndicator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +45,7 @@ public class testnews extends FragmentActivity {
 	LinearLayout layout,wifi_err;
 	PopupWindow popupWindow;
 	View popView;
-	TabPageIndicator indicator;
+	//TabPageIndicator indicator;
 	ArrayList<HashMap<String, String>> Attentionarray=new ArrayList<>();
 	HashMap<String, String> AttentionhashMap;
 	ArrayList<HashMap<String, String>> notAttentionarray=new ArrayList<>();
@@ -91,33 +90,33 @@ public class testnews extends FragmentActivity {
 					+ userId + "&areaId=" + areaId;
 			attention(url, 1);
 		}
-		// 实例化TabPageIndicator，然后与ViewPager绑在一起（核心步骤）
-		indicator = (TabPageIndicator) findViewById(R.id.indicator);
-		indicator.setViewPager(pager);
-		// 如果要设置监听ViewPager中包含的Fragment的改变(滑动切换页面)，使用OnPageChangeListener为它指定一个监听器，那么不能像之前那样直接设置在ViewPager上了，而要设置在Indicator上，
-		indicator.setOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int arg0) {
-				try {
-					tie = TITLE[arg0];
-					a = arg0;
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-
-			}
-		});
+//		// 实例化TabPageIndicator，然后与ViewPager绑在一起（核心步骤）
+//		indicator = (TabPageIndicator) findViewById(R.id.indicator);
+//		indicator.setViewPager(pager);
+//		// 如果要设置监听ViewPager中包含的Fragment的改变(滑动切换页面)，使用OnPageChangeListener为它指定一个监听器，那么不能像之前那样直接设置在ViewPager上了，而要设置在Indicator上，
+//		indicator.setOnPageChangeListener(new OnPageChangeListener() {
+//
+//			@Override
+//			public void onPageSelected(int arg0) {
+//				try {
+//					tie = TITLE[arg0];
+//					a = arg0;
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
+//
+//			}
+//
+//			@Override
+//			public void onPageScrolled(int arg0, float arg1, int arg2) {
+//
+//			}
+//
+//			@Override
+//			public void onPageScrollStateChanged(int arg0) {
+//
+//			}
+//		});
 		wifi_err.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -225,7 +224,7 @@ public class testnews extends FragmentActivity {
 		popupWindow.setOutsideTouchable(true);
 		popupWindow.setBackgroundDrawable(new BitmapDrawable());
 		popupWindow.update();
-		popupWindow.showAsDropDown(indicator);
+		//popupWindow.showAsDropDown(indicator);
 		attgr = (My_GridView) popView.findViewById(R.id.att_gridview);
 		noatter = (My_GridView) popView.findViewById(R.id.noatt_gridview);
 		attgr();
@@ -318,10 +317,10 @@ public class testnews extends FragmentActivity {
 					TITLE[3 + i] = Attentionarray.get(i).get("className");
 					TITLE2[3 + i] = Attentionarray.get(i).get("classId");
 				}
-				indicator.notifyDataSetChanged();
+				//indicator.notifyDataSetChanged();
 
 				if (a == (select + 3)) {
-					indicator.onPageSelected(a);
+					//indicator.onPageSelected(a);
 					pager.setCurrentItem(a);
 
 				} else {
@@ -333,7 +332,7 @@ public class testnews extends FragmentActivity {
 						}
 					}
 					adapter.notifyDataSetChanged();
-					indicator.onPageSelected(a);
+					//indicator.onPageSelected(a);
 					// pager.setCurrentItem(a);
 				}
 				

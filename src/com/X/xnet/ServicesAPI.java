@@ -1,5 +1,8 @@
 package com.X.xnet;
 
+import com.X.model.CouponModel;
+import com.X.model.OrderModel;
+import com.X.model.PayModel;
 import com.X.model.CityModel;
 import com.X.model.HomeModel;
 import com.X.model.NearbyModel;
@@ -141,6 +144,43 @@ public interface ServicesAPI {
  Observable<HttpResult<Object>> do_collect(
          @Query("uid") String uid,
          @Query("id") String id
+ );
+
+
+ //获取用户余额
+ @POST("?ctl=user&act=money&r_type=1&isapp=true")
+ Observable<HttpResult<String>> user_money(
+         @Query("uid") String uid,
+         @Query("uname") String uname
+ );
+
+ //获取团购券码
+ @POST("?ctl=uc_coupon&act=info&r_type=1&isapp=true")
+ Observable<HttpResult<List<CouponModel>>> uc_coupon_info(
+         @Query("uid") String uid,
+         @Query("oid") String oid
+ );
+
+    //订单提交
+    @POST("?ctl=cart&act=app_done&r_type=1&isapp=true")
+    Observable<HttpResult<PayModel>> do_order_pay(
+            @Query("city_id") String city_id,
+            @Query("payment") String payment,
+            @Query("all_account_money") String all_account_money,
+            @Query("did") String did,
+            @Query("uid") String uid,
+            @Query("uname") String uname,
+            @Query("num") String num,
+            @Query("tprice") String tprice
+    );
+
+
+//我的订单
+ @POST("?ctl=uc_order&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<OrderModel>> user_orderlist(
+         @Query("uid") String uid,
+         @Query("pay_status") String pay_status,
+         @Query("page") String page
  );
 
 

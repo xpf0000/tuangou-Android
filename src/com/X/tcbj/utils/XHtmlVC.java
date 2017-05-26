@@ -234,9 +234,13 @@ public class XHtmlVC extends BaseActivity {
 
     public void doBuy()
     {
+        if(!checkIsLogin())
+        {
+            return;
+        }
+
         Bundle bundle = new Bundle();
         bundle.putSerializable("model",tuanModel);
-
         pushVC(OrderSubmitVC.class,bundle);
     }
 

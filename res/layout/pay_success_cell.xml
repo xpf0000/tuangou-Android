@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    >
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    android:textColor="@color/APPTXTBlack"
+
+    android:text="券码"
+    />
+
+    <TextView
+        android:id="@+id/pay_success_cell_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1762 7135 0853"
+        android:textColor="@color/app_basic"
+        android:textSize="22sp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        />
+
+    <ImageView
+        android:id="@+id/pay_success_cell_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+
+</LinearLayout>

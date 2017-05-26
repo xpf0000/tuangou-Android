@@ -21,7 +21,16 @@ public class RenzhengModel {
     private String real_name;
     private String id_number;
     private String id_url;
+    private String id_url_back;
     private String status;
+
+    public String getId_url_back() {
+        return id_url_back;
+    }
+
+    public void setId_url_back(String id_url_back) {
+        this.id_url_back = id_url_back;
+    }
 
     public String getId() {
         return id;

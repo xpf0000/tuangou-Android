@@ -11,20 +11,26 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.X.model.RenzhengModel;
 import com.X.model.UserModel;
 import com.X.server.DataCache;
+import com.X.server.MyEventBus;
 import com.X.tcbj.utils.DensityUtil;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
+import com.bigkoo.svprogresshud.SVProgressHUD;
+import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.jph.takephoto.app.TakePhotoActivity;
 import com.jph.takephoto.model.TResult;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.robin.lazy.cache.CacheLoaderManager;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.util.Date;
@@ -44,14 +50,13 @@ import static com.X.server.location.SW;
 
 public class UserRenzhengVC extends TakePhotoActivity {
     EditText nameET,idsET;
-    ImageView idsIV;
+    ImageView idsIV,idsbackIV;
     AlertView alertView;
-
-    Bitmap idsBitmap;
-
+    Bitmap idsBitmap,idsbackBitmap;
     RenzhengModel renzhenginfo;
-
+    TextView statusTV;
     int uid = 0;
+    int nowid = 0;
 
     private int position = -1;
     @Override
@@ -61,14 +66,18 @@ public class UserRenzhengVC extends TakePhotoActivity {
         nameET = (EditText) findViewById(R.id.real_renzheng_name);
         idsET = (EditText) findViewById(R.id.real_renzheng_ids);
         idsIV = (ImageView) findViewById(R.id.real_renzheng_pic);
+        idsbackIV = (ImageView) findViewById(R.id.real_renzheng_pic1);
+
+        statusTV = (TextView) findViewById(R.id.real_renzheng_status);
 
         ViewGroup.LayoutParams layoutParams = idsIV.getLayoutParams();
 
-        int w = SW - DensityUtil.dip2px(this,36);
+        int w = SW - DensityUtil.dip2px(this,18*3);
         int h = (int)(w*7.0/16.0);
 
         layoutParams.height = h;
         idsIV.setLayoutParams(layoutParams);
+        idsbackIV.setLayoutParams(layoutParams);
 
         uid = DataCache.getInstance().user.getId();
 
@@ -129,24 +138,39 @@ public class UserRenzhengVC extends TakePhotoActivity {
         {
             nameET.setText(renzhenginfo.getReal_name());
             idsET.setText(renzhenginfo.getId_number());
-            ImageLoader.getInstance().displayImage(renzhenginfo.getId_url(),idsIV);
+
+            if(renzhenginfo.getStatus().equals("0"))
+            {
+                statusTV.setText("审核中");
+                statusTV.setVisibility(View.VISIBLE);
+            }
+            else if(renzhenginfo.getStatus().equals("2"))
+            {
+                statusTV.setText("审核未通过，请修改后重新提交审核");
+                statusTV.setVisibility(View.VISIBLE);
+            }
+
+            ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url(),idsIV);
+            ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url_back(),idsbackIV);
         }
     }
 
     public void back(View v)
     {
         finish();
+        overridePendingTransition(R.anim.pop_up_out,R.anim.pop_up_in);
     }
 
     public void chooseImg(View v)
     {
+        nowid = v.getId();
         alertView.show();
     }
 
 
     public void do_renzheng(View v)
     {
-        if(renzhenginfo == null && idsBitmap == null)
+        if(renzhenginfo == null && (idsBitmap == null || idsbackBitmap == null))
         {
             XActivityindicator.showToast("请上传身份证照片");
             return;
@@ -154,6 +178,14 @@ public class UserRenzhengVC extends TakePhotoActivity {
 
         String name = nameET.getText().toString().trim();
         String ids = idsET.getText().toString().trim();
+
+        if(name.length() == 0 || ids.length() == 0)
+        {
+            XActivityindicator.showToast("请完善身份信息");
+            return;
+        }
+
+        XActivityindicator.create(this).show();
 
         Map<String , RequestBody> params = new HashMap<>();
         params.put("uid", XAPPUtil.createBody(uid+""));
@@ -163,6 +195,7 @@ public class UserRenzhengVC extends TakePhotoActivity {
         if(renzhenginfo == null)
         {
             params.put("file\"; filename=\"xtest.jpg",XAPPUtil.createBody(idsBitmap));
+            params.put("file1\"; filename=\"xtest1.jpg",XAPPUtil.createBody(idsbackBitmap));
         }
 
         XNetUtil.Handle(APPService.user_do_renzheng(params), "提交成功,请等待审核", null, new XNetUtil.OnHttpResult<Boolean>() {
@@ -176,7 +209,13 @@ public class UserRenzhengVC extends TakePhotoActivity {
 
                 if(aBoolean)
                 {
-                    finish();
+                    XActivityindicator.getHud().setOnDismissListener(new OnDismissListener() {
+                        @Override
+                        public void onDismiss(SVProgressHUD hud) {
+                            finish();
+                            overridePendingTransition(R.anim.pop_up_out,R.anim.pop_up_in);
+                        }
+                    });
                 }
 
             }
@@ -189,9 +228,19 @@ public class UserRenzhengVC extends TakePhotoActivity {
         super.takeSuccess(result);
 
         String path = result.getImages().get(0).getOriginalPath();
-        idsBitmap = BitmapFactory.decodeFile(path);
 
-        idsIV.setImageBitmap(idsBitmap);
+        if(nowid == R.id.real_renzheng_pic)
+        {
+            idsBitmap = BitmapFactory.decodeFile(path);
+            idsIV.setImageBitmap(idsBitmap);
+        }
+        else
+        {
+            idsbackBitmap = BitmapFactory.decodeFile(path);
+            idsbackIV.setImageBitmap(idsbackBitmap);
+        }
+
+
 
     }
 
@@ -213,6 +262,12 @@ public class UserRenzhengVC extends TakePhotoActivity {
 
     public void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.pop_up_out,R.anim.pop_up_in);
     }
 }
 

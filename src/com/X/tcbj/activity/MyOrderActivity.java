@@ -15,7 +15,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.fragment.OrderProductFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +70,7 @@ public class MyOrderActivity extends FragmentActivity{
      * 初始化fragment 展示首页隐藏其他界面
      */
     public void initFragment(){
-        cache.put("orderProductFragment", new OrderProductFragment());
+        //cache.put("orderProductFragment", new OrderProductFragment());
 //        cache.put("ordergroupFragment", new OrderGroupFragment());
 
         tx=getSupportFragmentManager().beginTransaction();

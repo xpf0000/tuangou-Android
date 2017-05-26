@@ -40,6 +40,19 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
+        <TextView
+            android:id="@+id/real_renzheng_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#fc4d48"
+            android:text="审核中"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            />
+
         <EditText
             android:id="@+id/real_renzheng_name"
             android:layout_width="match_parent"
@@ -71,30 +84,84 @@
             />
 
 
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="身份证照片"
-            android:gravity="center"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"
+            android:orientation="horizontal"
+            >
 
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
 
-        <ImageView
-            android:id="@+id/real_renzheng_pic"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:background="#c6c6c6"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
-            android:layout_marginBottom="12dp"
-            android:scaleType="fitXY"
-            android:clickable="true"
-            android:onClick="chooseImg"
-            />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="身份证正面照片"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    android:paddingLeft="9dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/real_renzheng_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="#c6c6c6"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_marginBottom="12dp"
+                    android:scaleType="fitXY"
+                    android:clickable="true"
+                    android:onClick="chooseImg"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="身份证反面照片"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    android:paddingRight="9dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/real_renzheng_pic1"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="#c6c6c6"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="12dp"
+                    android:scaleType="fitXY"
+                    android:clickable="true"
+                    android:onClick="chooseImg"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
 
 
 

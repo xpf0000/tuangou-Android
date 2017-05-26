@@ -24,7 +24,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.csrx.data.PreferencesUtils;
 import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.HttpRequest;
-import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +38,7 @@ public class ThematicDetails extends FragmentActivity {
 	TextView diy_title;
 	ViewPager pager;
 	TabPageIndicatorAdapter adapter;
-	TabPageIndicator indicator;
+	//TabPageIndicator indicator;
 	String url, ColumnStr,picture;
 	String id,title;
 	ImageView informa_search, diyinfo_back;
@@ -56,7 +55,7 @@ public class ThematicDetails extends FragmentActivity {
 		pager = (ViewPager) findViewById(R.id.pager);
 		adapter = new TabPageIndicatorAdapter(getSupportFragmentManager());
 		pager.setAdapter(adapter);
-		indicator = (TabPageIndicator) findViewById(R.id.indicator);
+		//indicator = (TabPageIndicator) findViewById(R.id.indicator);
 		diy_title = (TextView) findViewById(R.id.diy_title);
 		txt_buiness_share=(TextView) findViewById(R.id.txt_buiness_share);
 		txt_buiness_share.setVisibility(View.VISIBLE);
@@ -67,7 +66,7 @@ public class ThematicDetails extends FragmentActivity {
 		wifi_err = (LinearLayout) findViewById(R.id.wifi_err);
 		wifi_err.setVisibility(View.GONE);
 		poplay.setVisibility(View.GONE);
-		indicator.setViewPager(pager);
+		//indicator.setViewPager(pager);
 		id = getIntent().getStringExtra("id");
 		title = getIntent().getStringExtra("title");
 		picture=getIntent().getStringExtra("picture");
@@ -76,7 +75,7 @@ public class ThematicDetails extends FragmentActivity {
 				LinearLayout.LayoutParams.FILL_PARENT,
 				LinearLayout.LayoutParams.FILL_PARENT);
 		lp.setMargins(0, 0, 0, 0);
-		indicator.setLayoutParams(lp);
+		//indicator.setLayoutParams(lp);
 		url = Constant.url+"topics/topicsColumn?id=" + id;
 		txt_buiness_share.setOnClickListener(new OnClickListener() {
 			
@@ -107,44 +106,44 @@ public class ThematicDetails extends FragmentActivity {
 				
 			}
 		});
-		indicator.setOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int arg0) {
-				// Toast.makeText(ThematicDetails.this, TITLE[arg0],
-				// 1000).show();
-				diy_title.setText(TITLE[arg0]);
-				if (imgarray.get(arg0).get("url")==null||imgarray.get(arg0).get("url").length()==0){
-
-				}else {
-					Uri uri = Uri.parse(imgarray.get(arg0).get("url"));
-					Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-					startActivity(intent);
-				}
-
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-
-			}
-		});
-		diyinfo_back.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				TITLE = new String[] {};
-				adapter.notifyDataSetChanged();
-				indicator.notifyDataSetChanged();
-				finish();
-
-			}
-		});
+//		indicator.setOnPageChangeListener(new OnPageChangeListener() {
+//
+//			@Override
+//			public void onPageSelected(int arg0) {
+//				// Toast.makeText(ThematicDetails.this, TITLE[arg0],
+//				// 1000).show();
+//				diy_title.setText(TITLE[arg0]);
+//				if (imgarray.get(arg0).get("url")==null||imgarray.get(arg0).get("url").length()==0){
+//
+//				}else {
+//					Uri uri = Uri.parse(imgarray.get(arg0).get("url"));
+//					Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//					startActivity(intent);
+//				}
+//
+//			}
+//
+//			@Override
+//			public void onPageScrolled(int arg0, float arg1, int arg2) {
+//
+//			}
+//
+//			@Override
+//			public void onPageScrollStateChanged(int arg0) {
+//
+//			}
+//		});
+//		diyinfo_back.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				TITLE = new String[] {};
+//				adapter.notifyDataSetChanged();
+//				indicator.notifyDataSetChanged();
+//				finish();
+//
+//			}
+//		});
 		wifi_err.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -244,7 +243,7 @@ public class ThematicDetails extends FragmentActivity {
 				}
 				
 				adapter.notifyDataSetChanged();
-				indicator.notifyDataSetChanged();
+				//indicator.notifyDataSetChanged();
 				wifi_err.setVisibility(View.GONE);
 				a=1;
 				break;
@@ -309,7 +308,7 @@ public class ThematicDetails extends FragmentActivity {
 						TITLE = new String[] {};
 						pager.removeAllViews();
 						adapter.notifyDataSetChanged();
-						indicator.notifyDataSetChanged();
+						//indicator.notifyDataSetChanged();
 						finish();
 					}
 				}catch (Exception e){
