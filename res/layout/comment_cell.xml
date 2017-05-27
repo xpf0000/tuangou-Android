@@ -86,8 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:scrollbars="none"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:paddingBottom="14dp"
         />
 

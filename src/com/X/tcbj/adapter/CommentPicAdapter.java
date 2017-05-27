@@ -1,24 +1,14 @@
 package com.X.tcbj.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.X.model.UserCollectModel;
-import com.X.tcbj.activity.OrderComment;
 import com.X.tcbj.activity.R;
-import com.X.xnet.XAPPUtil;
+import com.X.tcbj.xinterface.XRecyclerViewItemClick;
 import com.X.xnet.XNetUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -33,6 +23,12 @@ public class CommentPicAdapter extends RecyclerView.Adapter {
     protected ImageLoader imageLoader = ImageLoader.getInstance();
     private List<String> productList;
     private Context context;
+    XRecyclerViewItemClick itemClickLinstener;
+
+    public void setOnItemClick(XRecyclerViewItemClick listener)
+    {
+        itemClickLinstener = listener;
+    }
 
     public CommentPicAdapter(List<String> productList,
                              Context context) {
@@ -55,18 +51,21 @@ public class CommentPicAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         CommentPicAdapter.getItemView getItemView = (CommentPicAdapter.getItemView) holder;
         String url = productList.get(position);
         imageLoader.displayImage(url, getItemView.img);
 
-        getItemView.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if(itemClickLinstener != null)
+        {
+            getItemView.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickLinstener.ItemClickListener(holder.itemView,position);
+                }
+            });
+        }
 
-                XNetUtil.APPPrintln("click postion: "+position);
-            }
-        });
 
     }
 

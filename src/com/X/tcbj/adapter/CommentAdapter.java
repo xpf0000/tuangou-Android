@@ -1,6 +1,7 @@
 package com.X.tcbj.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +13,12 @@ import android.widget.TextView;
 
 import com.X.model.UserCollectModel;
 import com.X.model.UserCommentModel;
+import com.X.tcbj.activity.CommentSubmitVC;
+import com.X.tcbj.activity.PhotoPreView;
 import com.X.tcbj.activity.R;
+import com.X.tcbj.utils.Bimp;
+import com.X.tcbj.utils.ImageItem;
+import com.X.tcbj.xinterface.XRecyclerViewItemClick;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XNetUtil;
 import com.bigkoo.alertview.AlertView;
@@ -56,7 +62,7 @@ public class CommentAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         CommentAdapter.getItemView getItemView;
 
@@ -138,6 +144,28 @@ public class CommentAdapter extends BaseAdapter {
         CommentPicAdapter adapter = new CommentPicAdapter(list,context);
 
         getItemView.picsRV.setAdapter(adapter);
+
+        adapter.setOnItemClick(new XRecyclerViewItemClick() {
+            @Override
+            public void ItemClickListener(View view, int aaa) {
+
+                Bimp.clear();
+
+                for(String str : productList.get(position).getOimages())
+                {
+                    ImageItem imageItem = new ImageItem();
+                    imageItem.setUrl(str);
+                    Bimp.tempSelectBitmap.add(imageItem);
+                }
+
+                Intent intent = new Intent(context,
+                        PhotoPreView.class);
+                intent.putExtra("index", aaa);
+                intent.putExtra("hidedel",true);
+                context.startActivity(intent);
+
+            }
+        });
 
 
         return convertView;

@@ -119,6 +119,18 @@
             android:screenOrientation="portrait"></activity>
 
         <activity
+            android:name=".CouponCodeVC"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".CommentSubmitVC"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".PhotoPreView"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
             android:name="com.X.tcbj.activity.Pri_info"
             android:screenOrientation="portrait"></activity>
         <activity

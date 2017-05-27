@@ -179,10 +179,13 @@ public interface ServicesAPI {
  @POST("?ctl=uc_order&act=app_index&r_type=1&isapp=true")
  Observable<HttpResult<OrderModel>> user_orderlist(
          @Query("uid") String uid,
-         @Query("pay_status") String pay_status,
+         @Query("status") String status,
          @Query("page") String page
  );
 
+ @Multipart
+ @POST("?ctl=dp&act=app_add_dp&r_type=1&isapp=true")//用户提交评论
+ Observable<HttpResult<Object>> user_add_dp(@PartMap Map<String, RequestBody> params);
 
  @Multipart
  @POST("?ctl=uc_account&act=do_renzheng&r_type=1&isapp=true")//用户认证

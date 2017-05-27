@@ -45,6 +45,8 @@ public abstract class XHorizontalBaseFragment extends Fragment {
 
         XNetUtil.APPPrintln("isLoaded: "+isLoaded);
 
+        XNetUtil.APPPrintln("this: "+this);
+
         if(!isResumed || isLoaded)
         {
             return;

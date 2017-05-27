@@ -30,7 +30,7 @@ public class XListView extends ListView implements OnScrollListener {
 	private Scroller mScroller; // used for scroll back
 	private OnScrollListener mScrollListener; // user's scroll listener
 
-	// the interface to trigger refresh and load more.
+	// the xinterface to trigger refresh and load more.
 	private IXListViewListener mListViewListener;
 
 	// -- header view
@@ -367,7 +367,7 @@ public class XListView extends ListView implements OnScrollListener {
 	}
 
 	/**
-	 * implements this interface to get refresh/load more event.
+	 * implements this xinterface to get refresh/load more event.
 	 */
 	public interface IXListViewListener {
 		public void onRefresh();

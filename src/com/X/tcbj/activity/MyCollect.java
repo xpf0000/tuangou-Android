@@ -28,6 +28,7 @@ import com.X.model.UserCommentModel;
 import com.X.server.DataCache;
 import com.X.tcbj.adapter.CommentAdapter;
 import com.X.tcbj.adapter.MyCollectProductAdapter;
+import com.X.tcbj.utils.Bimp;
 import com.X.xnet.XNetUtil;
 import com.csrx.data.PreferencesUtils;
 import com.X.tcbj.adapter.Commentadpater;
@@ -184,6 +185,13 @@ public class MyCollect extends Activity {
 		});
 
 
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		Bimp.clear();
 	}
 
 	public void back(View v)

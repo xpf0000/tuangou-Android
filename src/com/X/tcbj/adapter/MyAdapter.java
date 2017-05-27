@@ -33,7 +33,7 @@ private int pos;
         this.mOnItemClickListener = listener;
     }
 
-    //define interface
+    //define xinterface
     public static interface OnRecyclerViewItemClickListener {
         void onItemClick(View view , String data);
     }
