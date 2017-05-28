@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">城市热线</string>
+    <string name="app_name">同城百家</string>
     <string name="next_str">下一步</string>
     <string name="title">城市热线</string>
     <string name="action_settings">Settings</string>

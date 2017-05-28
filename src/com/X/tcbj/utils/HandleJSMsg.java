@@ -1,7 +1,9 @@
 package com.X.tcbj.utils;
 
 import android.app.Activity;
+import android.content.Intent;
 
+import com.X.tcbj.activity.CommentSubmitVC;
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -54,6 +56,28 @@ public class HandleJSMsg {
             {
                 ((XHtmlVC)vc).doBuy();
             }
+        }
+        else if(type == 7) //评价
+        {
+            Integer did=obj.getInteger("did");
+            Integer oid=obj.getInteger("oid");
+
+            Intent intent = new Intent();
+            intent.putExtra("did",did);
+            intent.putExtra("oid",oid);
+            intent.setClass(vc, CommentSubmitVC.class);
+            vc.startActivity(intent);
+
+        }
+        else if(type == 8) //继续支付
+        {
+            Integer oid=obj.getInteger("oid");
+
+        }
+        else if(type == 9) //去退款
+        {
+            Integer oid=obj.getInteger("oid");
+
         }
 
 
