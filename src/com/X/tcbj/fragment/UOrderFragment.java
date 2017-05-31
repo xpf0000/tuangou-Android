@@ -99,6 +99,9 @@ public class UOrderFragment extends Fragment  {
         });
 
 
+        TextView t = (TextView)(viewPagerTab.getTabAt(0));
+        t.setTextColor(Color.parseColor("#11c1f3"));
+
     }
 
     private void initUI()

@@ -63,216 +63,220 @@
         </activity>
         <activity
             android:name="com.X.tcbj.activity.GuideOneActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BBSActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Facilitate"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bussexchange"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Reply_post"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bussanews"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bussainfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BusinesAinfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.AuthenShop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bamember"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.SearchActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.News_omment"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".APPConfig"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".OrderSubmitVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".PaySuccessVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".OrderPayVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.X.tcbj.utils.XHtmlVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".UCOrderPayVC"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".CouponCodeVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".CommentSubmitVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".PhotoPreView"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.X.tcbj.activity.Pri_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Report_post"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Photo_newsinfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Loca_news"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Info_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".UserUnitsVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".UserFenhongVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.X.tcbj.activity.Bbs_new_post"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Post_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BusinessAssociation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopsDiscussList"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.News_search"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Privilegelist"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.GuideTwoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.GuideThreeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopsListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Myinfo"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MyCollect"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.webiew"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MyComments"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.About"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.RegistActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bbs"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Feedback"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Privileinfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopsDiscussActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopPrivilegeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Bbs_class"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopsDiscussListActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.X.tcbj.activity.MerchantsClassify"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.X.tcbj.activity.MerchantsClassify"/>
         <activity
             android:name="com.X.tcbj.activity.Updatemyinfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.testnews"
-            ></activity>
+            />
         <activity
             android:name="com.X.tcbj.activity.Privile_search"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name="com.X.tcbj.activity.Zhanghaoguanl"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Genghuansj"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Shangpinliebiao"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Shousuo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity android:name="com.X.tcbj.activity.shangjiavip"
             android:screenOrientation="portrait"
-            ></activity>
+            />
         <activity android:name="com.X.tcbj.activity.vipquanbupinglun"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity android:name="com.X.tcbj.activity.Yuedian"
             android:screenOrientation="portrait"
-            ></activity>
+            />
         <activity android:name="com.X.tcbj.activity.yuediancheng"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity android:name="com.X.tcbj.activity.Yuediansb"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity android:name="com.X.tcbj.activity.Zaixianyuding"
             android:screenOrientation="portrait"
-            ></activity>
+            />
         <activity android:name="com.X.tcbj.activity.vipzixun"
             android:screenOrientation="portrait"
-            ></activity>
+            />
         <activity android:name="com.X.tcbj.activity.vipzixunxiangqing"
             android:screenOrientation="portrait"
-            ></activity>
+            />
         <activity android:name="com.X.tcbj.activity.vipxpinglun"
             android:screenOrientation="portrait"
-            ></activity>
+            />
 
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -290,24 +294,24 @@
             android:configChanges="keyboardHidden|orientation|screenLayout"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.X.tcbj.activity.HotSearch"
             android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.GuideActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.X.tcbj.activity.ShopdateActivity"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.X.tcbj.activity.ShopdateActivity"/>
         <activity
             android:name="com.X.tcbj.activity.CityListsActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.HomePageActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <service
             android:name="com.baidu.location.f"
@@ -334,146 +338,146 @@
 
         <activity
             android:name="com.X.tcbj.activity.loadingguanggao"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.X.tcbj.activity.Updatepowd"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BusLine"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Driveline"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mymap"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.SeminarActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ThematicDetails"
-            ></activity>
+            />
         <activity
             android:name="com.X.tcbj.activity.SemNewsInfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.SearchMall"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mall"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopVipInfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopPhotoLook"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopComentList"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.PhotoLook"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ImgNewsInfo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.OrderComment"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShangjiaActivicty"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BaiduMaps"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShangjiasActivicty"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".RegistStep2VC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".RegistStep3VC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".UserRenzhengVC"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="a9c448d7e19a6476c18442b9024139c5" />
 
-        <activity android:name="com.amap.demo.LocationManager"></activity>
+        <activity android:name="com.amap.demo.LocationManager"/>
         <activity
             android:name="com.X.tcbj.activity.MallInfo"
             android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <!--<梨花></梨花>-->
         <activity
             android:name="com.X.tcbj.activity.MianfeiShiyongActivicty"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mianfei_jieshu"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Shiyong_pinglun"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShiyongQuanbupinglun"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mianfei_tijiaobaogao"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.tijiaobaogao"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mianfei_jijiangkaishi"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mianfei_shenqing"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Shiyong_shenqing"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Xuanzesheng"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Xuanzeshi"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Xuanzexian"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MiaoShaActivicty"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MiaoShaXiangQingActivicty"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Tupian_xiangqing"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Miaosha_quanbupinglun"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Miaosha_tuwen"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Miaosha_tuwen"/>
         <activity
             android:name="com.X.tcbj.activity.Tuangou"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.TuangouXiangqing"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.tuangoutuwen"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MyTryOutActivity"
             android:screenOrientation="portrait" />
@@ -488,53 +492,53 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.X.tcbj.activity.Tuangou_quanbupinglun"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Tuangou_caini"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.SubmitOrder"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.NewAddressActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MyChooseAddreActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.SuccesActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.MallComent"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.ShopCarAct"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.OrderProSearchActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Mallalbum"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.BackMoney"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.X.tcbj.activity.Shoujizhuce"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Szhaohuimima"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Zhaohuimima"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Zhaohuig"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.X.tcbj.activity.Youxiangzhaohui"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize"
@@ -551,7 +555,7 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity
             android:name="com.X.tcbj.activity.wxapi.WXPayEntryActivity"
             android:exported="true"

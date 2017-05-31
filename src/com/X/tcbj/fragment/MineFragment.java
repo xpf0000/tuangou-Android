@@ -174,12 +174,12 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout5:
-                intent.setClass(getActivity(), MyOrderActivity.class);
-                getActivity().startActivity(intent);
+//                intent.setClass(getActivity(), MyOrderActivity.class);
+//                getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout6:
-                intent.setClass(getActivity(), Zhanghaoguanl.class);
-                getActivity().startActivity(intent);
+//                intent.setClass(getActivity(), Zhanghaoguanl.class);
+//                getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout7:
                 intent.setClass(getActivity(), APPConfig.class);

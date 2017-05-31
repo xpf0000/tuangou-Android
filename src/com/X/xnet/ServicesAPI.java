@@ -1,6 +1,8 @@
 package com.X.xnet;
 
 import com.X.model.CouponModel;
+import com.X.model.NewsCateModel;
+import com.X.model.NewsModel;
 import com.X.model.OrderModel;
 import com.X.model.PayModel;
 import com.X.model.CityModel;
@@ -161,6 +163,26 @@ public interface ServicesAPI {
          @Query("oid") String oid
  );
 
+ //获取团购券码
+ @POST("?ctl=uc_order&act=app_do_refund_coupon&r_type=1&isapp=true")
+ Observable<HttpResult<Object>> uc_do_refund(
+         @Query("uid") String uid,
+         @Query("content") String content,
+         @Query("item_id") String item_id
+ );
+
+
+ //获取咨询分类
+ @GET("?ctl=news&act=all_type&r_type=1&isapp=true")
+ Observable<HttpResult<List<NewsCateModel>>> news_all_cate();
+
+ //获取资讯列表
+ @POST("?ctl=news&act=getList&r_type=1&isapp=true")
+ Observable<HttpResult<List<NewsModel>>> news_list(
+         @Query("tid") String tid,
+         @Query("page") String page
+ );
+
     //订单提交
     @POST("?ctl=cart&act=app_done&r_type=1&isapp=true")
     Observable<HttpResult<PayModel>> do_order_pay(
@@ -173,6 +195,13 @@ public interface ServicesAPI {
             @Query("num") String num,
             @Query("tprice") String tprice
     );
+
+ //继续支付
+ @POST("?ctl=uc_order&act=do_pay&r_type=1&isapp=true")
+ Observable<HttpResult<PayModel>> uc_order_pay(
+         @Query("oid") String oid,
+         @Query("uid") String uid
+ );
 
 
 //我的订单

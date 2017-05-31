@@ -15,6 +15,35 @@ public class OrderItemModel implements Serializable {
     private String create_time;
     private double pay_amount;
     private double total_price;
+
+    private int payment_id;
+    private double account_money;
+    private double need_pay_price;
+
+    public int getPayment_id() {
+        return payment_id;
+    }
+
+    public void setPayment_id(int payment_id) {
+        this.payment_id = payment_id;
+    }
+
+    public double getAccount_money() {
+        return account_money;
+    }
+
+    public void setAccount_money(double account_money) {
+        this.account_money = account_money;
+    }
+
+    public double getNeed_pay_price() {
+        return need_pay_price;
+    }
+
+    public void setNeed_pay_price(double need_pay_price) {
+        this.need_pay_price = need_pay_price;
+    }
+
     private int c;
     private String item_id;
     private String deal_id;

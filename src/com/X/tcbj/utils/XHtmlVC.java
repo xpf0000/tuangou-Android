@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.X.model.TuanModel;
 import com.X.server.BaseActivity;
 import com.X.server.DataCache;
+import com.X.server.MyEventBus;
 import com.X.tcbj.activity.OrderSubmitVC;
 import com.X.tcbj.activity.R;
 import com.X.xnet.HttpResult;
@@ -29,6 +30,9 @@ import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import static com.X.server.location.APPService;
 
@@ -48,12 +52,10 @@ public class XHtmlVC extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.xhtmlvc);
+
         title = (TextView) findViewById(R.id.tv_title_name);
         navbar = (RelativeLayout) findViewById(R.id.xhtml_navbar);
-
-
 
         web = (WebView)findViewById(R.id.web);
         // 设置支持JavaScript等
@@ -155,6 +157,12 @@ public class XHtmlVC extends BaseActivity {
 
         web.loadUrl(url);
 
+        if(url.contains("ctl=uc_order&act=app_order_info&id="))
+        {
+            XNetUtil.APPPrintln("url has $$$$$$$$$$$$$$$$$$");
+            EventBus.getDefault().register(this);
+        }
+
     }
 
     @Override
@@ -244,10 +252,32 @@ public class XHtmlVC extends BaseActivity {
         pushVC(OrderSubmitVC.class,bundle);
     }
 
+    public void to_refund(int id)
+    {
+        Bundle bundle = new Bundle();
+        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=uc_order&" +
+                "act=app_refund&id="+id+
+                "&uid="+DataCache.getInstance().user.getId());
+        bundle.putString("id",id+"");
+        bundle.putString("title","申请退款");
+        pushVC(XHtmlVC.class,bundle);
+    }
+
+
+
+    @Subscribe
+    public void getEventmsg(MyEventBus myEventBus) {
+
+        if (myEventBus.getMsg().equals("OrderInfoNeedRefresh")) {
+            web.reload();
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
 

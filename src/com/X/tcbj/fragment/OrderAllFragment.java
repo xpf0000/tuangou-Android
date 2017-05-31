@@ -4,30 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.X.model.CouponModel;
-import com.X.model.NearbyModel;
 import com.X.model.OrderItemModel;
 import com.X.model.OrderModel;
-import com.X.model.TuanModel;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.activity.CommentSubmitVC;
 import com.X.tcbj.activity.CouponCodeVC;
 import com.X.tcbj.activity.LoginActivity;
-import com.X.tcbj.activity.PaySuccessVC;
 import com.X.tcbj.activity.R;
+import com.X.tcbj.activity.UCOrderPayVC;
 import com.X.tcbj.activity.UserRenzhengVC;
 import com.X.tcbj.utils.XHorizontalBaseFragment;
 import com.X.tcbj.utils.XHtmlVC;
@@ -39,8 +34,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import java.util.List;
 
 import static com.X.server.location.APPService;
 
@@ -67,6 +60,24 @@ public class OrderAllFragment  extends XHorizontalBaseFragment {
 
         if (myEventBus.getMsg().equals("AddCommentSuccess")) {
             if(status.equals("0") || status.equals("3"))
+            {
+                page = 1;
+                end = false;
+                getData();
+            }
+        }
+
+        if (myEventBus.getMsg().equals("PaySuccess")) {
+            if(status.equals("0") || status.equals("1") || status.equals("2"))
+            {
+                page = 1;
+                end = false;
+                getData();
+            }
+        }
+
+        if (myEventBus.getMsg().equals("PayCancel")) {
+            if(status.equals("0") || status.equals("1"))
             {
                 page = 1;
                 end = false;
@@ -219,7 +230,10 @@ public class OrderAllFragment  extends XHorizontalBaseFragment {
                         }
                     }
 
-                    adapter.notifyDataSetChanged();
+                    if(adapter != null)
+                    {
+                        adapter.notifyDataSetChanged();
+                    }
 
                 }
             }
@@ -292,6 +306,28 @@ public class OrderAllFragment  extends XHorizontalBaseFragment {
             intent.putExtra("did",did);
             intent.putExtra("oid",oid);
             intent.setClass(getActivity(), CommentSubmitVC.class);
+            getActivity().startActivity(intent);
+
+        }
+
+        if(flag.equals("付款"))
+        {
+            String name = orderModel.getItem().get(p).getSub_name();
+            Integer oid = Integer.parseInt(orderModel.getItem().get(p).getId()) ;
+            Integer paytype = orderModel.getItem().get(p).getPayment_id();
+            Double tprice = orderModel.getItem().get(p).getTotal_price();
+            Double cprice = orderModel.getItem().get(p).getAccount_money();
+            Double nprice = orderModel.getItem().get(p).getNeed_pay_price();
+
+            Intent intent = new Intent();
+            intent.putExtra("oid",oid);
+            intent.putExtra("name",name);
+            intent.putExtra("paytype",paytype);
+            intent.putExtra("tprice",tprice);
+            intent.putExtra("cprice",cprice);
+            intent.putExtra("nprice",nprice);
+
+            intent.setClass(getActivity(), UCOrderPayVC.class);
             getActivity().startActivity(intent);
 
         }
