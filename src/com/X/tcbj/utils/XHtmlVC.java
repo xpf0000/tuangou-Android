@@ -115,11 +115,15 @@ public class XHtmlVC extends BaseActivity {
             @Override
             public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
                 super.onReceivedHttpError(view, request, errorResponse);
+                XNetUtil.APPPrintln("request000: "+request.getUrl());
+                XNetUtil.APPPrintln("errorResponse000: "+errorResponse.toString());
             }
 
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
+                XNetUtil.APPPrintln("request111: "+request.getUrl());
+                XNetUtil.APPPrintln("errorResponse111: "+error.toString());
             }
         });
 
@@ -249,6 +253,7 @@ public class XHtmlVC extends BaseActivity {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("model",tuanModel);
+        bundle.putString("id",id);
         pushVC(OrderSubmitVC.class,bundle);
     }
 

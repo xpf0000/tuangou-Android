@@ -170,6 +170,24 @@ public class HomeModel implements Serializable {
              */
 
             private String cate_id;
+            private String url;
+            private String data_id;
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
+
+            public String getData_id() {
+                return data_id;
+            }
+
+            public void setData_id(String data_id) {
+                this.data_id = data_id;
+            }
 
             public String getCate_id() {
                 return cate_id;

@@ -162,6 +162,11 @@ public abstract class BaseActivity extends Activity{
         overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
     }
 
+    public void back()
+    {
+        doPop();
+    }
+
     public void back(View v)
     {
         doPop();

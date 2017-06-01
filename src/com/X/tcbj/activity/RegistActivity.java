@@ -36,10 +36,14 @@ public class RegistActivity extends Activity {
 	private int recLen = 60;
 	Timer timer = new Timer();
 
+	String code = "123456789";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register);
+
+		if(getIntent().getStringExtra("tj_code") != null){code = getIntent().getStringExtra("tj_code");}
 
 		telET = (EditText) findViewById(R.id.regist_tel);
 
@@ -52,7 +56,7 @@ public class RegistActivity extends Activity {
 		checkBox = (CheckBox) findViewById(	R.id.regist_step1_check);
 		getcode = (Button) findViewById(R.id.regist_code_btn);
 
-
+		tjET.setText(code);
 
 	}
 
@@ -99,6 +103,10 @@ public class RegistActivity extends Activity {
 
 	public void do_scan(View v)
 	{
+		Intent intent = new Intent();
+		intent.setClass(this, QCScanVC.class);
+		startActivity(intent);
+		finish();
 
 	}
 

@@ -10,6 +10,7 @@ import com.X.model.HomeModel;
 import com.X.model.NearbyModel;
 import com.X.model.RenzhengModel;
 import com.X.model.TuanCateModel;
+import com.X.model.TuanModel;
 import com.X.model.TuanNavModel;
 import com.X.model.TuanQuanModel;
 import com.X.model.UserCollectModel;
@@ -141,10 +142,16 @@ public interface ServicesAPI {
  );
 
 
- //团购列表区域筛选项
+ //团购收藏
  @POST("?ctl=deal&act=app_do_collect&r_type=1&isapp=true")
  Observable<HttpResult<Object>> do_collect(
          @Query("uid") String uid,
+         @Query("id") String id
+ );
+
+ //团购详情
+ @POST("?ctl=deal&act=app_info&r_type=1&isapp=true")
+ Observable<HttpResult<TuanModel>> deal_info(
          @Query("id") String id
  );
 

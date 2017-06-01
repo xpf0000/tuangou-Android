@@ -61,11 +61,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/APPTXTBlack"
                 android:textSize="16sp"
-                android:text="安德莉亚"
+                android:text=""
                 android:lines="1"
-                android:inputType="text"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"
+                android:ellipsize="end"
                 />
 
             <TextView

@@ -18,6 +18,8 @@ import com.X.tcbj.activity.APPConfig;
 import com.X.tcbj.activity.UserFenhongVC;
 import com.X.tcbj.activity.UserRenzhengVC;
 import com.X.tcbj.activity.UserUnitsVC;
+import com.X.tcbj.test.Data;
+import com.X.tcbj.utils.XHtmlVC;
 import com.baidu.location.BDLocation;
 import com.csrx.data.PreferencesUtils;
 import com.X.tcbj.activity.LoginActivity;
@@ -174,8 +176,17 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout5:
-//                intent.setClass(getActivity(), MyOrderActivity.class);
-//                getActivity().startActivity(intent);
+
+
+                String uname = DataCache.getInstance().user.getUser_name();
+                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=user_center&act=app_qrcode&code="+uname);
+                intent.putExtra("title","我的邀请码");
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+
+                getActivity().startActivity(intent);
+
+
                 break;
             case R.id.mine_layout6:
 //                intent.setClass(getActivity(), Zhanghaoguanl.class);

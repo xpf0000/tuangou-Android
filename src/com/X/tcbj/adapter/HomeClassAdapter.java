@@ -26,7 +26,6 @@ public class HomeClassAdapter extends BaseAdapter {
     public HomeClassAdapter(List<HomeModel.IndexsBean> homeclass, Context context){
         this.homeclass=homeclass;
         this.context=context;
-        XNetUtil.APPPrintln("############## count: "+homeclass.size());
     }
     @Override
     public int getCount() {
@@ -53,7 +52,7 @@ public class HomeClassAdapter extends BaseAdapter {
         ViewGroup.LayoutParams layoutParams = getItem.img.getLayoutParams();
 
         int w = SW;
-        int h = (int)(w / 5.0 * 0.5);
+        int h = (int)(w / 5.0 * 0.6);
 
         layoutParams.width = h;
         layoutParams.height = h;

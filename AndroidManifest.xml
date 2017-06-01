@@ -8,6 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -156,6 +158,14 @@
 
         <activity
             android:name=".UserFenhongVC"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".StoresListVC"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".QCScanVC"
             android:screenOrientation="portrait"/>
 
         <activity

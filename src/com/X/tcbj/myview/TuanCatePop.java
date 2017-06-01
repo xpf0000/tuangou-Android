@@ -33,6 +33,8 @@ public class TuanCatePop {
 
     MyCateChooseListener myPopwindowsmListener;
 
+    public String big_id = "";
+
     public void showclasspop(final List<TuanCateModel> classList, Context context, View view) {
         popView = LayoutInflater.from(context).inflate(R.layout.myclass, null);
         popupWindow = new PopupWindow(popView, LinearLayout.LayoutParams.FILL_PARENT,
@@ -51,6 +53,27 @@ public class TuanCatePop {
 
         smallAdapter = new CateSmallAdapter(classList.get(positions).getBcate_type(), context);
         smallclass.setAdapter(smallAdapter);
+
+        if(!big_id.equals(""))
+        {
+            int i = 0;
+            for(TuanCateModel m : bigAdapter.classList)
+            {
+                if(big_id.equals(m.getId()+""))
+                {
+                    positions = i;
+                }
+
+                i++;
+            }
+
+            startLoadMore();
+            bigAdapter.classList.get(positions).setChecked(true);
+            bigAdapter.notifyDataSetChanged();
+
+        }
+
+
 
         bigclass.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -11,16 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.X.tcbj.SmoothListView.SmoothListView;
 import com.X.tcbj.activity.CityListsActivity;
+import com.X.tcbj.activity.HotSearch;
 import com.X.tcbj.activity.Mall;
 import com.X.tcbj.activity.MallInfo;
+import com.X.tcbj.activity.QCScanVC;
 import com.X.tcbj.activity.R;
 import com.X.tcbj.activity.SearchActivity;
+import com.X.tcbj.activity.StoresListVC;
 import com.X.tcbj.activity.testnews;
 import com.X.tcbj.adapter.HomeAdapter;
 import com.X.tcbj.adapter.HomeClassAdapter;
@@ -37,6 +41,7 @@ import com.X.tcbj.utils.GetVersion;
 import com.X.model.HomeModel;
 import com.X.server.DataCache;
 import com.X.server.location;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XNetUtil;
 
@@ -55,24 +60,11 @@ import static com.X.server.location.APPService;
 public class HomeFragment extends Fragment implements View.OnClickListener {
     View view, classview, shopview, popView;
     SmoothListView smoothListView;
-    smallAdapter myAdapter;
-    private int adViewTopSpace = 0; // 广告视图距离顶部的距离
     RelativeLayout rlBar;
-    private int adViewHeight = 180; // 广告视图的高度
-    private int titleViewHeight = 50; // 标题栏的高度
-    private boolean isScrollIdle = true; // ListView是否在滑动
-    private boolean isStickyTop = false; // 是否吸附在顶部
     View viewActionMoreBg;
     location location = null;
-    //    View viewTitleBg;
-    private int filterViewPosition = 4; // 筛选视图的位置
-    private View itemHeaderAdView; // 从ListView获取的广告子View
-    private View itemHeaderFilterView; // 从ListView获取的筛选子View
     private HomeHandler handler = null;
-    ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     String ver;
-
-    List<HomeModel.DealListBean> hotmallarray = new ArrayList<>();
     My_GridView big_class, maill, head_class;
 
     HomeAdapter homeAdapter;
@@ -84,6 +76,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ArrayList<HomeClassMod.ListBean> smallist = new ArrayList<>();
     UpdatePop myPopwindows;
     private PopupWindow popupWindow;
+
+    ImageView scanIV;
 
     HomeModel homeModel;
 
@@ -115,16 +109,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         viewActionMoreBg = (View) view.findViewById(R.id.view_action_more_bg);
         smoothListView.setLoadMoreEnable(false);
         smoothListView.setRefreshEnable(false);
-        filterViewPosition = smoothListView.getHeaderViewsCount() - 1;
-//
+
         shopview = LayoutInflater.from(getActivity()).inflate(R.layout.shophead, null);
         classview = LayoutInflater.from(getActivity()).inflate(R.layout.headview, null);
-//
+
         big_class = (My_GridView) shopview.findViewById(R.id.big_class);
         maill = (My_GridView) shopview.findViewById(R.id.maill);
-//
+
         head_class = (My_GridView) classview.findViewById(R.id.head_class);
-//
+
         smoothListView.addHeaderView(classview);
         smoothListView.addHeaderView(shopview);
         view_action_more_bg.setOnClickListener(this);
@@ -132,7 +125,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onRefresh() {
                 getBanner();
-                getSmlHot();
+                //getSmlHot();
             }
         });
         big_class.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -150,43 +143,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        smoothListView.setOnScrollListener(new SmoothListView.OnSmoothScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                isScrollIdle = (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE);
-            }
 
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//                rlBar.setAlpha(1f);
-//                rlBar.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(MainActivity.this, fraction, R.color.transparent, R.color.orange));
-//                if (isScrollIdle && adViewTopSpace < 0) return;
-//                if (itemHeaderAdView == null) {
-//                    itemHeaderAdView = smoothListView.getChildAt(1 - firstVisibleItem);
-//                }
-//                if (itemHeaderAdView != null) {
-//                    adViewTopSpace = DensityUtil.px2dip(getActivity(), itemHeaderAdView.getTop());
-//                    adViewHeight = DensityUtil.px2dip(getActivity(), itemHeaderAdView.getHeight());
-//                }
-//                if (itemHeaderFilterView == null) {
-//                    itemHeaderFilterView = smoothListView.getChildAt(filterViewPosition - firstVisibleItem);
-//                }
-//                if (itemHeaderFilterView != null) {
-//                    adViewTopSpace = DensityUtil.px2dip(getActivity(), itemHeaderAdView.getTop());
-//                    adViewHeight = DensityUtil.px2dip(getActivity(), itemHeaderAdView.getHeight());
-//                }
-//                if (itemHeaderFilterView == null) {
-//                    itemHeaderFilterView = smoothListView.getChildAt(filterViewPosition - firstVisibleItem);
-//                }
-//                handleTitleBarColorEvaluate();
-
-            }
-
-            @Override
-            public void onSmoothScrolling(View view) {
-
-            }
-        });
         smoothListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -211,69 +168,62 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         maill.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String did = homeModel.getDeal_list().get(position).getId();
                 Intent intent = new Intent();
-                intent.putExtra("id", hotmallarray.get(position).getId());
-                intent.setClass(getActivity(), MallInfo.class);
+                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                        "act=app_index&data_id="+did+
+                        "&city_id="+DataCache.getInstance().nowCity.getId());
+                intent.putExtra("id",did+"");
+                intent.putExtra("hideNavBar",true);
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+
                 getActivity().startActivity(intent);
+
             }
         });
 
         head_class.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent;
-//                switch (homeclass.get(position).getId()) {
-//                    case 1:
-//                        intent = new Intent(getActivity(), Mall.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 2:
-//                        intent = new Intent(getActivity(), ShangjiaActivicty.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 3:
-//                        intent = new Intent(getActivity(), Privilegelist.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 4:
-//                        intent = new Intent(getActivity(), MiaoShaActivicty.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 5:
-//                        intent = new Intent(getActivity(), MianfeiShiyongActivicty.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 6:
-//                        intent = new Intent(getActivity(), SeminarActivity.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 7:
-//                        intent = new Intent(getActivity(), testnews.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 8:
-//                        Constant.KEY = null;
-//                        intent = new Intent(getActivity(), ShangjiasActivicty.class);
-//                        intent.putExtra("id", "1");
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 9:
-//                        Constant.KEY = null;
-//                        intent = new Intent(getActivity(), ShangjiasActivicty.class);
-//                        intent.putExtra("id", "94");
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 10:
-//                        intent = new Intent(getActivity(), Facilitate.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                    case 11:
-//                        intent = new Intent(getActivity(), BBSActivity.class);
-//                        getActivity().startActivity(intent);
-//                        break;
-//                }
+
+               HomeModel.IndexsBean bean =  homeModel.getIndexs().get(position);
+                Intent intent = new Intent();
+                if(bean.getCtl().equals("url"))
+                {
+                    intent.setClass(getActivity(),XHtmlVC.class);
+                    intent.putExtra("url",bean.getData().getUrl());
+                    intent.putExtra("title",bean.getName());
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("stores"))
+                {
+                    intent.setClass(getActivity(),StoresListVC.class);
+                    intent.putExtra("cate_id",bean.getData().getCate_id());
+                    getActivity().startActivity(intent);
+                }
+
             }
         });
+
+
+        scanIV = (ImageView) view.findViewById(R.id.home_scan);
+        scanIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                to_scan();
+            }
+        });
+
+
+    }
+
+    private void to_scan()
+    {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), QCScanVC.class);
+        getActivity().startActivity(intent);
     }
 
     @Override
@@ -281,7 +231,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Intent intent;
         switch (v.getId()) {
             case R.id.view_action_more_bg:
-                intent = new Intent(getActivity(), SearchActivity.class);
+                intent = new Intent(getActivity(), HotSearch.class);
                 getActivity().startActivity(intent);
                 break;
             case R.id.city_name:
@@ -355,37 +305,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             }
         });
-
-    }
-
-    //热门分类
-    private void getSmlHot() {
-//        AsyncHttpHelper.getAbsoluteUrl(ProductsClass, new TextHttpResponseHandler() {
-//            @Override
-//            public void onFailure(int i, Header[] headers, String s, Throwable throwable) {
-//
-//            }
-//
-//            @Override
-//            public void onSuccess(int x, Header[] headers, String s) {
-//                homeClassMod = JSON.parseObject(s, HomeClassMod.class);
-//                if (homeClassMod.getStatus() == 0) {
-//                    biglist = new ArrayList<HomeClassMod.ListBean>();
-//                    smallist = new ArrayList<HomeClassMod.ListBean>();
-//                    for (int i = 0; i < homeClassMod.getList().size(); i++) {
-//                        if (i < 4) {
-//                            biglist.add(homeClassMod.getList().get(i));
-//                        } else {
-//                            smallist.add(homeClassMod.getList().get(i));
-//                        }
-//                    }
-//                }
-//                hotBigAdapter = new HotBigAdapter(biglist, getActivity());
-//                big_class.setAdapter(hotBigAdapter);
-//                hotSmall = new HotSmall(smallist, getActivity());
-//                sm_class.setAdapter(hotSmall);
-//            }
-//        });
 
     }
 

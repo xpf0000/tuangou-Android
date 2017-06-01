@@ -8,36 +8,6 @@ import java.io.Serializable;
 
 public class TuanModel implements Serializable{
 
-    /**
-     * id : 104
-     * distance : 917.14385803888
-     * ypoint : 34.654188
-     * xpoint : 112.438285
-     * name : 仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。
-     * sub_name : 【西工区】洛浦水岸海鲜大咖烧烤啤酒花园
-     * brief : 仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。
-     * buy_count : 0
-     * current_price : 398
-     * origin_price : 531
-     * icon : http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_184x164.jpg
-     * icon_v1 : http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_360x330.jpg
-     * end_time_format : 2017-07-31 15:42:00
-     * begin_time_format : 2017-05-01 15:42:00
-     * begin_time : 1493595720
-     * end_time : 1501458120
-     * auto_order : 1
-     * is_lottery : 0
-     * is_refund : 1
-     * deal_score : 0
-     * buyin_app : 0
-     * allow_promote : 0
-     * location_id : 0
-     * location_name : null
-     * location_address : null
-     * location_avg_point : null
-     * area_name : null
-     * is_today : 0
-     */
 
     private String id;
     private double distance;
@@ -68,8 +38,23 @@ public class TuanModel implements Serializable{
     private Object area_name;
     private int is_today;
 
+
+
     private int num;
     private double total_price;
+    /**
+     * supplier_id : 55
+     * user_min_bought : 0
+     * user_max_bought : 0
+     * origin_price : 531.0000
+     * current_price : 398.0000
+     * xpoint : 112.438285
+     * ypoint : 34.654188
+     */
+
+    private String supplier_id;
+    private int user_min_bought;
+    private int user_max_bought;
 
     public int getNum() {
         return num;
@@ -311,4 +296,27 @@ public class TuanModel implements Serializable{
         this.is_today = is_today;
     }
 
+    public String getSupplier_id() {
+        return supplier_id;
+    }
+
+    public void setSupplier_id(String supplier_id) {
+        this.supplier_id = supplier_id;
+    }
+
+    public int getUser_min_bought() {
+        return user_min_bought;
+    }
+
+    public void setUser_min_bought(int user_min_bought) {
+        this.user_min_bought = user_min_bought;
+    }
+
+    public int getUser_max_bought() {
+        return user_max_bought;
+    }
+
+    public void setUser_max_bought(int user_max_bought) {
+        this.user_max_bought = user_max_bought;
+    }
 }
