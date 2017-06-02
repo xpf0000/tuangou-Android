@@ -27,6 +27,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.X.tcbj.utils.XPostion;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.csrx.data.PreferencesUtils;
@@ -89,7 +90,6 @@ public class CityListsActivity extends Activity implements OnClickListener {
 	private TextView dialog;
 	private SortAdapter adapter;
 	private ClearEditText mClearEditText;
-	private LocationClient mLocClient;
 	private TextView autoCity;
 
 	private List<RecommendCity.ObjectEntity> objectEntityList=new ArrayList<RecommendCity.ObjectEntity>();
@@ -112,7 +112,6 @@ public class CityListsActivity extends Activity implements OnClickListener {
 	private PinyinComparator pinyinComparator;
 	private Context cityCxt;
 	Dialog dialogd;
-	public static String cityPosition;
 	String data;
 
 	private SharedPreferences spn;
@@ -120,18 +119,27 @@ public class CityListsActivity extends Activity implements OnClickListener {
 	public static final String PREFS_NAME = "prefs";
 	public static final String FIRST_START = "first";
     int vrtson,thisvrtson;
-    private HomeHandler myhandler = null;
-    location location=null;
+
 	boolean ordian=false;
+
+
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.city_list);
 
-		EventBus.getDefault().register(this);
+		XPostion.getInstance().OnUpdatePostion(this,new XPostion.XPostionListener() {
+			@Override
+			public void OnUpdatePostion(BDLocation p) {
+				String cityname = p.getCity();
+				autoCity.setText(cityname);
+				XPostion.getInstance().stop();
+			}
+		});
+
 
 		cityCxt = CityListsActivity.this;
-		location = (location) getApplication();
-		myhandler = location.getHandler1();
+
 		try {
 			vrtson=getLocalVersionCode(CityListsActivity.this);
 			thisvrtson=PreferencesUtils.getInt(CityListsActivity.this, "thisvrtson");
@@ -260,24 +268,19 @@ public class CityListsActivity extends Activity implements OnClickListener {
 			}
 		});
 		autoCity = (TextView) headerView.findViewById(R.id.position);//为listview添加header
-		mLocClient = ((location) getApplication()).mLocationClient;
+
 		if (autoCity.getText().toString().trim().equals("")
 				|| autoCity.getText().toString().trim() == null) {
+
 			autoCity.setText("定位中···");
-//			GetMyData.setLocationOption(mLocClient);
-			mLocClient.start();
-			mLocClient.requestLocation();
-			((location) getApplication()).mTv = autoCity;
+			XPostion.getInstance().start();
 			Constant.CITY_POSITION=autoCity.getText().toString();
-		} else {
-			mLocClient.stop();
+
 		}
-		cityPosition = location.mData;// 获取定位到的城市
-//		String loca_city=location.mData;
+
 		autoCity.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				onClickCity(location.mData);
 				onClickCity(autoCity.getText().toString());
 			}
 		});
@@ -363,11 +366,6 @@ public class CityListsActivity extends Activity implements OnClickListener {
 			@Override
 			public void onSuccess(Object obj) {
 
-				try {
-					myhandler.sendEmptyMessage(6);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
 				spn = getSharedPreferences(PREFS_NAME, 0);
 				first = spn.getBoolean(FIRST_START, true);
 				SharedPreferences.Editor editor = spn.edit();
@@ -418,6 +416,8 @@ public class CityListsActivity extends Activity implements OnClickListener {
 	public void onDestroy() {
 		super.onDestroy();
 		EventBus.getDefault().unregister(this);
+		XPostion.getInstance().removeListener(this);
+		XPostion.getInstance().stop();
 	}
 
 	/**
@@ -472,13 +472,8 @@ public class CityListsActivity extends Activity implements OnClickListener {
 			CityListsActivity.this.finish();
 			break;
 		case R.id.cityimage_refresh:
-			Toast.makeText(cityCxt, "重新定位······", Toast.LENGTH_SHORT).show();
-			mLocClient = ((location) getApplication()).mLocationClient;
 			autoCity.setText("定位中···");
-//			GetMyData.setLocationOption(mLocClient);
-			mLocClient.start();
-			mLocClient.requestLocation();
-			((location) getApplication()).mTv = autoCity;
+			XPostion.getInstance().start();
 			break;
 		default:
 			break;
@@ -501,15 +496,6 @@ public class CityListsActivity extends Activity implements OnClickListener {
 		}
 		return false;
 
-	}
-
-	@Subscribe
-	public void getEventmsg(MyEventBus myEventBus) {
-		if (myEventBus.getMsg().equals("Location")) {
-			BDLocation location = (BDLocation) myEventBus.getInfo();
-			String cityname = location.getCity();
-			autoCity.setText(cityname);
-		}
 	}
 
 	public void onResume() {

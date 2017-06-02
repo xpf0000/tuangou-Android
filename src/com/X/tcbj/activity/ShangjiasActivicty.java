@@ -65,12 +65,12 @@ public class ShangjiasActivicty extends Activity implements View.OnClickListener
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shangjia);
-        mLocClient = ((location) getApplication()).mLocationClient;
+        //mLocClient = ((location) getApplication()).mLocationClient;
 //		GetMyData.setLocationOption(mLocClient);
         mLocClient.start();
         mLocClient.requestLocation();
-        longitude = ((location) getApplication()).longitude;
-        latitude = ((location) getApplication()).latitude;
+        //longitude = ((location) getApplication()).longitude;
+        //latitude = ((location) getApplication()).latitude;
         areaid = PreferencesUtils.getInt(ShangjiasActivicty.this, "cityID");
         classurl = Constant.url+"industrylist?areaId="
                 + areaid;

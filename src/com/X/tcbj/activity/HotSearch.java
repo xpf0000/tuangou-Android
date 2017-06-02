@@ -41,6 +41,7 @@ import com.X.model.NearbyModel;
 import com.X.model.TuanModel;
 import com.X.server.DataCache;
 import com.X.tcbj.adapter.HomeAdapter;
+import com.X.tcbj.adapter.SearchLishiAdapter;
 import com.X.tcbj.adapter.TuanAdapter;
 import com.X.tcbj.myview.KeywordsFlow;
 import com.X.tcbj.utils.CommonField;
@@ -203,7 +204,7 @@ public class HotSearch extends Activity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-				String str = DataCache.getInstance().searchKeys.getSearchKeys().get(position);
+				String str = lishiAdapter.getKeys().get(position);
 				mytext.setText(str);
 				search();
 
@@ -213,7 +214,7 @@ public class HotSearch extends Activity implements OnClickListener {
 		tuanApater=new TuanAdapter(tuanList,this);
 		mainList.setAdapter(tuanApater);
 
-		lishiAdapter = new SearchLishiAdapter(this);
+		lishiAdapter = new SearchLishiAdapter(this,DataCache.getInstance().searchKeys.getSearchKeys());
 		lishiList.setAdapter(lishiAdapter);
 
 	}
@@ -287,13 +288,11 @@ public class HotSearch extends Activity implements OnClickListener {
 
 		lastKey = searchstr;
 
-		//int index = DataCache.getInstance().searchKeys.getSearchKeys().indexOf(searchstr);
 		DataCache.getInstance().searchKeys.getSearchKeys().remove(searchstr);
 		DataCache.getInstance().searchKeys.getSearchKeys().add(0,searchstr);
-
 		XAPPUtil.saveAPPCache("SearchKeys",DataCache.getInstance().searchKeys);
 
-		lishiAdapter.notifyDataSetChanged();
+		lishiAdapter.setKeys(DataCache.getInstance().searchKeys.getSearchKeys());
 
 		page = 1;
 		end = false;
@@ -322,7 +321,7 @@ public class HotSearch extends Activity implements OnClickListener {
 	{
 		DataCache.getInstance().searchKeys.getSearchKeys().clear();
 		XAPPUtil.saveAPPCache("SearchKeys",DataCache.getInstance().searchKeys);
-		lishiAdapter.notifyDataSetChanged();
+		lishiAdapter.setKeys(DataCache.getInstance().searchKeys.getSearchKeys());
 	}
 
 
@@ -335,64 +334,6 @@ public class HotSearch extends Activity implements OnClickListener {
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
-
-
-
-
-
-
-
-	class SearchLishiAdapter extends BaseAdapter {
-		Context context;
-
-		public SearchLishiAdapter(Context context) {
-			this.context = context;
-
-		}
-
-		@Override
-		public int getCount() {
-			return DataCache.getInstance().searchKeys.getSearchKeys().size();
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return DataCache.getInstance().searchKeys.getSearchKeys().get(position);
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			getItemView bundle ;
-
-			if(convertView == null)
-			{
-				convertView = LayoutInflater.from(context).inflate(R.layout.serach_lishi_cell, null);
-				bundle = new getItemView();
-				bundle.work=(TextView)convertView.findViewById(R.id.search_lishi_cell_word);
-				convertView.setTag(bundle);
-			}
-			else
-			{
-				bundle = (getItemView) convertView.getTag();
-			}
-
-			String str = DataCache.getInstance().searchKeys.getSearchKeys().get(position);
-
-			bundle.work.setText(str);
-
-			return convertView;
-		}
-
-		private class getItemView {
-			TextView work;
-		}
-	}
-
 
 
 

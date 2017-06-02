@@ -11,6 +11,7 @@ import com.X.tcbj.activity.R;
 import com.X.tcbj.utils.ImageUtils;
 import com.X.model.HomeModel;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
@@ -23,17 +24,11 @@ import java.util.List;
 public class HotBigAdapter extends BaseAdapter {
     List<HomeModel.ZtHtmlBean> array = new ArrayList<>();
     Context context;
-    com.nostra13.universalimageloader.core.ImageLoader ImageLoader;
-    DisplayImageOptions options;
-    com.X.tcbj.utils.ImageUtils ImageUtils;
-    ImageLoadingListener animateFirstListener;
+
     public HotBigAdapter(List<HomeModel.ZtHtmlBean> array, Context context){
         this.context=context;
         this.array=array;
-        ImageUtils = new ImageUtils();
-        ImageLoader = ImageLoader.getInstance();
-        ImageLoader.init(ImageLoaderConfiguration.createDefault(context));
-        animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
+
     }
     @Override
     public int getCount() {
@@ -55,9 +50,9 @@ public class HotBigAdapter extends BaseAdapter {
         convertView= LayoutInflater.from(context).inflate(R.layout.hotbigitem,null);
         getItem getItem=new getItem();
         getItem.img=(ImageView)convertView.findViewById(R.id.img);
-        String url="http://tg01.sssvip.net"+array.get(position).getImg();
-        options=ImageUtils.setnoOptions();
-        ImageLoader.displayImage(url,getItem.img,options,animateFirstListener);
+        String url = array.get(position).getImg();
+
+        ImageLoader.getInstance().displayImage(url,getItem.img);
 
         return convertView;
     }

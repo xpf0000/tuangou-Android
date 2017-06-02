@@ -11,7 +11,9 @@ import com.robin.lazy.cache.CacheLoaderManager;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.X.server.location.context;
 
@@ -30,11 +32,18 @@ public class XPostion implements BDLocationListener {
     private LocationClientOption option;
     private static volatile XPostion instance=null;
 
-    private List<WeakReference<XPostionListener>>  list = new ArrayList<>();
+    private Map<String,XPostionListener> list = new HashMap<>();
 
-    public void OnUpdatePostion(XPostionListener listener)
+    public void removeListener(Object obj)
     {
-        list.add(new WeakReference<XPostionListener>(listener));
+        list.remove(obj+"");
+        XNetUtil.APPPrintln("removeListener: "+list.size());
+    }
+
+    public void OnUpdatePostion(Object obj,XPostionListener listener)
+    {
+        list.put(obj+"",listener);
+        XNetUtil.APPPrintln("OnUpdatePostion: "+list.size());
     }
 
     public static  XPostion getInstance(){
@@ -51,8 +60,10 @@ public class XPostion implements BDLocationListener {
     private XPostion()
     {
         option = new LocationClientOption();
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//设置定位模式
         option.setOpenGps(true); // 打开gps
         option.setCoorType("bd09ll"); // 设置坐标类型
+        option.setIsNeedAddress(true);
         option.setScanSpan(1000);
     }
 
@@ -62,27 +73,35 @@ public class XPostion implements BDLocationListener {
 
     public void setPostion(BDLocation postion) {
         this.postion = postion;
-        for (WeakReference<XPostionListener> w:list) {
 
-            if(w.get() != null)
-            {
-                w.get().OnUpdatePostion(postion);
-            }
-            else
-            {
-                XNetUtil.APPPrintln("XPostion listener is null !!!!!!");
-            }
-
+        if(list.size() == 0)
+        {
+            stop();
+            return;
         }
+
+        for (Map.Entry<String, XPostionListener> entry : list.entrySet()) {
+            if(entry.getValue() != null)
+            {
+                entry.getValue().OnUpdatePostion(postion);
+            }
+        }
+
     }
 
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
+
+        System.out.println("location.getLongitude()" + bdLocation.getLongitude() + "location.getLatitude()" + bdLocation.getLatitude());
+        System.out.println("location.getCity():" + bdLocation.getCity());
+        System.out.println("location.getDistrict():" + bdLocation.getDistrict());
+
         setPostion(bdLocation);
     }
 
     public void start()
     {
+        stop();
         mLocClient = new LocationClient(context);
         mLocClient.registerLocationListener(this);
         mLocClient.setLocOption(option);

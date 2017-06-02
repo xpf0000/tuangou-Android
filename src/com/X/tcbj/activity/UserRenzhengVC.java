@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.X.model.RenzhengModel;
 import com.X.model.UserModel;
+import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.utils.DensityUtil;
@@ -48,7 +49,7 @@ import static com.X.server.location.SW;
  * Created by X on 2017/5/21.
  */
 
-public class UserRenzhengVC extends TakePhotoActivity {
+public class UserRenzhengVC extends BaseActivity {
     EditText nameET,idsET;
     ImageView idsIV,idsbackIV;
     AlertView alertView;
@@ -59,9 +60,9 @@ public class UserRenzhengVC extends TakePhotoActivity {
     int nowid = 0;
 
     private int position = -1;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void setupUi() {
         setContentView(R.layout.real_renzheng);
         nameET = (EditText) findViewById(R.id.real_renzheng_name);
         idsET = (EditText) findViewById(R.id.real_renzheng_ids);
@@ -109,8 +110,12 @@ public class UserRenzhengVC extends TakePhotoActivity {
             }
         });
 
-        getinfo();
 
+    }
+
+    @Override
+    protected void setupData() {
+        getinfo();
     }
 
     public void getinfo()
@@ -153,12 +158,6 @@ public class UserRenzhengVC extends TakePhotoActivity {
             ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url(),idsIV);
             ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url_back(),idsbackIV);
         }
-    }
-
-    public void back(View v)
-    {
-        finish();
-        overridePendingTransition(R.anim.pop_up_out,R.anim.pop_up_in);
     }
 
     public void chooseImg(View v)

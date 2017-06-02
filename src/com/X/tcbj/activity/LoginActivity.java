@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.X.model.UserModel;
+import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.xnet.XAPPUtil;
@@ -52,16 +53,20 @@ import static com.X.server.location.APPService;
  * @author zpp
  * @version=1.0 登陆页面
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
 
     EditText accountET,passET;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override
+    protected void setupUi() {
         setContentView(R.layout.login);
 
         accountET = (EditText) findViewById(R.id.login_name);
         passET = (EditText) findViewById(R.id.login_pass);
+    }
+
+    @Override
+    protected void setupData() {
 
     }
 
@@ -114,12 +119,5 @@ public class LoginActivity extends Activity {
 
         startActivity(intent);
     }
-
-    public void back(View v)
-    {
-        finish();
-    }
-
-
 
 }

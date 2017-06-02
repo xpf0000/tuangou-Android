@@ -44,7 +44,7 @@ public class TuanAdapter extends BaseAdapter {
         ImageUtils = new ImageUtils();
         imageLoader = ImageLoader.getInstance();
 
-        XPostion.getInstance().OnUpdatePostion(new XPostion.XPostionListener() {
+        XPostion.getInstance().OnUpdatePostion(this,new XPostion.XPostionListener() {
             @Override
             public void OnUpdatePostion(BDLocation p) {
 

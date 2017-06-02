@@ -81,6 +81,7 @@ public class TuanCatePop {
                 bigAdapter.classList.get(positions).setChecked(false);
                 positions = position;
                 startLoadMore();
+                big_id = bigAdapter.classList.get(position).getId()+"";
                 bigAdapter.classList.get(position).setChecked(true);
                 bigAdapter.notifyDataSetChanged();
             }

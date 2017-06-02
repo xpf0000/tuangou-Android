@@ -3,12 +3,14 @@ package com.X.xnet;
 import com.X.model.CouponModel;
 import com.X.model.NewsCateModel;
 import com.X.model.NewsModel;
+import com.X.model.NoticeModel;
 import com.X.model.OrderModel;
 import com.X.model.PayModel;
 import com.X.model.CityModel;
 import com.X.model.HomeModel;
 import com.X.model.NearbyModel;
 import com.X.model.RenzhengModel;
+import com.X.model.StoresListModel;
 import com.X.model.TuanCateModel;
 import com.X.model.TuanModel;
 import com.X.model.TuanNavModel;
@@ -43,7 +45,7 @@ public interface ServicesAPI {
    @GET("?ctl=city&act=city_change&r_type=1&isapp=true")
     Observable<HttpResult<Object>> city_city_change(@Query("city_id") String city_id);
 
-    @GET("?ctl=index&act=index&r_type=1&isapp=true")
+    @GET("?ctl=index&act=app_index&r_type=1&isapp=true")
     Observable<HttpResult<HomeModel>> app_index(
             @Query("city_id") String city_id,
             @Query("xpoint") double xpoint,
@@ -113,6 +115,31 @@ public interface ServicesAPI {
          @Query("tid") String tid,
          @Query("qid") String qid,
          @Query("order_type") String order_type,
+         @Query("xpoint") double xpoint,
+         @Query("ypoint") double ypoint
+ );
+
+
+ //商家列表
+ @POST("?ctl=stores&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<StoresListModel>> stores_list(
+         @Query("page") String page,
+         @Query("city_id") String city_id,
+         @Query("cate_id") String cate_id,
+         @Query("tid") String tid,
+         @Query("qid") String qid,
+         @Query("order_type") String order_type,
+         @Query("xpoint") double xpoint,
+         @Query("ypoint") double ypoint
+ );
+
+
+ //商家搜索
+ @POST("?ctl=stores&act=app_index&r_type=1&isapp=true")
+ Observable<HttpResult<StoresListModel>> stores_search(
+         @Query("page") String page,
+         @Query("city_id") String city_id,
+         @Query("keyword") String keyword,
          @Query("xpoint") double xpoint,
          @Query("ypoint") double ypoint
  );
@@ -187,6 +214,13 @@ public interface ServicesAPI {
  @POST("?ctl=news&act=getList&r_type=1&isapp=true")
  Observable<HttpResult<List<NewsModel>>> news_list(
          @Query("tid") String tid,
+         @Query("page") String page
+ );
+
+
+ //获取公告列表
+ @POST("?ctl=notice&act=index&r_type=1&isapp=true")
+ Observable<HttpResult<NoticeModel>> notice_list(
          @Query("page") String page
  );
 

@@ -128,7 +128,7 @@ public class ShopsDiscussList extends Activity implements OnClickListener,
 		dialog = GetMyData.createLoadingDialog(ShopsDiscussList.this,
 				"正在拼命的加载······");
 		dialog.show();
-		mLocClient = ((location) getApplication()).mLocationClient;
+		//mLocClient = ((location) getApplication()).mLocationClient;
 //		GetMyData.setLocationOption(mLocClient);
 		mLocClient.start();
 		mLocClient.requestLocation();
@@ -915,8 +915,8 @@ public class ShopsDiscussList extends Activity implements OnClickListener,
 			}
 			com.alibaba.fastjson.JSONArray ja = jo.getJSONArray("list");
 			totalComment = jo.getString("totalRecord");
-			longitude = ((location) getApplication()).longitude;
-			latitude = ((location) getApplication()).latitude;
+			//longitude = ((location) getApplication()).longitude;
+			//latitude = ((location) getApplication()).latitude;
 			for (int i = 0; i < ja.size(); i++) {
 				com.alibaba.fastjson.JSONObject jo2 = ja.getJSONObject(i);
 				if (ja.size() < 10) {

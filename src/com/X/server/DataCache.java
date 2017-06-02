@@ -37,6 +37,8 @@ public class DataCache {
 
     public SearchKeyModel searchKeys;
 
+    public SearchKeyModel storesSearchKeys;
+
     public void init()
     {
         XNetUtil.APPPrintln("DataCache is init!!!!!!!!!!!");
@@ -95,6 +97,9 @@ public class DataCache {
         user = CacheLoaderManager.getInstance().loadSerializable("User");
         searchKeys = CacheLoaderManager.getInstance().loadSerializable("SearchKeys");
         if(searchKeys == null){searchKeys = new SearchKeyModel();}
+
+        storesSearchKeys = CacheLoaderManager.getInstance().loadSerializable("StoresSearchKeys");
+        if(storesSearchKeys == null){storesSearchKeys = new SearchKeyModel();}
     }
 
 }

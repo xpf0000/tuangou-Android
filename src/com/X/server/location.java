@@ -57,22 +57,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @version1.0 技术支持 百度地图
  */
 public class location extends MultiDexApplication {
-    public LocationClient mLocationClient = null;
-    //	public GeofenceClient mGeofenceClient;
     public static String mData;// 定位成功控件
-    public MyLocationListenner myListener = new MyLocationListenner();
-    public TextView mTv, localtv;
-    public NotifyLister mNotifyer = null;
     public Vibrator mVibrator01;
     public static String TAG = "LocTestDemo";
-    public LocationService locationService;
     public static Context context;
     public String str;
     public static int count = 0;
-    public double longitude, latitude;
-    private LocationClientOption.LocationMode tempMode = LocationClientOption.LocationMode.Hight_Accuracy;
-    private String tempcoor = "bd09ll";
-    LocationClientOption locationClientOption;
+
     //帖子
     private MyHandler handler = null;
 
@@ -204,17 +195,9 @@ public class location extends MultiDexApplication {
                 this.getApplicationContext()).memoryCacheExtraOptions(400, 800)
                 .discCache(new UnlimitedDiskCache(diskCache)).build();
         ImageLoader.getInstance().init(configuration);
-        mLocationClient = new LocationClient(this);
-        mLocationClient.registerLocationListener(myListener);
-        locationClientOption = new LocationClientOption();
-        locationClientOption.setLocationMode(tempMode);//设置定位模式
-        locationClientOption.setCoorType(tempcoor);//返回的定位结果是百度经纬度，默认值gcj02
-        locationClientOption.setIsNeedAddress(true);
-        mLocationClient.setLocOption(locationClientOption);
-        mLocationClient.start();
-        locationService = new LocationService(getApplicationContext());
+
         SDKInitializer.initialize(getApplicationContext());
-//		mGeofenceClient = new GeofenceClient(this);
+
         super.onCreate();
 
         initImageLoader();
@@ -229,6 +212,7 @@ public class location extends MultiDexApplication {
         //网络图片例子,结合常用的图片缓存库UIL,你可以根据自己需求自己换其他网络图片库
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().
                 showImageForEmptyUri(R.drawable.default_error)
+                .showImageOnFail(R.drawable.default_error)
                 .cacheInMemory(true).cacheOnDisk(true).build();
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
@@ -240,43 +224,6 @@ public class location extends MultiDexApplication {
         ImageLoader.getInstance().init(config);
 
     }
-
-    /**
-     * 监听函数，有更新位置的时候，格式化成字符串，输出到屏幕中
-     */
-    public class MyLocationListenner implements BDLocationListener {
-        @Override
-        public void onReceiveLocation(BDLocation location) {
-            if (location == null)
-                return;
-            // System.out.println("sheng: " + location.getProvince());
-            // System.out.println("shi: " + location.getCity());
-            // System.out.println("xian: " + location.getDistrict());
-            mLocationClient.stop();
-            longitude = location.getLongitude();
-            latitude = location.getLatitude();
-
-            System.out.println("location.getLongitude()" + location.getLongitude() + "location.getLatitude()" + location.getLatitude());
-            System.out.println("location.getCity():" + location.getCity());
-            System.out.println("location.getDistrict():" + location.getDistrict());
-
-            mData = location.getCity();
-
-            EventBus.getDefault().post(new MyEventBus("Location",location));
-
-            if (str != null) {
-                mLocationClient.stop();// 定位成功后，关闭定位功能
-            }
-        }
-
-    }
-
-    public class NotifyLister extends BDNotifyListener {
-        public void onNotify(BDLocation mlocation, float distance) {
-            mVibrator01.vibrate(1000);
-        }
-    }
-
 
 
     /**

@@ -13,6 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.X.server.DataCache;
@@ -20,6 +21,7 @@ import com.X.tcbj.fragment.NearbyFragment;
 import com.X.tcbj.fragment.NewsFragment;
 import com.X.tcbj.fragment.UOrderFragment;
 import com.X.tcbj.utils.XPostion;
+import com.X.xnet.XNetUtil;
 import com.csrx.data.PreferencesUtils;
 import com.csrx.http.AbHttpUtil;
 import com.csrx.http.AbStringHttpResponseListener;
@@ -64,7 +66,8 @@ public class HomePageActivity extends FragmentActivity implements
 	private Intent intent;
 	
 	String activityStyle;
-	private RadioButton home, near, news, order, mine;
+	RadioGroup tabbar;
+	private RadioButton home, near, news, order, mine,last;
 	private FragmentTransaction transaction;
 	public HomeFragment homeFragment;
 	public NearbyFragment nearFragment;
@@ -72,6 +75,7 @@ public class HomePageActivity extends FragmentActivity implements
 	public UOrderFragment orderFragment;
 	public NewsFragment newsFragment;
 	private boolean isNet;
+	int lastID = R.id.rb_home;
 
 	ImageView imageview;
 	Handler handler = new Handler() {
@@ -156,12 +160,19 @@ public class HomePageActivity extends FragmentActivity implements
 
 	}
 
+
+
 	public void initComponents() {
+
+		tabbar = (RadioGroup) findViewById(R.id.home_tabbar);
+
 		home = (RadioButton) findViewById(R.id.rb_home);
 		near = (RadioButton) findViewById(R.id.rb_near);
 		mine = (RadioButton) findViewById(R.id.rb_mine);
 		news = (RadioButton) findViewById(R.id.rb_news);
 		order = (RadioButton) findViewById(R.id.rb_order);
+
+		last = home;
 
 		home.setOnCheckedChangeListener(this);
 		near.setOnCheckedChangeListener(this);
@@ -172,12 +183,15 @@ public class HomePageActivity extends FragmentActivity implements
 
 	}
 
+
+
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 		if (isChecked) {
 			transaction = getSupportFragmentManager().beginTransaction();
 			switch (buttonView.getId()) {
 			case R.id.rb_home:
-
+				last=home;
+				lastID = buttonView.getId();
 				if (homeFragment == null) {
 					homeFragment = new HomeFragment();
 					transaction.add(R.id.ll_content, homeFragment);
@@ -199,8 +213,14 @@ public class HomePageActivity extends FragmentActivity implements
 				}
 
 				transaction.show(homeFragment);
+
+				XNetUtil.APPPrintln("home is choosed !!!!!!!!!!!!!!");
+
 				break;
+
 			case R.id.rb_near:
+				last=near;
+				lastID = buttonView.getId();
 				if (nearFragment == null) {
 					nearFragment = new NearbyFragment();
 					transaction.add(R.id.ll_content, nearFragment);
@@ -225,7 +245,8 @@ public class HomePageActivity extends FragmentActivity implements
 				break;
 
 			case R.id.rb_news:
-
+				last=news;
+				lastID = buttonView.getId();
 				if (newsFragment == null) {
 					newsFragment = new NewsFragment();
 					transaction.add(R.id.ll_content, newsFragment);
@@ -250,6 +271,31 @@ public class HomePageActivity extends FragmentActivity implements
 				transaction.show(newsFragment);
 				break;
 			case R.id.rb_order:
+
+				lastID = buttonView.getId();
+
+				if(DataCache.getInstance().user == null)
+				{
+					Intent intent = new Intent(this,LoginActivity.class);
+					intent.putExtra("isPush",false);
+					startActivity(intent);
+					overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
+					return ;
+				}
+				else
+				{
+					if(DataCache.getInstance().user.getIs_effect() != 1)
+					{
+						Intent intent = new Intent(this,UserRenzhengVC.class);
+						intent.putExtra("isPush",false);
+						startActivity(intent);
+						overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
+						return ;
+					}
+				}
+
+				last = order;
+
 				if (orderFragment == null) {
 					orderFragment = new UOrderFragment();
 					transaction.add(R.id.ll_content, orderFragment);
@@ -273,6 +319,8 @@ public class HomePageActivity extends FragmentActivity implements
 				break;
 
 				case R.id.rb_mine:
+					last=mine;
+					lastID = buttonView.getId();
 					DataCache.getInstance().getUinfo();
 					if (mineFragment == null) {
 						mineFragment = new MineFragment();
@@ -300,49 +348,6 @@ public class HomePageActivity extends FragmentActivity implements
 			}
 			transaction.commit();
 		}
-	}
-
-	/**
-	 * 
-	 */
-	public void getHotSearch() {
-		// 获取Http工具类
-		AbHttpUtil mAbHttpUtil = AbHttpUtil.getInstance(HomePageActivity.this);
-		// 获取当前城市信息
-		int cityID = PreferencesUtils.getInt(HomePageActivity.this, "cityID");
-		// 城市列表的url地址
-		String urlString = Constant.url+"getAppBadWord?pageRecord=10&currentPage=1&areaID="
-				+ cityID;
-		mAbHttpUtil.get(urlString, new AbStringHttpResponseListener() {
-			// 获取数据成功会调用这里v
-			@Override
-			public void onSuccess(int statusCode, String content) {
-				try {
-					JSONObject object = new JSONObject(content);
-					String status = object.getString("status");
-					if (status.equals("1")) {
-						JSONArray json = object.getJSONArray("list");
-						for (int i = 0; i < json.length(); i++) {
-							JSONObject hot = json.getJSONObject(i);
-							CommonField.keywords.add(hot.getString("badWord"));
-							System.out.println(hot.getString("badWord"));
-						}
-					} else {
-						CommonField.keywords.clear();
-						CommonField.keywords.add("");
-						System.out.println("获取网络数据失败或者没有热词");
-					}
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			}
-
-			// 失败，调用
-			public void onFailure(int statusCode, String content,
-					Throwable error) {
-				System.out.println(error.getMessage());
-			}
-		});
 	}
 
 	/**
@@ -399,6 +404,11 @@ public class HomePageActivity extends FragmentActivity implements
 		super.onResume();
 		MobclickAgent.onResume(this); // 统计时长
         XPostion.getInstance().stop();
+		if(last.getId() != lastID)
+		{
+			last.setChecked(true);
+		}
+
 	}
 
 	public void onPause() {

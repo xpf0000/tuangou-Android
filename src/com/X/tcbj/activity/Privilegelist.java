@@ -54,11 +54,11 @@ public class Privilegelist extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_privilege);
-        mLocClient = ((location) getApplication()).mLocationClient;
+        //mLocClient = ((location) getApplication()).mLocationClient;
         mLocClient.start();
         mLocClient.requestLocation();
-        Map_Longitude = ((location) getApplication()).longitude;
-        Map_Latitude = ((location) getApplication()).latitude;
+        //Map_Longitude = ((location) getApplication()).longitude;
+        //Map_Latitude = ((location) getApplication()).latitude;
         areaid = PreferencesUtils.getInt(Privilegelist.this, "cityID");
         classurl = Constant.url + "industrylist?areaId=" + areaid;
         areaurl = Constant.url + "GetTown?areaId="

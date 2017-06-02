@@ -70,7 +70,7 @@ public class Privileinfo extends Activity {
         ImageLoader.init(ImageLoaderConfiguration.createDefault(this));
         animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
         options = ImageUtils.setnoOptions();
-        mLocClient = ((location) getApplication()).mLocationClient;
+        //mLocClient = ((location) getApplication()).mLocationClient;
 //		GetMyData.setLocationOption(mLocClient);
         mLocClient.start();
         mLocClient.requestLocation();
@@ -151,8 +151,8 @@ public class Privileinfo extends Activity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
                 if (arraylist.get(arg2).get("isvip").equals("2")) {
-                    longitude = ((location) getApplication()).longitude;
-                    latitude = ((location) getApplication()).latitude;
+                    //longitude = ((location) getApplication()).longitude;
+                    //latitude = ((location) getApplication()).latitude;
                     Constant.SHOP_ID = storid;
                     PreferencesUtils.putString(Privileinfo.this, "storeID", storid);
                     Intent intent = new Intent();
@@ -161,8 +161,8 @@ public class Privileinfo extends Activity {
                     intent.setClass(Privileinfo.this, shangjiavip.class);
                     Privileinfo.this.startActivity(intent);
                 } else if (arraylist.get(arg2).get("isauth").equals("2")) {
-                    longitude = ((location) getApplication()).longitude;
-                    latitude = ((location) getApplication()).latitude;
+                    //longitude = ((location) getApplication()).longitude;
+                    //latitude = ((location) getApplication()).latitude;
                     Constant.SHOP_ID = storid;
                     PreferencesUtils.putString(Privileinfo.this, "storeID", storid);
                     Intent intent = new Intent();
@@ -172,8 +172,8 @@ public class Privileinfo extends Activity {
                     Privileinfo.this.startActivity(intent);
                 }
                 else{
-                    longitude = ((location) getApplication()).longitude;
-                    latitude = ((location) getApplication()).latitude;
+                    //longitude = ((location) getApplication()).longitude;
+                    //latitude = ((location) getApplication()).latitude;
                     Constant.SHOP_ID = storid;
                     PreferencesUtils.putString(Privileinfo.this, "storeID", storid);
                     Intent intent = new Intent();

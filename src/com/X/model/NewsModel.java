@@ -12,6 +12,15 @@ public class NewsModel implements Serializable {
     private String title;
     private String content;
     private String create_time;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getId() {
         return id;

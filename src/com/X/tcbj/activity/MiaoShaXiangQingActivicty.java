@@ -200,12 +200,12 @@ public class MiaoShaXiangQingActivicty extends Activity implements View.OnClickL
     private void init() {
         mInflater = LayoutInflater.from(this);
         comelist = (MyListView) findViewById(R.id.comelist);
-        mLocClient = ((location) getApplication()).mLocationClient;
+        //mLocClient = ((location) getApplication()).mLocationClient;
 //		GetMyData.setLocationOption(mLocClient);
         mLocClient.start();
         mLocClient.requestLocation();
-        longitude = ((location) getApplication()).longitude;
-        latitude = ((location) getApplication()).latitude;
+        //longitude = ((location) getApplication()).longitude;
+        //latitude = ((location) getApplication()).latitude;
         fenxiang = (ImageView) findViewById(R.id.fenxiang);
         fenxiang.setOnClickListener(this);
         shoucang = (ImageView) findViewById(R.id.shoucang);

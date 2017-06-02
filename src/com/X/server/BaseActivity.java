@@ -16,12 +16,13 @@ import com.X.tcbj.activity.LoginActivity;
 import com.X.tcbj.activity.R;
 import com.X.tcbj.activity.UserRenzhengVC;
 import com.X.tcbj.utils.CountTime;
+import com.jph.takephoto.app.TakePhotoActivity;
 
 /**
  * Created by Administrator on 2017/5/24 0024.
  */
 
-public abstract class BaseActivity extends Activity{
+public abstract class BaseActivity extends TakePhotoActivity{
 
     protected Context mContext;
     private boolean isPush = true;
@@ -33,12 +34,7 @@ public abstract class BaseActivity extends Activity{
         setupUi();
         setupData();
         //新页面接收数据
-        Bundle bundle = this.getIntent().getExtras();
-
-        if (bundle != null && bundle.containsKey("isPush"))
-        {
-            isPush = bundle.getBoolean("isPush");
-        }
+        isPush = getIntent().getBooleanExtra("isPush",true);
 
     }
 

@@ -178,8 +178,8 @@ public class Shangpinliebiao extends Activity implements View.OnClickListener
                 jian.setVisibility(View.GONE);
             }
 
-            longitude = ((location) getApplication()).longitude;
-            latitude = ((location) getApplication()).latitude;
+            //longitude = ((location) getApplication()).longitude;
+            //latitude = ((location) getApplication()).latitude;
             String map=jsonObject1.getString("Map") ==null ? "" : jsonObject1.getString("Map");
             if(map.equals(""))
             {
@@ -250,7 +250,7 @@ public class Shangpinliebiao extends Activity implements View.OnClickListener
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shangpinliebiao);
-        mLocClient = ((location) getApplication()).mLocationClient;
+        //mLocClient = ((location) getApplication()).mLocationClient;
 //		GetMyData.setLocationOption(mLocClient);
         mLocClient.start();
         mLocClient.requestLocation();

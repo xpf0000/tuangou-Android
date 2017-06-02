@@ -95,7 +95,7 @@ public class BaiduMaps extends Activity implements OnGetRoutePlanResultListener,
         mSearch.setOnGetRoutePlanResultListener(this);
         LatLng latLng = new LatLng(Constant.SHOP_LATITUDE, Constant.SHOP_LONGITUDE);
         enNode = PlanNode.withLocation(latLng);
-        locService = ((location) getApplication()).locationService;
+        //locService = ((location) getApplication()).locationService;
         locService.setLocationOption(locService.getOption());
         locService.registerListener(bdLocationListener);
         locService.start();

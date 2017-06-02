@@ -864,8 +864,8 @@ public class ShopsListActivity extends Activity implements OnClickListener,
 			}
 			com.alibaba.fastjson.JSONArray ja = jo.getJSONArray("list");
 			totalComment = jo.getString("totalRecord");
-			longitude = ((location) getApplication()).longitude;
-			latitude = ((location) getApplication()).latitude;
+			//longitude = ((location) getApplication()).longitude;
+			//latitude = ((location) getApplication()).latitude;
 			for (int i = 0; i < ja.size(); i++) {
 				com.alibaba.fastjson.JSONObject jo2 = ja.getJSONObject(i);
 				if (ja.size() < 10) {

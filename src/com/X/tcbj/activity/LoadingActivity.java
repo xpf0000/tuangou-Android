@@ -44,9 +44,7 @@ import java.util.List;
 public class LoadingActivity extends Activity {
 
     private Context nowCxt;
-    LinearLayout ll;
     Intent toIntent;
-    private LocationClient mLocClient;
     private SharedPreferences spn;
     private boolean first, qidong, staqidong;
     public static final String PREFS_NAME = "prefs";
@@ -68,22 +66,11 @@ public class LoadingActivity extends Activity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        ll = (LinearLayout) this.findViewById(R.id.ll);
+
         isNet = AbAppUtil.isNetworkAvailable(LoadingActivity.this);// 网络连接状态
         PreferencesUtils.PREFERENCE_NAME = "csrx_config";
         nowCxt = LoadingActivity.this;
-        staqidong = PreferencesUtils.getBoolean(nowCxt, "staqidong");
-        if (staqidong) {
-            String name = PreferencesUtils.getString(nowCxt, "stapic");
-            Bitmap bitmap = BitmapFactory
-                    .decodeFile("/data/data/com.hkkj.csrx.activity/files/"
-                            + name);
-            Drawable drawable = new BitmapDrawable(bitmap);
 
-            ll.setBackgroundDrawable(drawable);
-            PreferencesUtils.putBoolean(nowCxt, "staqidong", false);
-
-        }
         try {
             vrtson = getLocalVersionCode(LoadingActivity.this);
             thisvrtson = PreferencesUtils.getInt(LoadingActivity.this,
@@ -95,10 +82,10 @@ public class LoadingActivity extends Activity {
         if (isNet) {
             getDateToLocal();
             // 进入应用先定位，然后判断当前显示的城市是否是定位到的城市
-            mLocClient = ((location) getApplication()).mLocationClient;
+            //mLocClient = ((location) getApplication()).mLocationClient;
 //			GetMyData.setLocationOption(mLocClient);
-            mLocClient.start();
-            mLocClient.requestLocation();
+            //mLocClient.start();
+            //mLocClient.requestLocation();
         }
 
         //开始获取广告图片

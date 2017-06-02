@@ -150,7 +150,26 @@ public class HandleJSMsg {
 
 
         }
+        else if(type == 11) //其他商家详情
+        {
+            Integer id=obj.getInteger("id");
+            Intent intent = new Intent();
+            intent.setClass(vc, XHtmlVC.class);
+            intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+id);
+            intent.putExtra("hideNavBar",true);
+            vc.startActivity(intent);
 
+        }
+        else if(type == 12) //跳转评论列表
+        {
+            Integer id=obj.getInteger("id");
+            Intent intent = new Intent();
+            intent.setClass(vc, XHtmlVC.class);
+            intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=dp_list&act=app_index&type=deal&data_id="+id);
+            intent.putExtra("title","点评列表");
+            vc.startActivity(intent);
+
+        }
 
 
 

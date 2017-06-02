@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="10dp"
     >
 
-<ImageView
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:src="@mipmap/news_cell_icon"
-
-    />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/notice_icon"
+        android:background="#059bf0"
+        android:padding="5dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,26 +23,25 @@
         >
 
         <TextView
-            android:id="@+id/news_cell_title"
+            android:id="@+id/notice_cell_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="韩军瞒报四辆“萨德”发射车秘密入境 中方回应fdsfsaasdfasdfasdsdfsdf"
             android:lines="1"
             android:ellipsize="end"
             android:textSize="18sp"
             />
 
         <TextView
-            android:id="@+id/news_cell_subtitle"
+            android:id="@+id/notice_cell_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="韩军瞒报四辆“萨德”发射车秘密入境 中方回应"
+            android:text=""
             android:lines="1"
             android:textColor="#999999"
             android:textSize="13sp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="6dp"
-            android:gravity="right"
+            android:paddingLeft="2dp"
             />
 
 

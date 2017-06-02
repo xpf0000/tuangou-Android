@@ -137,7 +137,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), LoginActivity.class);
+                intent.putExtra("isPush",false);
                 getActivity().startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
                 return;
             }
             else
@@ -146,7 +148,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 {
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), UserRenzhengVC.class);
+                    intent.putExtra("isPush",false);
                     getActivity().startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
                     return;
                 }
 

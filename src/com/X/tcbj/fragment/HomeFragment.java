@@ -21,10 +21,12 @@ import com.X.tcbj.activity.CityListsActivity;
 import com.X.tcbj.activity.HotSearch;
 import com.X.tcbj.activity.Mall;
 import com.X.tcbj.activity.MallInfo;
+import com.X.tcbj.activity.NoticeListVC;
 import com.X.tcbj.activity.QCScanVC;
 import com.X.tcbj.activity.R;
 import com.X.tcbj.activity.SearchActivity;
 import com.X.tcbj.activity.StoresListVC;
+import com.X.tcbj.activity.TuanListVC;
 import com.X.tcbj.activity.testnews;
 import com.X.tcbj.adapter.HomeAdapter;
 import com.X.tcbj.adapter.HomeClassAdapter;
@@ -128,18 +130,69 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 //getSmlHot();
             }
         });
+
         big_class.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (biglist.get(position).getLevel() == 1) {
-                    Intent intent = new Intent(getActivity(), Mall.class);
-                    intent.putExtra("id", biglist.get(position).getFirstLevel() + "");
-                    getActivity().startActivity(intent);
-                } else {
-                    Intent intent = new Intent(getActivity(), Mall.class);
-                    intent.putExtra("id", biglist.get(position).getSecondLevel() + "");
+
+
+                HomeModel.ZtHtmlBean bean =  homeModel.getZt_html().get(position);
+                Intent intent = new Intent();
+                if(bean.getCtl().equals("url"))
+                {
+                    intent.setClass(getActivity(),XHtmlVC.class);
+                    intent.putExtra("url",bean.getData().getUrl());
+                    intent.putExtra("title",bean.getName());
                     getActivity().startActivity(intent);
                 }
+                else if(bean.getCtl().equals("stores"))
+                {
+                    intent.setClass(getActivity(),StoresListVC.class);
+                    intent.putExtra("cate_id",bean.getData().getCate_id());
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("tuan"))
+                {
+                    intent.setClass(getActivity(),TuanListVC.class);
+                    intent.putExtra("cate_id",bean.getData().getCate_id());
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("notices"))
+                {
+                    intent.setClass(getActivity(),NoticeListVC.class);
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("notice"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
+                    intent.putExtra("title","详情");
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("deal"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                            "act=app_index&data_id="+data_id+
+                            "&city_id="+DataCache.getInstance().nowCity.getId());
+
+                    intent.putExtra("id",data_id);
+                    intent.putExtra("hideNavBar",true);
+
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("store"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
+                    intent.putExtra("hideNavBar",true);
+                    getActivity().startActivity(intent);
+                }
+
+
             }
         });
 
@@ -189,6 +242,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                HomeModel.IndexsBean bean =  homeModel.getIndexs().get(position);
+
                 Intent intent = new Intent();
                 if(bean.getCtl().equals("url"))
                 {
@@ -201,6 +255,46 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     intent.setClass(getActivity(),StoresListVC.class);
                     intent.putExtra("cate_id",bean.getData().getCate_id());
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("tuan"))
+                {
+                    intent.setClass(getActivity(),TuanListVC.class);
+                    intent.putExtra("cate_id",bean.getData().getCate_id());
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("notices"))
+                {
+                    intent.setClass(getActivity(),NoticeListVC.class);
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("notice"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
+                    intent.putExtra("title","详情");
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("deal"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                            "act=app_index&data_id="+data_id+
+                            "&city_id="+DataCache.getInstance().nowCity.getId());
+
+                    intent.putExtra("id",data_id);
+                    intent.putExtra("hideNavBar",true);
+
+                    getActivity().startActivity(intent);
+                }
+                else if(bean.getCtl().equals("store"))
+                {
+                    String data_id = bean.getData().getData_id();
+                    intent.setClass(getActivity(), XHtmlVC.class);
+                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
+                    intent.putExtra("hideNavBar",true);
                     getActivity().startActivity(intent);
                 }
 
@@ -218,6 +312,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
 
     private void to_scan()
     {

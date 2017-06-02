@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -177,25 +178,25 @@ public class NewsPageFragment extends XHorizontalBaseFragment {
 
         adapter = new NewsPageAdapter(getActivity());
 
-        adapter.setOnItemClick(new XRecyclerViewItemClick() {
-            @Override
-            public void ItemClickListener(View view, int postion) {
-                to_info(postion);
-            }
-        });
+//        adapter.setOnItemClick(new XRecyclerViewItemClick() {
+//            @Override
+//            public void ItemClickListener(View view, int postion) {
+//                to_info(postion);
+//            }
+//        });
 
         if(mainList != null)
         {
             mainList.setAdapter(adapter);
 
-//            mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                    to_info(position);
-//
-//                }
-//            });
+            mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    to_info(position);
+
+                }
+            });
         }
 
         getData();
@@ -211,12 +212,12 @@ public class NewsPageFragment extends XHorizontalBaseFragment {
     class NewsPageAdapter extends BaseAdapter {
         Context context;
 
-        XRecyclerViewItemClick itemClick;
-
-        public void setOnItemClick(XRecyclerViewItemClick a)
-        {
-            itemClick = a;
-        }
+//        XRecyclerViewItemClick itemClick;
+//
+//        public void setOnItemClick(XRecyclerViewItemClick a)
+//        {
+//            itemClick = a;
+//        }
 
         public NewsPageAdapter(Context context) {
             this.context = context;
@@ -261,16 +262,16 @@ public class NewsPageFragment extends XHorizontalBaseFragment {
             bundle.name.setText(item.getTitle());
             bundle.sub_name.setText(item.getCreate_time());
 
-            if(itemClick != null)
-            {
-                convertView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        itemClick.ItemClickListener(null,position);
-                    }
-                });
-            }
+//            if(itemClick != null)
+//            {
+//                convertView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        itemClick.ItemClickListener(null,position);
+//                    }
+//                });
+//            }
 
             return convertView;
         }

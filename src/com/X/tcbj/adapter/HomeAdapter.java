@@ -48,7 +48,7 @@ public class HomeAdapter extends BaseAdapter {
         ImageLoader.init(ImageLoaderConfiguration.createDefault(context));
         animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
 
-        XPostion.getInstance().OnUpdatePostion(new XPostion.XPostionListener() {
+        XPostion.getInstance().OnUpdatePostion(this,new XPostion.XPostionListener() {
             @Override
             public void OnUpdatePostion(BDLocation p) {
 
@@ -56,8 +56,6 @@ public class HomeAdapter extends BaseAdapter {
 
             }
         });
-
-        XNetUtil.APPPrintln("$$$$$$$$$$ : "+abscure_list.size());
 
     }
 

@@ -1,11 +1,11 @@
 package com.X.tcbj.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,8 +19,6 @@ import com.X.model.TuanNavModel;
 import com.X.model.TuanQuanModel;
 import com.X.server.BaseActivity;
 import com.X.server.DataCache;
-import com.X.tcbj.activity.HotSearch;
-import com.X.tcbj.activity.R;
 import com.X.tcbj.adapter.StoresAdapter;
 import com.X.tcbj.adapter.TuanAdapter;
 import com.X.tcbj.myview.TuanCatePop;
@@ -37,12 +35,12 @@ import java.util.List;
 import static com.X.server.location.APPService;
 
 /**
- * Created by Administrator on 2017/6/1 0001.
+ * Created by Administrator on 2017/6/2 0002.
  */
 
-public class StoresListVC extends BaseActivity {
-    
-    TextView allqu, allmall, allsort;
+public class TuanListVC extends BaseActivity {
+
+    TextView allqu, allmall, allsort,title;
     ListView prilist;
     SwipeRefreshLayout swipe_refresh;
 
@@ -59,9 +57,9 @@ public class StoresListVC extends BaseActivity {
     List<TuanCateModel> cateList = new ArrayList<>();
     List<TuanNavModel> navList = new ArrayList<>();
 
-    List<StoresModel> tuanList = new ArrayList<>();
+    List<TuanModel> tuanList = new ArrayList<>();
 
-    private StoresAdapter adapter;
+    private TuanAdapter adapter;
 
 
     private TuanQuanModel.QuanSubBean nowQuan = new TuanQuanModel.QuanSubBean();
@@ -76,7 +74,6 @@ public class StoresListVC extends BaseActivity {
 
         String id = getIntent().getStringExtra("cate_id");
         if(id != null) cate_id = id;
-        cate_id = cate_id.equals("") ? "0" : cate_id;
 
         nowCate.setCate_id(Integer.parseInt(cate_id));
         nowCate.setId(0);
@@ -97,10 +94,10 @@ public class StoresListVC extends BaseActivity {
 
     public void to_seach(View v)
     {
-        pushVC(StoresSearchVC.class);
+        pushVC(HotSearch.class);
     }
-    
-     private void intview()
+
+    private void intview()
     {
         myQuanPop = new TuanQuanPop();
         myCatePop = new TuanCatePop();
@@ -110,6 +107,9 @@ public class StoresListVC extends BaseActivity {
 
         layout = (LinearLayout)findViewById(R.id.layout);
         layout.setVisibility(View.VISIBLE);
+
+        title = (TextView) findViewById(R.id.title);
+        title.setText("团购列表");
 
         allqu = (TextView) findViewById(R.id.allqu);
         allqu.setOnClickListener(new View.OnClickListener() {
@@ -209,11 +209,17 @@ public class StoresListVC extends BaseActivity {
 
     private void to_info(int p)
     {
-        Intent intent = new Intent();
-        intent.setClass(this, XHtmlVC.class);
-        intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(p).getId());
-        intent.putExtra("hideNavBar",true);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                "act=app_index&data_id="+tuanList.get(p).getId()+
+                "&city_id="+DataCache.getInstance().nowCity.getId());
+        bundle.putString("id",tuanList.get(p).getId());
+        bundle.putSerializable("tuanModel",tuanList.get(p));
+        bundle.putBoolean("hideNavBar",true);
+
+        pushVC(XHtmlVC.class,bundle);
+
     }
 
 
@@ -284,18 +290,18 @@ public class StoresListVC extends BaseActivity {
             y = XPostion.getInstance().getPostion().getLatitude();
         }
 
-        XNetUtil.Handle(APPService.stores_list(page+"", city_id,nowCate.getCate_id()+"",nowCate.getId()+"",nowQuan.getId()+"",nowOrder.getCode(), x, y), new XNetUtil.OnHttpResult<StoresListModel>() {
+        XNetUtil.Handle(APPService.tuan_index(page+"", city_id,nowCate.getCate_id()+"",nowCate.getId()+"",nowQuan.getId()+"",nowOrder.getCode(), x, y), new XNetUtil.OnHttpResult<NearbyModel>() {
             @Override
             public void onError(Throwable e) {
                 swipe_refresh.setRefreshing(false);
             }
 
             @Override
-            public void onSuccess(StoresListModel model) {
+            public void onSuccess(NearbyModel model) {
                 swipe_refresh.setRefreshing(false);
                 if(model != null)
                 {
-                    List<StoresModel> list = model.getItem();
+                    List<TuanModel> list = model.getItem();
 
                     if(page == 1)
                     {
@@ -326,7 +332,7 @@ public class StoresListVC extends BaseActivity {
 
     private void setPrilist()
     {
-        adapter=new StoresAdapter(tuanList,this);
+        adapter=new TuanAdapter(tuanList,this);
         prilist.setAdapter(adapter);
 
     }
