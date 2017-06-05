@@ -158,6 +158,9 @@ public class HomePageActivity extends FragmentActivity implements
 
 		}
 
+
+		PreferencesUtils.putBoolean(this, "firststart", false);
+
 	}
 
 

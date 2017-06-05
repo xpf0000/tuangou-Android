@@ -10,12 +10,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.csrx.data.PreferencesUtils;
 import com.X.tcbj.utils.ImageUtils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.csrx.data.PreferencesUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 /**
  * Created by cwb on 16/11/10.
@@ -29,8 +27,6 @@ public class loadingguanggao extends Activity {
     RelativeLayout layout;
     ImageLoader imageLoader;
     ImageUtils imageUtils;
-    DisplayImageOptions options;
-    ImageLoadingListener animateFirstListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +55,7 @@ public class loadingguanggao extends Activity {
         imageUtils = new ImageUtils();
         imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-        animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
-        options = imageUtils.setnoOptions();
-        imageLoader.displayImage(PreferencesUtils.getString(loadingguanggao.this, "lastpicture"), guanggao, options, animateFirstListener);
+        imageLoader.displayImage(PreferencesUtils.getString(loadingguanggao.this, "lastpicture"), guanggao);
 
         textView = (TextView) findViewById(R.id.loadingtimer);
         textView.setOnClickListener(new View.OnClickListener() {

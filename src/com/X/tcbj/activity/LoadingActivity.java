@@ -89,9 +89,9 @@ public class LoadingActivity extends Activity {
         }
 
         //开始获取广告图片
-        Display display = getWindowManager().getDefaultDisplay();
-        url = Constant.url + "pic/GetStartUpPic/" + display.getWidth() + "/" + display.getHeight() + "/1";
-        jiexi();
+//        Display display = getWindowManager().getDefaultDisplay();
+//        url = Constant.url + "pic/GetStartUpPic/" + display.getWidth() + "/" + display.getHeight() + "/1";
+//        jiexi();
         turnTo(3000L);
     }
 
@@ -119,34 +119,20 @@ public class LoadingActivity extends Activity {
                 SharedPreferences.Editor editor = spn.edit();
                 toIntent = new Intent(LoadingActivity.this, GuideActivity.class);
                 if (first) {
-                    PreferencesUtils.putInt(nowCxt, "logn", 0);
-                    PreferencesUtils.putInt(nowCxt, "photo", 1);
-                    PreferencesUtils.putString(nowCxt, "privilekey", "全部区域");
-                    PreferencesUtils.putString(nowCxt, "privilekeys", "默认排序");
-                    nowCxt.startActivity(toIntent);
-                    PreferencesUtils.putBoolean(nowCxt, "firststart", true);
+
+                    Intent intent = new Intent(LoadingActivity.this,
+                            CityListsActivity.class);
+                    startActivity(intent);
                     ((Activity) nowCxt).finish();
-                } else if (thisvrtson < vrtson) {
-                    nowCxt.startActivity(toIntent);
-                    PreferencesUtils.putInt(nowCxt, "thisvrtson", thisvrtson);
-                    PreferencesUtils.putString(nowCxt, "shopcar", null);
+
+                }
+                else {
+
+                    PreferencesUtils.putBoolean(LoadingActivity.this, "qidong", false);
+                    Intent intent = new Intent(LoadingActivity.this, HomePageActivity.class);
+                    startActivity(intent);
                     ((Activity) nowCxt).finish();
-                } else if (qidong) {
-                    // 跳转到欢迎页面
-                    System.out.println("==========");
-                    nowCxt.startActivity(toIntent);
-                    ((Activity) nowCxt).finish();
-                } else {
-                    String temp = PreferencesUtils.getString(LoadingActivity.this, "lastpicture") == null ? "" : PreferencesUtils.getString(LoadingActivity.this, "lastpicture");
-//                    String temp1 = PreferencesUtils.getString(LoadingActivity.this, "firstpicture") == null ? "" : PreferencesUtils.getString(LoadingActivity.this, "firstpicture");
-                    if (temp.trim().length() == 0 || xia == 0) {
-                        toIntent = new Intent(LoadingActivity.this, HomePageActivity.class);
-                    } else {
-                        toIntent = new Intent(LoadingActivity.this, loadingguanggao.class);
-                    }
-                    PreferencesUtils.putBoolean(nowCxt, "firststart", false);
-                    nowCxt.startActivity(toIntent);
-                    ((Activity) nowCxt).finish();
+
                 }
             }
 

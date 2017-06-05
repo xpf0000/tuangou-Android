@@ -301,21 +301,19 @@
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/app_config_btn"
-        android:text="退出登录"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="28dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
         android:background="@drawable/xcornersbg"
-        android:textSize="16sp"
         android:onClick="doLogout"
-        />
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
 </LinearLayout>
 

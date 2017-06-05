@@ -189,13 +189,6 @@ public class location extends MultiDexApplication {
 
         DataCache.getInstance().init();
 
-        File diskCache = StorageUtils.getOwnCacheDirectory(this.getApplicationContext(),
-                "CityHot/Cache");
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(
-                this.getApplicationContext()).memoryCacheExtraOptions(400, 800)
-                .discCache(new UnlimitedDiskCache(diskCache)).build();
-        ImageLoader.getInstance().init(configuration);
-
         SDKInitializer.initialize(getApplicationContext());
 
         super.onCreate();

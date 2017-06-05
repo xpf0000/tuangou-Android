@@ -1363,13 +1363,13 @@ public class MiaoShaXiangQingActivicty extends Activity implements View.OnClickL
         // or you can create default configuration by
         // ImageLoaderConfiguration.createDefault(this);
         // method.
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory().discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO).writeDebugLogs() // Remove
-                // for
-                // release
-                // app
-                .build();
-        // Initialize ImageLoader with configuration.
-        ImageLoader.getInstance().init(config);
+//        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory().discCacheFileNameGenerator(new Md5FileNameGenerator()).tasksProcessingOrder(QueueProcessingType.LIFO).writeDebugLogs() // Remove
+//                // for
+//                // release
+//                // app
+//                .build();
+//        // Initialize ImageLoader with configuration.
+//        ImageLoader.getInstance().init(config);
     }
 
     private void getEsPrcie(int num) {

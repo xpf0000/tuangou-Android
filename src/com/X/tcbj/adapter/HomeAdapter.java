@@ -35,9 +35,8 @@ public class HomeAdapter extends BaseAdapter {
     List<HomeModel.DealListBean> abscure_list;
     Context context;
     com.nostra13.universalimageloader.core.ImageLoader ImageLoader;
-    DisplayImageOptions options;
     ImageUtils ImageUtils ;
-    ImageLoadingListener animateFirstListener;
+
 
     public HomeAdapter(List<HomeModel.DealListBean> abscure_list,
                        Context context) {
@@ -46,7 +45,6 @@ public class HomeAdapter extends BaseAdapter {
         ImageUtils = new ImageUtils();
         ImageLoader = ImageLoader.getInstance();
         ImageLoader.init(ImageLoaderConfiguration.createDefault(context));
-        animateFirstListener = new ImageUtils.AnimateFirstDisplayListener();
 
         XPostion.getInstance().OnUpdatePostion(this,new XPostion.XPostionListener() {
             @Override
@@ -116,23 +114,19 @@ public class HomeAdapter extends BaseAdapter {
            e.printStackTrace();
        }
 
-        options=ImageUtils.setnoOptions();
         int a= PreferencesUtils.getInt(context, "photo");
         if (a==1){
-            ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                    animateFirstListener);
+            ImageLoader.displayImage(url, getItemView.lehuiimg);
         }else {
            String urls=  ImageLoader.getDiscCache().get(url).getPath();
            boolean bloo= ImageUtils.fileIsExists(urls);
            if (bloo){
-               ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                       animateFirstListener);
+               ImageLoader.displayImage(url, getItemView.lehuiimg);
            }else {
                getItemView.lehuiimg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ImageLoader.displayImage(url, getItemView.lehuiimg, options,
-                            animateFirstListener);
+                    ImageLoader.displayImage(url, getItemView.lehuiimg);
                     getItemView.lehuiimg.setClickable(false);
                 }
             });

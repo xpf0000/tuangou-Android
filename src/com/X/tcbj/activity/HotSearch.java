@@ -1,64 +1,38 @@
 package com.X.tcbj.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-import android.widget.Toast;
 
-import com.X.model.HomeModel;
 import com.X.model.NearbyModel;
 import com.X.model.TuanModel;
 import com.X.server.DataCache;
-import com.X.tcbj.adapter.HomeAdapter;
 import com.X.tcbj.adapter.SearchLishiAdapter;
 import com.X.tcbj.adapter.TuanAdapter;
-import com.X.tcbj.myview.KeywordsFlow;
-import com.X.tcbj.utils.CommonField;
-import com.X.tcbj.utils.Constant;
-import com.X.tcbj.utils.ImageUtils;
 import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
-import com.baidu.location.BDLocation;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.utils.DistanceUtil;
-import com.csrx.data.PreferencesUtils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.X.server.location.APPService;
 

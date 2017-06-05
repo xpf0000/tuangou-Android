@@ -7,13 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.X.tcbj.activity.R;
-import com.X.tcbj.utils.ImageUtils;
 import com.X.model.HomeModel;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.X.tcbj.activity.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
 import java.util.List;

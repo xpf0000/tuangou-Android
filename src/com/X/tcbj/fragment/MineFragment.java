@@ -6,48 +6,26 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.activity.APPConfig;
+import com.X.tcbj.activity.LoginActivity;
+import com.X.tcbj.activity.MyCollect;
+import com.X.tcbj.activity.MyCollectActivity;
+import com.X.tcbj.activity.Myinfo;
+import com.X.tcbj.activity.R;
 import com.X.tcbj.activity.UserFenhongVC;
 import com.X.tcbj.activity.UserRenzhengVC;
 import com.X.tcbj.activity.UserUnitsVC;
-import com.X.tcbj.test.Data;
 import com.X.tcbj.utils.XHtmlVC;
-import com.baidu.location.BDLocation;
-import com.csrx.data.PreferencesUtils;
-import com.X.tcbj.activity.LoginActivity;
-import com.X.tcbj.activity.MallInfo;
-import com.X.tcbj.activity.MyAddressActivity;
-import com.X.tcbj.activity.MyCollect;
-import com.X.tcbj.activity.MyCollectActivity;
-import com.X.tcbj.activity.MyOrderActivity;
-import com.X.tcbj.activity.MyTryOutActivity;
-import com.X.tcbj.activity.Myinfo;
-import com.X.tcbj.activity.R;
-import com.X.tcbj.activity.Zhanghaoguanl;
-import com.X.tcbj.adapter.HomeAdapter;
-import com.X.tcbj.myview.HeaderGridView;
-import com.X.tcbj.utils.CircleImageView;
-import com.X.tcbj.utils.Constant;
-import com.X.tcbj.utils.ImageUtils;
 import com.makeramen.roundedimageview.RoundedImageView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * 我的空间
