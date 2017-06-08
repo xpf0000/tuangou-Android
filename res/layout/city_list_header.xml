@@ -13,7 +13,7 @@
         android:paddingLeft="@dimen/small_10"
         android:paddingTop="@dimen/small_10"
         android:text="A"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="#787878" />
 
 </LinearLayout>

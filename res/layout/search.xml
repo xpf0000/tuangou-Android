@@ -21,6 +21,13 @@
             android:gravity="center_vertical"
             >
 
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@mipmap/search_gray"
+                android:layout_marginLeft="5dp"
+                />
+
             <EditText
                 android:id="@+id/shopSearch"
                 android:layout_width="fill_parent"
@@ -28,9 +35,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/secrch_bg"
                 android:completionThreshold="1"
-                android:drawableLeft="@drawable/search_icon"
                 android:hint="请输入搜索关键词"
-                android:paddingLeft="10dp"
+                android:paddingLeft="8dp"
                 android:lines="1"
                 android:inputType="text"
                 android:textSize="15.0dip"

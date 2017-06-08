@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
@@ -32,7 +33,7 @@ import static com.X.server.location.APPService;
  * @author zpp
  * @version1.0
  */
-public class Myinfo extends TakePhotoActivity {
+public class Myinfo extends BaseActivity {
 
     TextView telTV,nameTV,idsTV;
     ImageView headIV;
@@ -42,9 +43,7 @@ public class Myinfo extends TakePhotoActivity {
     private int position = -1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
+    protected void setupUi() {
         setContentView(R.layout.myinfo);
 
         telTV = (TextView) findViewById(R.id.myinfo_tel);
@@ -83,9 +82,12 @@ public class Myinfo extends TakePhotoActivity {
         });
 
         initUI();
-
     }
 
+    @Override
+    protected void setupData() {
+
+    }
 
 
     public void initUI()
@@ -110,6 +112,8 @@ public class Myinfo extends TakePhotoActivity {
             XActivityindicator.showToast("请先选择头像");
             return;
         }
+
+        XActivityindicator.create().show();
 
         Map<String , RequestBody> params = new HashMap<>();
         params.put("uid", XAPPUtil.createBody(DataCache.getInstance().user.getId()+""));

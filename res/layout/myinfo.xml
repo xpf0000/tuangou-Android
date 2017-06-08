@@ -26,12 +26,14 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/info_back"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/jt" />
+            android:src="@drawable/jt"
+            android:clickable="true"
+            android:onClick="back"
+            />
 
          <Button
             android:text="保存"

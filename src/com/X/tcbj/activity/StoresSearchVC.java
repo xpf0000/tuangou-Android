@@ -2,6 +2,7 @@ package com.X.tcbj.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
@@ -26,6 +27,7 @@ import com.X.server.DataCache;
 import com.X.tcbj.adapter.SearchLishiAdapter;
 import com.X.tcbj.adapter.StoresAdapter;
 import com.X.tcbj.adapter.TuanAdapter;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
@@ -168,6 +170,19 @@ public class StoresSearchVC extends Activity implements View.OnClickListener {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
+
+        mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent();
+                intent.setClass(StoresSearchVC.this, XHtmlVC.class);
+                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(position).getId());
+                intent.putExtra("hideNavBar",true);
+                startActivity(intent);
 
             }
         });

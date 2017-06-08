@@ -15,7 +15,7 @@
         android:paddingTop="@dimen/normal_10"
         android:text="hhhh"
         android:textColor="@color/black_gray"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <ImageView
         android:layout_width="match_parent"

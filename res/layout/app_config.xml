@@ -220,53 +220,53 @@
 
     </LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="60dp"
-                  android:background="@color/white"
-                  android:gravity="center"
-                  android:clickable="true"
-                  android:onClick="toFeed"
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                  <!--android:orientation="horizontal"-->
+                  <!--android:layout_width="match_parent"-->
+                  <!--android:layout_height="60dp"-->
+                  <!--android:background="@color/white"-->
+                  <!--android:gravity="center"-->
+                  <!--android:clickable="true"-->
+                  <!--android:onClick="toFeed"-->
 
-        >
+        <!--&gt;-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="意见反馈"
-            android:gravity="center_vertical|left"
-            android:textColor="#333333"
-            android:layout_marginLeft="12dp"
-            android:textSize="17sp"
-            />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="意见反馈"-->
+            <!--android:gravity="center_vertical|left"-->
+            <!--android:textColor="#333333"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:textSize="17sp"-->
+            <!--/>-->
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@mipmap/arrow02"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="4dp"
-            />
+        <!--<ImageView-->
+            <!--android:layout_width="24dp"-->
+            <!--android:layout_height="24dp"-->
+            <!--android:src="@mipmap/arrow02"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="4dp"-->
+            <!--/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#ffffff"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="#ffffff"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--&gt;-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#eeeeee"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#eeeeee"/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="horizontal"

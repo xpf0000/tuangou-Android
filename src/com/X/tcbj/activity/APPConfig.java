@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.utils.FileSizeUtil;
@@ -25,19 +26,23 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * Created by X on 16/9/2.
  */
-public class APPConfig extends Activity {
+public class APPConfig extends BaseActivity {
 
     private TextView status;
     private TextView cacheSize;
     private Button btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void setupUi() {
         setContentView(R.layout.app_config);
         status = (TextView)findViewById(R.id.app_config_status);
         cacheSize = (TextView)findViewById(R.id.app_config_size);
         btn = (Button)findViewById(R.id.app_config_btn);
+    }
+
+    @Override
+    protected void setupData() {
+
     }
 
 
@@ -128,6 +133,10 @@ public class APPConfig extends Activity {
             });
 
             alert.show();
+        }
+        else
+        {
+            presentVC(LoginActivity.class);
         }
 
     }

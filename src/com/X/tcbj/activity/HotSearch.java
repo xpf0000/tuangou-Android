@@ -2,6 +2,7 @@ package com.X.tcbj.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import com.X.model.TuanModel;
 import com.X.server.DataCache;
 import com.X.tcbj.adapter.SearchLishiAdapter;
 import com.X.tcbj.adapter.TuanAdapter;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.tcbj.utils.XPostion;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
@@ -173,6 +175,26 @@ public class HotSearch extends Activity implements OnClickListener {
 
 			}
 		});
+
+		mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+				String did = tuanList.get(position).getId();
+				Intent intent = new Intent();
+				intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+						"act=app_index&data_id="+did+
+						"&city_id="+DataCache.getInstance().nowCity.getId());
+				intent.putExtra("id",did+"");
+				intent.putExtra("hideNavBar",true);
+
+				intent.setClass(HotSearch.this, XHtmlVC.class);
+
+				startActivity(intent);
+
+			}
+		});
+
 
 		lishiList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
