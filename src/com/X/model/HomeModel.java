@@ -241,8 +241,8 @@ public class HomeModel implements Serializable {
         private String sub_name;
         private String brief;
         private String buy_count;
-        private int current_price;
-        private int origin_price;
+        private double current_price;
+        private double origin_price;
         private String icon;
         private String icon_v1;
         private String end_time_format;
@@ -326,19 +326,19 @@ public class HomeModel implements Serializable {
             this.buy_count = buy_count;
         }
 
-        public int getCurrent_price() {
+        public double getCurrent_price() {
             return current_price;
         }
 
-        public void setCurrent_price(int current_price) {
+        public void setCurrent_price(double current_price) {
             this.current_price = current_price;
         }
 
-        public int getOrigin_price() {
+        public double getOrigin_price() {
             return origin_price;
         }
 
-        public void setOrigin_price(int origin_price) {
+        public void setOrigin_price(double origin_price) {
             this.origin_price = origin_price;
         }
 
