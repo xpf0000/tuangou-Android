@@ -151,7 +151,7 @@ public class UserRenzhengVC extends BaseActivity {
             }
             else if(renzhenginfo.getStatus().equals("2"))
             {
-                statusTV.setText("审核未通过，请修改后重新提交审核");
+                statusTV.setText("审核未通过，请修改后重新提交审核\r\n原因: "+renzhenginfo.getCause());
                 statusTV.setVisibility(View.VISIBLE);
             }
 

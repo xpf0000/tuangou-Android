@@ -23,6 +23,15 @@ public class RenzhengModel {
     private String id_url;
     private String id_url_back;
     private String status;
+    private String cause;
+
+    public String getCause() {
+        return cause;
+    }
+
+    public void setCause(String cause) {
+        this.cause = cause;
+    }
 
     public String getId_url_back() {
         return id_url_back;
