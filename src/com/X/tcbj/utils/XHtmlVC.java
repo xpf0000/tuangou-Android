@@ -117,6 +117,9 @@ public class XHtmlVC extends BaseActivity {
                 super.onReceivedHttpError(view, request, errorResponse);
                 XNetUtil.APPPrintln("request000: "+request.getUrl());
                 XNetUtil.APPPrintln("errorResponse000: "+errorResponse.toString());
+
+                web.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
@@ -124,6 +127,9 @@ public class XHtmlVC extends BaseActivity {
                 super.onReceivedError(view, request, error);
                 XNetUtil.APPPrintln("request111: "+request.getUrl());
                 XNetUtil.APPPrintln("errorResponse111: "+error.toString());
+
+                web.setVisibility(View.INVISIBLE);
+
             }
         });
 
