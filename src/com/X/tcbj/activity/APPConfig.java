@@ -13,6 +13,7 @@ import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.utils.FileSizeUtil;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XNetUtil;
 import com.bigkoo.alertview.AlertView;
@@ -21,6 +22,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.robin.lazy.cache.CacheLoaderManager;
 
 import org.greenrobot.eventbus.EventBus;
+
+import static com.X.server.location.APPService;
 
 
 /**
@@ -99,6 +102,19 @@ public class APPConfig extends BaseActivity {
 
     }
 
+    public void to_updatePass(View v){
+
+        String url = "http://www.tcbjpt.com/wap/index.php?ctl=user&act=app_getpassword&mobile="+DataCache.getInstance().user.getUser_name();
+
+        Intent intent = new Intent();
+        intent.setClass(this, XHtmlVC.class);
+        intent.putExtra("url",url);
+        startActivity(intent);
+
+    }
+
+
+
     public void to_about(View v){
 
         Intent intent = new Intent();
@@ -124,6 +140,19 @@ public class APPConfig extends BaseActivity {
                         //APPDataCache.User.reSet();
                         DataCache.getInstance().user = null;
                         CacheLoaderManager.getInstance().delete("User");
+
+                        XNetUtil.Handle(APPService.do_logout(), null, null, new XNetUtil.OnHttpResult<Boolean>() {
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onSuccess(Boolean aBoolean) {
+
+                            }
+                        });
+
                         EventBus.getDefault().post(new MyEventBus("UserAccountChange"));
 
                         refreshUI();

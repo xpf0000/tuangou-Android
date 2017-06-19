@@ -2,16 +2,13 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-//    compile 'fr.baloomba:viewpagerindicator:2.4.2'
+    //    compile 'fr.baloomba:viewpagerindicator:2.4.2'
     compile files('libs/universal-image-loader-1.9.4.jar')
-
     compile 'com.android.support:design:24.2.0'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:cardview-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
-
     compile 'com.android.support:multidex:1.0.1'
-
     compile project(':library')
     compile project(':photolibrary')
     compile files('libs/android-async-http-1.4.5.jar')
@@ -24,44 +21,30 @@ dependencies {
     compile files('libs/ShareSDK-Core-2.7.0.jar')
     compile files('libs/ShareSDK-QQ-2.7.0.jar')
     compile files('libs/ShareSDK-QZone-2.7.0.jar')
-    compile files('libs/ShareSDK-ShortMessage-2.7.0.jar')
-    compile files('libs/ShareSDK-SinaWeibo-2.7.0.jar')
     compile files('libs/ShareSDK-Wechat-2.7.0.jar')
     compile files('libs/ShareSDK-Wechat-Core-2.7.0.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-2.7.0.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.7.0.jar')
-    compile files('libs/ShareSDK-Yixin-2.7.0.jar')
-    compile files('libs/ShareSDK-Yixin-Core-2.7.0.jar')
-    compile files('libs/ShareSDK-Yixin-Moments-2.7.0.jar')
-
     compile project(':multi-image-selector')
     compile project(':convenientbanner')
     compile files('libs/BaiduLBS_Android.jar')
-
     compile 'info.hoang8f:android-segmented:1.0.6'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.1.2'
     compile 'com.makeramen:roundedimageview:2.2.1'
     compile project(':flowlayout-lib')
-
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'io.reactivex:rxandroid:1.2.1'
-
     compile 'com.bigkoo:alertview:1.0.3'
     compile 'com.bigkoo:svprogresshud:1.0.6'
-
-
     compile 'com.github.xpf0000:X-Cache-Android:1.0.3'
-
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jph.takephoto:takephoto_library:4.0.3'
-
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-
     compile 'me.dm7.barcodescanner:zxing:1.9.3'
 }
 

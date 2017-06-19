@@ -172,37 +172,36 @@
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="60dp"
-                  android:background="@color/white"
-                  android:gravity="center"
-
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:clickable="true"
+        android:onClick="to_updatePass"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="检测更新"
+            android:text="修改密码"
             android:gravity="center_vertical|left"
             android:textColor="#333333"
             android:layout_marginLeft="12dp"
             android:textSize="17sp"
             />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="已是最新版本"
-            android:gravity="center_vertical|left"
-            android:textColor="#999999"
-            android:layout_marginRight="20dp"
-            android:textSize="16sp"
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/arrow02"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="4dp"
             />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -306,17 +306,25 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
+
             <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <data android:scheme="tencent1106233806" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+
         </activity>
+
         <activity
             android:name="com.X.tcbj.activity.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenLayout"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
         <activity
             android:name="com.X.tcbj.activity.HotSearch"
             android:configChanges="orientation|keyboardHidden|navigation"

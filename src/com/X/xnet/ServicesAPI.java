@@ -37,7 +37,10 @@ import rx.Observable;
 
 public interface ServicesAPI {
 
- String APPUrl = "http://tg01.sssvip.net/mapi/";
+ String APPUrl = "http://www.tcbjpt.com/mapi/";
+
+   @GET("?ctl=user&act=loginout&r_type=1&isapp=true")
+   Observable<HttpResult<Object>> do_logout();
 
     @GET("?ctl=city&act=app_index&r_type=1&isapp=true")
     Observable<HttpResult<CityModel>> city_app_index();

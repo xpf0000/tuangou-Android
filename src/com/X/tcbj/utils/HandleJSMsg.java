@@ -25,6 +25,8 @@ public class HandleJSMsg {
 
     public static void handle(JSONObject obj, final Activity vc)
     {
+        XNetUtil.APPPrintln(obj.toJSONString());
+
         Integer type=obj.getInteger("type");
         String msg=obj.getString("msg");
 
@@ -42,7 +44,12 @@ public class HandleJSMsg {
         {
             if(vc instanceof XHtmlVC)
             {
-                ((XHtmlVC)vc).doShare();
+
+                String icon = obj.getString("icon");
+                String name = obj.getString("name");
+
+                ((XHtmlVC)vc).doShare(icon,name);
+
             }
         }
         else if(type == 3) //收藏
@@ -155,7 +162,7 @@ public class HandleJSMsg {
             Integer id=obj.getInteger("id");
             Intent intent = new Intent();
             intent.setClass(vc, XHtmlVC.class);
-            intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+id);
+            intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=store&act=app_index&data_id="+id);
             intent.putExtra("hideNavBar",true);
             vc.startActivity(intent);
 
@@ -165,7 +172,7 @@ public class HandleJSMsg {
             Integer id=obj.getInteger("id");
             Intent intent = new Intent();
             intent.setClass(vc, XHtmlVC.class);
-            intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=dp_list&act=app_index&type=deal&data_id="+id);
+            intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=dp_list&act=app_index&type=deal&data_id="+id);
             intent.putExtra("title","点评列表");
             vc.startActivity(intent);
 

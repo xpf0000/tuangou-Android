@@ -159,7 +159,7 @@ public class OrderAllFragment  extends XHorizontalBaseFragment {
         }
 
 
-        String url = "http://tg01.sssvip.net/wap/index.php?ctl=uc_order&act=app_order_info&id="+
+        String url = "http://www.tcbjpt.com/wap/index.php?ctl=uc_order&act=app_order_info&id="+
                 id+"&uid="+uid+"&xpoint="+x+"&ypoint="+y;
 
         Intent intent = new Intent();

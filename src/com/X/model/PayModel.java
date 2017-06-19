@@ -11,21 +11,11 @@ import java.util.List;
 
 public class PayModel implements Serializable {
 
-    /**
-     * order_id : 139
-     * order_sn : 2017052510542188
-     * pay_status : 0
-     * payment_code : {"pay_info":"20170515第一号团购","payment_name":"支付宝","pay_money":17776,"class_name":"Malipay","config":{"subject":"2017052510542188","body":"20170515第一号团购","total_fee":17776,"total_fee_format":"¥17776","out_trade_no":"2017052510542157","notify_url":"http://tg01.sssvip.net/callback/payment/aliapp_notify.php","payment_type":1,"service":"mobile.securitypay.pay","_input_charset":"utf-8","partner":"sdfadsf","seller_id":"asdfasdf","order_spec":"partner=\"sdfadsf\"&seller_id=\"asdfasdf\"&out_trade_no=\"2017052510542157\"&subject=\"2017052510542188\"&body=\"20170515第一号团购\"&total_fee=\"17776\"¬ify_url=\"http://tg01.sssvip.net/callback/payment/aliapp_notify.php\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"","sign":"","sign_type":"RSA"}}
-     */
 
     private int order_id;
     private String order_sn;
     private int pay_status;
     private PaymentCodeBean payment_code;
-    /**
-     * pay_info : 订单已经收款
-     * couponlist : [{"password":"37353365","qrcode":"http://tg01.sssvip.net/public/images/qrcode/cd/738cf7112782b1069315db0c705403b3.png"}]
-     */
 
     private String pay_info;
     private List<CouponModel> couponlist;
@@ -80,13 +70,7 @@ public class PayModel implements Serializable {
     }
 
     public static class PaymentCodeBean implements Serializable{
-        /**
-         * pay_info : 20170515第一号团购
-         * payment_name : 支付宝
-         * pay_money : 17776
-         * class_name : Malipay
-         * config : {"subject":"2017052510542188","body":"20170515第一号团购","total_fee":17776,"total_fee_format":"¥17776","out_trade_no":"2017052510542157","notify_url":"http://tg01.sssvip.net/callback/payment/aliapp_notify.php","payment_type":1,"service":"mobile.securitypay.pay","_input_charset":"utf-8","partner":"sdfadsf","seller_id":"asdfasdf","order_spec":"partner=\"sdfadsf\"&seller_id=\"asdfasdf\"&out_trade_no=\"2017052510542157\"&subject=\"2017052510542188\"&body=\"20170515第一号团购\"&total_fee=\"17776\"¬ify_url=\"http://tg01.sssvip.net/callback/payment/aliapp_notify.php\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"","sign":"","sign_type":"RSA"}
-         */
+
 
         private String pay_info;
         private String payment_name;
@@ -153,18 +137,7 @@ public class PayModel implements Serializable {
             private String order_spec;
             private String sign;
             private String sign_type;
-            /**
-             * appid : 23132132
-             * noncestr : nqq5v6cstwx4p0zh715hl08arhv0ob2a
-             * package : prepay_id=
-             * partnerid : 2313132
-             * prepayid : null
-             * timestamp : 1495652150
-             * ios : {"appid":"23132132","noncestr":"nqq5v6cstwx4p0zh715hl08arhv0ob2a","package":"Sign=Wxpay","partnerid":"2313132","prepayid":null,"timestamp":1495652150,"sign":"70410bc65935d519eb84d176e0caad4b"}
-             * packagevalue : prepay_id=
-             * key : 12312312312
-             * secret : 31231231
-             */
+
 
             private String appid;
             private String noncestr;
@@ -373,15 +346,7 @@ public class PayModel implements Serializable {
             }
 
             public static class IosBean implements Serializable {
-                /**
-                 * appid : 23132132
-                 * noncestr : nqq5v6cstwx4p0zh715hl08arhv0ob2a
-                 * package : Sign=Wxpay
-                 * partnerid : 2313132
-                 * prepayid : null
-                 * timestamp : 1495652150
-                 * sign : 70410bc65935d519eb84d176e0caad4b
-                 */
+
 
                 private String appid;
                 private String noncestr;

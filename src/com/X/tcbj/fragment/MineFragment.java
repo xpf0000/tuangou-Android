@@ -80,7 +80,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             String url = DataCache.getInstance().user.getAvatar();
             if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0)
             {
-                url = "http://tg01.sssvip.net/"+DataCache.getInstance().user.getAvatar();
+                url = "http://www.tcbjpt.com/"+DataCache.getInstance().user.getAvatar();
             }
 
             ImageLoader.getInstance().displayImage(url,head);
@@ -142,8 +142,14 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout1:
-                intent.setClass(getActivity(), UserUnitsVC.class);
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=user&act=xf_danyuan&isapp=true");
+                intent.putExtra("title","消费单元");
                 getActivity().startActivity(intent);
+
+//                intent.setClass(getActivity(), UserUnitsVC.class);
+//                getActivity().startActivity(intent);
                 break;
             case R.id.mine_layout2:
                 intent.setClass(getActivity(), UserFenhongVC.class);
@@ -161,7 +167,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
 
                 String uname = DataCache.getInstance().user.getUser_name();
-                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=user_center&act=app_qrcode&code="+uname);
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=user_center&act=app_qrcode&code="+uname);
                 intent.putExtra("title","我的邀请码");
 
                 intent.setClass(getActivity(), XHtmlVC.class);
@@ -171,8 +177,11 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.mine_layout6:
-//                intent.setClass(getActivity(), Zhanghaoguanl.class);
-//                getActivity().startActivity(intent);
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=yaoqing&act=app_index");
+                getActivity().startActivity(intent);
+
                 break;
             case R.id.mine_layout7:
                 intent.setClass(getActivity(), APPConfig.class);

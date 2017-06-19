@@ -102,7 +102,7 @@ public class NoticeListVC extends BaseActivity {
     {
         String data_id = tuanList.get(p).getId();
         Bundle bundle = new Bundle();
-        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
+        bundle.putString("url","http://www.tcbjpt.com/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
         bundle.putString("title","详情");
         pushVC(XHtmlVC.class,bundle);
     }

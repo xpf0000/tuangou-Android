@@ -9,13 +9,6 @@ import java.util.List;
 public class UserCollectModel
 {
 
-
-    /**
-     * goods_list : [{"id":"105","cid":"22","icon":"http://tg01.sssvip.net/public/attachment/201705/15/10/f439fc5d9304dea5e275ad9ba96a89b330_280x170.jpg","sub_name":"20170515第一号团购","origin_price":9999,"current_price":8888,"buy_count":"45","brief":"20170515第一号团购"}]
-     * page : {"page":1,"page_total":1,"page_size":10,"data_total":"1"}
-     * page_title : 同城百家 - 商品团购收藏
-     */
-
     private PageModel page;
     private String page_title;
     private List<GoodsListBean> goods_list;
@@ -45,16 +38,6 @@ public class UserCollectModel
     }
 
     public static class GoodsListBean {
-        /**
-         * id : 105
-         * cid : 22
-         * icon : http://tg01.sssvip.net/public/attachment/201705/15/10/f439fc5d9304dea5e275ad9ba96a89b330_280x170.jpg
-         * sub_name : 20170515第一号团购
-         * origin_price : 9999
-         * current_price : 8888
-         * buy_count : 45
-         * brief : 20170515第一号团购
-         */
 
         private String id;
         private String cid;

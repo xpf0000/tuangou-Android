@@ -9,21 +9,6 @@ import java.io.Serializable;
 public class StoresModel implements Serializable {
 
 
-    /**
-     * id : 57
-     * is_verify : 0
-     * avg_point : 5.0000
-     * address : 洛阳市西工区西工区王城大道滨河路交叉口西300米路南河洛戏院
-     * name : 洛浦水岸海鲜大咖烧烤啤酒花园
-     * distance : 917.14385803888
-     * xpoint : 112.438285
-     * ypoint : 34.654188
-     * tel : 0379-60853337/13938899382
-     * dealcate_name : null
-     * area_name : null
-     * preview : http://tg01.sssvip.net/public/attachment/201705/13/15/4c174d36c09517aca7fa7f0354ea448782_400x300.jpg
-     */
-
     private String id;
     private String is_verify;
     private String avg_point;

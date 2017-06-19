@@ -211,7 +211,7 @@ public class TuanListVC extends BaseActivity {
     {
         Bundle bundle = new Bundle();
 
-        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+        bundle.putString("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                 "act=app_index&data_id="+tuanList.get(p).getId()+
                 "&city_id="+DataCache.getInstance().nowCity.getId());
         bundle.putString("id",tuanList.get(p).getId());

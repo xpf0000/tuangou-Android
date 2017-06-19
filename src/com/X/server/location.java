@@ -42,6 +42,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.sharesdk.framework.ShareSDK;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -196,6 +197,8 @@ public class location extends MultiDexApplication {
         initImageLoader();
 
         XPostion.getInstance().start();
+
+        ShareSDK.initSDK(this);
     }
 
 

@@ -9,21 +9,6 @@ import java.util.List;
 
 public class HomeModel implements Serializable {
 
-
-    /**
-     * return : 1
-     * city_id : 23
-     * city_name : 洛阳
-     * advs : []
-     * indexs : [{"id":"72","name":"餐饮美食","img":"http://tg01.sssvip.net/public/attachment/sjmapi/546c651d83c20.png","icon_name":"","color":"","data":{"cate_id":"8"},"ctl":"tuan","type":"11"},{"id":"74","name":"亲子母婴","img":"http://tg01.sssvip.net/public/attachment/sjmapi/54475407206cd.png","icon_name":"","color":"","data":{"cate_id":"29"},"ctl":"goods","type":"12"},{"id":"76","name":"商家","img":"http://tg01.sssvip.net/public/attachment/sjmapi/546c65928f3fd.png","icon_name":"","color":"","data":{"cate_id":""},"ctl":"stores","type":"16"},{"id":"78","name":"优惠券","img":"http://tg01.sssvip.net/public/attachment/sjmapi/546c651d83c20.png","icon_name":"","color":"","data":{"cate_id":""},"ctl":"youhuis","type":"15"},{"id":"80","name":"活动","img":"http://tg01.sssvip.net/public/attachment/sjmapi/546c644653000.png","icon_name":"","color":"","data":{"cate_id":""},"ctl":"events","type":"14"},{"id":"82","name":"积分商城","img":"http://tg01.sssvip.net/public/attachment/sjmapi/544753bc5bd98.png","icon_name":"","color":"","data":{"cate_id":""},"ctl":"scores","type":"13"},{"id":"84","name":"公告","img":"http://tg01.sssvip.net/public/attachment/sjmapi/5461d5d7a6e54.png","icon_name":"","color":"","data":{"":null},"ctl":"notices","type":"17"},{"id":"86","name":"扫一扫","img":"http://tg01.sssvip.net/public/attachment/sjmapi/544753eebe38c.png","icon_name":"","color":"","data":{"":null},"ctl":"scan","type":"31"}]
-     * supplier_list : []
-     * deal_list : [{"id":"104","distance":0,"ypoint":34.654188,"xpoint":112.438285,"name":"仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。","sub_name":"【西工区】洛浦水岸海鲜大咖烧烤啤酒花园","brief":"仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。","buy_count":"0","current_price":398,"origin_price":531,"icon":"http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_184x164.jpg","icon_v1":"http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_360x330.jpg","end_time_format":"2017-07-31 15:42:00","begin_time_format":"2017-05-01 15:42:00","begin_time":"1493595720","end_time":"1501458120","auto_order":"1","is_lottery":"0","is_refund":"1","deal_score":0,"buyin_app":0,"allow_promote":0,"location_id":0,"location_name":null,"location_address":null,"location_avg_point":null,"area_name":null,"is_today":0},{"id":"102","distance":0,"ypoint":0,"xpoint":0,"name":"xg0001 团购 2017-05-11 18：38","sub_name":"xg0001 团购 2017-05-11 18：38","brief":"xg0001 团购 2017-05-11 18：38","buy_count":"2","current_price":400,"origin_price":599,"icon":"http://tg01.sssvip.net/public/attachment/201705/11/18/4db359ae6eebdce9fc56f142c48679f910_184x164.jpg","icon_v1":"http://tg01.sssvip.net/public/attachment/201705/11/18/4db359ae6eebdce9fc56f142c48679f910_360x330.jpg","end_time_format":"2017-05-31 00:00:00","begin_time_format":"2017-05-01 18:39:00","begin_time":"1493606340","end_time":"1496131200","auto_order":"0","is_lottery":"0","is_refund":"1","deal_score":0,"buyin_app":0,"allow_promote":0,"location_id":0,"location_name":null,"location_address":null,"location_avg_point":null,"area_name":null,"is_today":0}]
-     * supplier_deal_list : []
-     * event_list : []
-     * youhui_list : []
-     * zt_html : [{"id":"28","name":"app专题位1p1","img":"./public/attachment/201507/04/10/5597453b30d51.png","mobile_type":"0","type":"11","position":"2","data":{"cate_id":""},"sort":"17","status":"1","city_id":"0","ctl":"tuan","zt_id":"21","zt_position":"index_zt1_p1","url":"javascript:App.app_detail(11,0)"},{"id":"29","name":"app专题位1p2","img":"./public/attachment/201507/04/10/559745893dfe8.png","mobile_type":"0","type":"0","position":"2","data":{"url":"http://www.fanwe.com"},"sort":"18","status":"1","city_id":"0","ctl":"url","zt_id":"21","zt_position":"index_zt1_p2","url":"http://www.fanwe.com"},{"id":"29","name":"app专题位1p2","img":"./public/attachment/201507/04/10/559745893dfe8.png","mobile_type":"0","type":"0","position":"2","data":{"url":"http://www.fanwe.com"},"sort":"18","status":"1","city_id":"0","ctl":"url","zt_id":"21","zt_position":"index_zt1_p2","url":"http://www.fanwe.com"}]
-     * page_title : 同城百家 - 首页
-     */
     private String city_id;
     private String city_name;
     private String page_title;
@@ -80,16 +65,7 @@ public class HomeModel implements Serializable {
     }
 
     public static class IndexsBean {
-        /**
-         * id : 72
-         * name : 餐饮美食
-         * img : http://tg01.sssvip.net/public/attachment/sjmapi/546c651d83c20.png
-         * icon_name :
-         * color :
-         * data : {"cate_id":"8"}
-         * ctl : tuan
-         * type : 11
-         */
+
 
         private String id;
         private String name;
@@ -202,36 +178,7 @@ public class HomeModel implements Serializable {
     }
 
     public static class DealListBean {
-        /**
-         * id : 104
-         * distance : 0
-         * ypoint : 34.654188
-         * xpoint : 112.438285
-         * name : 仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。
-         * sub_name : 【西工区】洛浦水岸海鲜大咖烧烤啤酒花园
-         * brief : 仅售398元！价值531元的精品海鲜大咖套餐，建议6-8人使用，提供免费WiFi，提供免费停车位。
-         * buy_count : 0
-         * current_price : 398
-         * origin_price : 531
-         * icon : http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_184x164.jpg
-         * icon_v1 : http://tg01.sssvip.net/public/attachment/201705/13/15/4acfad8b97745cb644dc101a5395bade11_360x330.jpg
-         * end_time_format : 2017-07-31 15:42:00
-         * begin_time_format : 2017-05-01 15:42:00
-         * begin_time : 1493595720
-         * end_time : 1501458120
-         * auto_order : 1
-         * is_lottery : 0
-         * is_refund : 1
-         * deal_score : 0
-         * buyin_app : 0
-         * allow_promote : 0
-         * location_id : 0
-         * location_name : null
-         * location_address : null
-         * location_avg_point : null
-         * area_name : null
-         * is_today : 0
-         */
+
 
         private String id;
         private double distance;
@@ -488,22 +435,7 @@ public class HomeModel implements Serializable {
     }
 
     public static class ZtHtmlBean {
-        /**
-         * id : 28
-         * name : app专题位1p1
-         * img : ./public/attachment/201507/04/10/5597453b30d51.png
-         * mobile_type : 0
-         * type : 11
-         * position : 2
-         * data : {"cate_id":""}
-         * sort : 17
-         * status : 1
-         * city_id : 0
-         * ctl : tuan
-         * zt_id : 21
-         * zt_position : index_zt1_p1
-         * url : javascript:App.app_detail(11,0)
-         */
+
 
         private String id;
         private String name;

@@ -111,7 +111,7 @@ public class NewsPageFragment extends XHorizontalBaseFragment {
     {
         String id = list.get(p).getId();
 
-        String url = "http://tg01.sssvip.net/wap/index.php?ctl=news&act=app_newinfo&id="+id;
+        String url = "http://www.tcbjpt.com/wap/index.php?ctl=news&act=app_newinfo&id="+id;
 
         Intent intent = new Intent();
         intent.setClass(getActivity(), XHtmlVC.class);

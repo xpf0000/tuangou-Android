@@ -211,7 +211,7 @@ public class StoresListVC extends BaseActivity {
     {
         Intent intent = new Intent();
         intent.setClass(this, XHtmlVC.class);
-        intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(p).getId());
+        intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(p).getId());
         intent.putExtra("hideNavBar",true);
         startActivity(intent);
     }

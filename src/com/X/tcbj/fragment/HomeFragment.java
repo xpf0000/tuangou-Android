@@ -166,7 +166,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
                     intent.putExtra("title","详情");
                     getActivity().startActivity(intent);
                 }
@@ -174,7 +174,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                             "act=app_index&data_id="+data_id+
                             "&city_id="+DataCache.getInstance().nowCity.getId());
 
@@ -187,7 +187,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
                     intent.putExtra("hideNavBar",true);
                     getActivity().startActivity(intent);
                 }
@@ -224,7 +224,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                 String did = homeModel.getDeal_list().get(position).getId();
                 Intent intent = new Intent();
-                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                         "act=app_index&data_id="+did+
                         "&city_id="+DataCache.getInstance().nowCity.getId());
                 intent.putExtra("id",did+"");
@@ -272,7 +272,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=notice&act=app_index&data_id="+data_id);
                     intent.putExtra("title","详情");
                     getActivity().startActivity(intent);
                 }
@@ -280,7 +280,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                             "act=app_index&data_id="+data_id+
                             "&city_id="+DataCache.getInstance().nowCity.getId());
 
@@ -293,7 +293,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 {
                     String data_id = bean.getData().getData_id();
                     intent.setClass(getActivity(), XHtmlVC.class);
-                    intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
+                    intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=store&act=app_index&data_id="+data_id);
                     intent.putExtra("hideNavBar",true);
                     getActivity().startActivity(intent);
                 }

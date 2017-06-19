@@ -182,7 +182,7 @@ public class HotSearch extends Activity implements OnClickListener {
 
 				String did = tuanList.get(position).getId();
 				Intent intent = new Intent();
-				intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+				intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
 						"act=app_index&data_id="+did+
 						"&city_id="+DataCache.getInstance().nowCity.getId());
 				intent.putExtra("id",did+"");

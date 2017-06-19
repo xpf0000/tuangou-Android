@@ -6,16 +6,6 @@ package com.X.model;
 
 public class RenzhengModel {
 
-
-    /**
-     * id : 2
-     * user_id : 95
-     * real_name : 8566
-     * id_number : 11111
-     * id_url : http://tg01.sssvip.net/public/avatar/000/00/00/95virtual_avatar_big.jpg
-     * status : 0
-     */
-
     private String id;
     private String user_id;
     private String real_name;

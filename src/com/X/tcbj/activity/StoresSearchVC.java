@@ -180,7 +180,7 @@ public class StoresSearchVC extends Activity implements View.OnClickListener {
 
                 Intent intent = new Intent();
                 intent.setClass(StoresSearchVC.this, XHtmlVC.class);
-                intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(position).getId());
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=store&act=app_index&data_id="+tuanList.get(position).getId());
                 intent.putExtra("hideNavBar",true);
                 startActivity(intent);
 

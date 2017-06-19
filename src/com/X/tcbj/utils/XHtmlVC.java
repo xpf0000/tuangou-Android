@@ -2,6 +2,9 @@ package com.X.tcbj.utils;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +25,7 @@ import com.X.model.TuanModel;
 import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
+import com.X.tcbj.activity.Info_info;
 import com.X.tcbj.activity.OrderSubmitVC;
 import com.X.tcbj.activity.R;
 import com.X.xnet.HttpResult;
@@ -30,9 +34,12 @@ import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.csrx.data.PreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import static com.X.server.location.APPService;
 
@@ -225,15 +232,30 @@ public class XHtmlVC extends BaseActivity {
 
     }
 
-    public void doShare()
+    public void doShare(String icon,String name)
     {
+
+        OnekeyShare oks = new OnekeyShare();
+        oks.disableSSOWhenAuthorize();// 分享前要先授权
+        oks.setImageUrl(icon);
+
+        oks.setTitle(name + "  " + "同城百家");
+        oks.setTitleUrl(url);//商家地址分享
+        oks.setText(name + "\r\n点击查看更多" + url);
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite("同城百家");
+        oks.setUrl(url);
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("www.tcbjpt.com/");
+
+        oks.show(XHtmlVC.this);
 
     }
 
     public void toPicInfo()
     {
         Bundle bundle = new Bundle();
-        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=deal_detail&act=app_index&data_id="+id);
+        bundle.putString("url","http://www.tcbjpt.com/wap/index.php?ctl=deal_detail&act=app_index&data_id="+id);
         bundle.putString("title","图文详情");
 
         pushVC(XHtmlVC.class,bundle);
@@ -242,7 +264,7 @@ public class XHtmlVC extends BaseActivity {
     public void toOtherTuangou(int id)
     {
         Bundle bundle = new Bundle();
-        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+        bundle.putString("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                 "act=app_index&data_id="+id+
                 "&city_id="+DataCache.getInstance().nowCity.getId());
         bundle.putString("id",id+"");
@@ -266,7 +288,7 @@ public class XHtmlVC extends BaseActivity {
     public void to_refund(int id)
     {
         Bundle bundle = new Bundle();
-        bundle.putString("url","http://tg01.sssvip.net/wap/index.php?ctl=uc_order&" +
+        bundle.putString("url","http://www.tcbjpt.com/wap/index.php?ctl=uc_order&" +
                 "act=app_refund&id="+id+
                 "&uid="+DataCache.getInstance().user.getId());
         bundle.putString("id",id+"");

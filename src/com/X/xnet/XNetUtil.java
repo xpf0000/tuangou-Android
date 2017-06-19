@@ -198,9 +198,12 @@ public class XNetUtil {
 
         @Override
         public T call(HttpResult<T> httpResult) {
-            if (httpResult.getStatus() != 1) {
 
-                XActivityindicator.create(location.context).showErrorWithStatus("数据加载失败!");
+            if (httpResult.getStatus() != 1) {
+                String msg = httpResult.getInfo();
+                msg = msg == null ? "" : msg;
+                msg = msg.equals("数据加载失败!") ? "" : msg;
+                XActivityindicator.create(location.context).showErrorWithStatus(msg);
             }
 
             return httpResult.getData();

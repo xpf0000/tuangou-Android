@@ -22,6 +22,7 @@ import com.X.model.UserModel;
 import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
+import com.X.tcbj.utils.XHtmlVC;
 import com.X.xnet.XAPPUtil;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
@@ -118,6 +119,18 @@ public class LoginActivity extends BaseActivity {
         intent.setClass(LoginActivity.this,RegistActivity.class);
 
         startActivity(intent);
+    }
+
+    public void to_findpass(View v)
+    {
+
+        String url = "http://www.tcbjpt.com/wap/index.php?ctl=user&act=app_getpassword&mobile=";
+
+        Intent intent = new Intent();
+        intent.setClass(this, XHtmlVC.class);
+        intent.putExtra("url",url);
+        startActivity(intent);
+
     }
 
 }

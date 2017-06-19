@@ -155,8 +155,8 @@ public class UserRenzhengVC extends BaseActivity {
                 statusTV.setVisibility(View.VISIBLE);
             }
 
-            ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url(),idsIV);
-            ImageLoader.getInstance().displayImage("http://tg01.sssvip.net/"+renzhenginfo.getId_url_back(),idsbackIV);
+            ImageLoader.getInstance().displayImage("http://www.tcbjpt.com/"+renzhenginfo.getId_url(),idsIV);
+            ImageLoader.getInstance().displayImage("http://www.tcbjpt.com/"+renzhenginfo.getId_url_back(),idsbackIV);
         }
     }
 

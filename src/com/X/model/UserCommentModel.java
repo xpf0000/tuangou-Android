@@ -28,17 +28,6 @@ public class UserCommentModel {
     }
 
     public static class ItemBean {
-        /**
-         * type : deal
-         * data_id : 100
-         * content : asdfasdfjaks很不错 推荐前往
-         * create_time : 2017-05-10
-         * reply_time :
-         * reply_content :
-         * name : xpf003一号商家1号团购
-         * point : 5
-         * oimages : ["http://tg01.sssvip.net/public/comment/201705/10/20/7c42bb018d7707cd1ff680c715979fab98.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/860c81391362263755c17da90fdb09e714.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/06c931371d068b08a4990a1c74e3571e53.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/23ff431f9987bf6c3e8bb71e52b8505857.jpg","http://tg01.sssvip.net/public/comment/201705/10/20/702a6f18b8b98fb47116a2d880ffbcc352.jpg"]
-         */
 
         private String type;
         private String data_id;

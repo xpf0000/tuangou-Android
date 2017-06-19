@@ -99,7 +99,7 @@ public class Myinfo extends BaseActivity {
         String url = DataCache.getInstance().user.getAvatar();
         if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0)
         {
-            url = "http://tg01.sssvip.net/"+DataCache.getInstance().user.getAvatar();
+            url = "http://www.tcbjpt.com/"+DataCache.getInstance().user.getAvatar();
         }
 
         ImageLoader.getInstance().displayImage(url,headIV);

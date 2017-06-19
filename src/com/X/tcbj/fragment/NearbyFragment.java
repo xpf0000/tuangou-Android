@@ -283,7 +283,7 @@ public class NearbyFragment extends Fragment
     {
         Intent intent = new Intent();
         intent.setClass(getActivity(), XHtmlVC.class);
-        intent.putExtra("url","http://tg01.sssvip.net/wap/index.php?ctl=deal&" +
+        intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=deal&" +
                 "act=app_index&data_id="+tuanList.get(p).getId()+
                 "&city_id="+DataCache.getInstance().nowCity.getId());
         intent.putExtra("id",tuanList.get(p).getId());
