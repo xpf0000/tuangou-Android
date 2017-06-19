@@ -129,6 +129,7 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent();
         intent.setClass(this, XHtmlVC.class);
         intent.putExtra("url",url);
+        intent.putExtra("title","找回密码");
         startActivity(intent);
 
     }

@@ -104,6 +104,11 @@ public class APPConfig extends BaseActivity {
 
     public void to_updatePass(View v){
 
+        if(!checkIsLogin())
+        {
+            return;
+        }
+
         String url = "http://www.tcbjpt.com/wap/index.php?ctl=user&act=app_getpassword&mobile="+DataCache.getInstance().user.getUser_name();
 
         Intent intent = new Intent();
