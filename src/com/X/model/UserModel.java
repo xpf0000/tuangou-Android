@@ -35,6 +35,16 @@ public class UserModel implements Serializable{
 
     private String id_number;
 
+    private String sess_id;
+
+    public String getSess_id() {
+        return sess_id;
+    }
+
+    public void setSess_id(String sess_id) {
+        this.sess_id = sess_id;
+    }
+
     public String getId_number() {
         return id_number;
     }

@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -42,6 +44,7 @@ import org.greenrobot.eventbus.Subscribe;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import static com.X.server.location.APPService;
+import static com.X.server.location.context;
 
 /**
  * Created by X on 2016/11/27.
@@ -73,6 +76,12 @@ public class XHtmlVC extends BaseActivity {
         mWebSettings.setDatabaseEnabled(false);
         mWebSettings.setGeolocationEnabled(false);
         mWebSettings.setAppCacheEnabled(false);
+
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.removeSessionCookie();//移除
+
 
         web.setWebViewClient(new WebViewClient(){
 
@@ -171,6 +180,12 @@ public class XHtmlVC extends BaseActivity {
 
         url = getIntent().getStringExtra("url");
         id = getIntent().getStringExtra("id");
+
+        if(DataCache.getInstance().user != null)
+        {
+            cookieManager.setCookie(url,"PHPSESSID="+DataCache.getInstance().user.getSess_id());
+            CookieSyncManager.getInstance().sync();
+        }
 
         web.loadUrl(url);
 
