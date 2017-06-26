@@ -79,16 +79,18 @@ public class DataCache {
 
                 if(userModel != null)
                 {
-
                     String sess_id = user.getSess_id();
                     user = userModel;
                     user.setSess_id(sess_id);
-
                     XAPPUtil.saveAPPCache("User",userModel);
-
-                    EventBus.getDefault().post(new MyEventBus("UserAccountChange"));
-
                 }
+                else
+                {
+                    DataCache.getInstance().user = null;
+                    CacheLoaderManager.getInstance().delete("User");
+                }
+
+                EventBus.getDefault().post(new MyEventBus("UserAccountChange"));
             }
         });
 

@@ -37,8 +37,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import me.nereo.multi_image_selector.MultiImageSelectorActivity;
-
 /**
  * Created by Administrator on 2016/8/3.
  */
@@ -94,25 +92,25 @@ String className,address;
             switch (msg.what)
             {
                 case 1:
-                    int num;
-                    if (mSelectPath.size() == 1 || mSelectPath.get(0) == null) {
-                        num = 6;
-                    } else {
-                        num = 5;
-                    }
-                    int selectedMode = MultiImageSelectorActivity.MODE_MULTI;
-                    Intent intent = new Intent(vipxpinglun.this, MultiImageSelectorActivity.class);
-                    // 是否显示拍摄图片
-                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, true);
-                    // 最大可选择图片数量
-                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, num);
-                    // 选择模式
-                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, selectedMode);
-                    // 默认选择
-                    if (mSelectPath != null && mSelectPath.size() > 0) {
-                        intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
-                    }
-                    startActivityForResult(intent,REQUEST_IMAGE);
+//                    int num;
+//                    if (mSelectPath.size() == 1 || mSelectPath.get(0) == null) {
+//                        num = 6;
+//                    } else {
+//                        num = 5;
+//                    }
+//                    int selectedMode = MultiImageSelectorActivity.MODE_MULTI;
+//                    Intent intent = new Intent(vipxpinglun.this, MultiImageSelectorActivity.class);
+//                    // 是否显示拍摄图片
+//                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, true);
+//                    // 最大可选择图片数量
+//                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, num);
+//                    // 选择模式
+//                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, selectedMode);
+//                    // 默认选择
+//                    if (mSelectPath != null && mSelectPath.size() > 0) {
+//                        intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
+//                    }
+//                    startActivityForResult(intent,REQUEST_IMAGE);
                     break;
                 case 2:
                     Toast.makeText(vipxpinglun.this, "网络似乎出问题了", Toast.LENGTH_SHORT).show();
@@ -136,12 +134,12 @@ String className,address;
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE) {
             if (resultCode == OrderComment.RESULT_OK) {
-                mSelectPath = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
-                if (mSelectPath.size() == 6) {
-                    mSelectPath.remove(0);
-                } else if (mSelectPath.size() == 0) {
-                    mSelectPath.add(null);
-                }
+//                mSelectPath = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
+//                if (mSelectPath.size() == 6) {
+//                    mSelectPath.remove(0);
+//                } else if (mSelectPath.size() == 0) {
+//                    mSelectPath.add(null);
+//                }
                 adapter = new AddImgAdapter(mSelectPath,vipxpinglun.this, handler);
                 photos.setAdapter(adapter);
             }

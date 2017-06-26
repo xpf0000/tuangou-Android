@@ -1,1 +1,1 @@
-include ':library', ':photolibrary', ':multi-image-selector', ':convenientbanner', ':flowlayout-lib'
+include ':library', ':photolibrary', ':convenientbanner', ':flowlayout-lib'

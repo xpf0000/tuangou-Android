@@ -271,7 +271,7 @@ public class OrderPayVC extends BaseActivity {
                 }
             });
 
-            hud.showSuccessWithStatus("self?.");
+            hud.showSuccessWithStatus("支付成功");
         }
         else if(status == 1)
         {

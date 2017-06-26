@@ -114,24 +114,7 @@ public class HomeAdapter extends BaseAdapter {
            e.printStackTrace();
        }
 
-        int a= PreferencesUtils.getInt(context, "photo");
-        if (a==1){
-            ImageLoader.displayImage(url, getItemView.lehuiimg);
-        }else {
-           String urls=  ImageLoader.getDiscCache().get(url).getPath();
-           boolean bloo= ImageUtils.fileIsExists(urls);
-           if (bloo){
-               ImageLoader.displayImage(url, getItemView.lehuiimg);
-           }else {
-               getItemView.lehuiimg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageLoader.displayImage(url, getItemView.lehuiimg);
-                    getItemView.lehuiimg.setClickable(false);
-                }
-            });
-           }
-        }
+        ImageLoader.displayImage(url, getItemView.lehuiimg);
 
         double la =  abscure_list.get(position).getYpoint();
         double lo =  abscure_list.get(position).getXpoint();
