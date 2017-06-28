@@ -7,36 +7,28 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
-import android.widget.TextView;
 
-import com.X.tcbj.utils.XPostion;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.BDNotifyListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.SDKInitializer;
 import com.X.tcbj.activity.Bbs.MyHandler;
 import com.X.tcbj.activity.R;
+import com.X.tcbj.activity.wxapi.WXPayEntryActivity;
 import com.X.tcbj.fragment.HomeFragment.HomeHandler;
+import com.X.tcbj.utils.XPostion;
 import com.X.xnet.ServicesAPI;
 import com.X.xnet.XNetUtil;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
+import com.baidu.mapapi.SDKInitializer;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.robin.lazy.cache.CacheLoaderConfiguration;
 import com.robin.lazy.cache.CacheLoaderManager;
 import com.robin.lazy.cache.disk.naming.HashCodeFileNameGenerator;
 import com.robin.lazy.cache.memory.MemoryCache;
 import com.robin.lazy.cache.util.MemoryCacheUtils;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-import org.greenrobot.eventbus.EventBus;
-
-import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -109,7 +101,13 @@ public class location extends MultiDexApplication {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                context = activity;
+
+                if(!(activity instanceof WXPayEntryActivity))
+                {
+                    context = activity;
+                }
+
+
             }
 
             @Override
@@ -119,9 +117,13 @@ public class location extends MultiDexApplication {
 
             @Override
             public void onActivityResumed(Activity activity) {
-                context = activity;
-                WeakReference<Activity> item = new WeakReference<Activity>(activity);
-                vcArrs.add(item);
+
+                if(!(activity instanceof WXPayEntryActivity))
+                {
+                    context = activity;
+                    WeakReference<Activity> item = new WeakReference<Activity>(activity);
+                    vcArrs.add(item);
+                }
 
                 if (!isActive)
                 {
@@ -199,6 +201,7 @@ public class location extends MultiDexApplication {
         XPostion.getInstance().start();
 
         ShareSDK.initSDK(this);
+
     }
 
 

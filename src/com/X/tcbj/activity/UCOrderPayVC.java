@@ -14,13 +14,19 @@ import com.X.model.TuanModel;
 import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.server.MyEventBus;
+import com.X.tcbj.activity.wxapi.WXPayEntryActivity;
 import com.X.tcbj.utils.AilupayApi;
+import com.X.tcbj.utils.Constant;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.bigkoo.svprogresshud.listener.OnDismissListener;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -34,7 +40,7 @@ import static com.X.server.location.APPService;
 public class UCOrderPayVC extends BaseActivity {
 
     TextView nameTV,priceTV,totalTV,payedTV,needPayTV;
-
+    CheckBox aliCB,weixinCB;
     LinearLayout welayout,alilayout;
 
     Button submit;
@@ -70,7 +76,8 @@ public class UCOrderPayVC extends BaseActivity {
         needPayTV = (TextView) findViewById(R.id.needPayPrice);
         submit = (Button) findViewById(R.id.order_pay_submit);
 
-
+        aliCB = (CheckBox) findViewById(R.id.order_pay_ali_checkbox);
+        weixinCB = (CheckBox) findViewById(R.id.order_pay_wecat_checkbox);
 
         nameTV.setText(name);
         priceTV.setText("￥"+tprice+"");
@@ -82,10 +89,12 @@ public class UCOrderPayVC extends BaseActivity {
         if(paytype == 21)
         {
             welayout.setVisibility(View.GONE);
+            aliCB.setChecked(true);
         }
         else
         {
             alilayout.setVisibility(View.GONE);
+            weixinCB.setChecked(true);
         }
 
         submit.setText("确认支付("+needprice+"元)");
@@ -164,7 +173,40 @@ public class UCOrderPayVC extends BaseActivity {
 
     private void doWXPay()
     {
+        IWXAPI api = WXAPIFactory.createWXAPI(this, Constant.APP_ID);
+        api.registerApp(Constant.APP_ID);
 
+        if(!api.isWXAppInstalled())
+        {
+            XActivityindicator.hide();
+            XActivityindicator.showToast("检测到未安装微信，无法支付");
+            return;
+        }
+
+        if(!api.isWXAppSupportAPI())
+        {
+            XActivityindicator.hide();
+            XActivityindicator.showToast("微信版本过低，请先升级微信");
+            return;
+        }
+
+
+        PayModel.PaymentCodeBean.ConfigBean bean = payModel.getPayment_code().getConfig();
+
+        XNetUtil.APPPrintln(bean.getIos().toString());
+
+        PayReq request = new PayReq();
+        request.appId = bean.getIos().getAppid();
+        request.partnerId = bean.getIos().getPartnerid();
+        request.prepayId= bean.getIos().getPrepayid();
+        request.packageValue = bean.getIos().getPackageX();
+        request.nonceStr= bean.getIos().getNoncestr();
+        request.timeStamp= bean.getIos().getTimestamp();
+        request.sign = bean.getIos().getSignX();
+
+
+
+        api.sendReq(request);
     }
 
 

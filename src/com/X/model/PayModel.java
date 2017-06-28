@@ -145,8 +145,8 @@ public class PayModel implements Serializable {
             @SerializedName("package")
             private String packageX;
             private String partnerid;
-            private Object prepayid;
-            private int timestamp;
+            private String prepayid;
+            private String timestamp;
             private IosBean ios;
             private String packagevalue;
             private String key;
@@ -297,19 +297,19 @@ public class PayModel implements Serializable {
                 this.partnerid = partnerid;
             }
 
-            public Object getPrepayid() {
+            public String getPrepayid() {
                 return prepayid;
             }
 
-            public void setPrepayid(Object prepayid) {
+            public void setPrepayid(String prepayid) {
                 this.prepayid = prepayid;
             }
 
-            public int getTimestamp() {
+            public String getTimestamp() {
                 return timestamp;
             }
 
-            public void setTimestamp(int timestamp) {
+            public void setTimestamp(String timestamp) {
                 this.timestamp = timestamp;
             }
 
@@ -353,10 +353,23 @@ public class PayModel implements Serializable {
                 @SerializedName("package")
                 private String packageX;
                 private String partnerid;
-                private Object prepayid;
-                private int timestamp;
+                private String prepayid;
+                private String timestamp;
                 @SerializedName("sign")
                 private String signX;
+
+                @Override
+                public String toString() {
+                    return "IosBean{" +
+                            "appid='" + appid + '\'' +
+                            ", noncestr='" + noncestr + '\'' +
+                            ", packageX='" + packageX + '\'' +
+                            ", partnerid='" + partnerid + '\'' +
+                            ", prepayid='" + prepayid + '\'' +
+                            ", timestamp='" + timestamp + '\'' +
+                            ", signX='" + signX + '\'' +
+                            '}';
+                }
 
                 public String getAppid() {
                     return appid;
@@ -390,19 +403,19 @@ public class PayModel implements Serializable {
                     this.partnerid = partnerid;
                 }
 
-                public Object getPrepayid() {
+                public String getPrepayid() {
                     return prepayid;
                 }
 
-                public void setPrepayid(Object prepayid) {
+                public void setPrepayid(String prepayid) {
                     this.prepayid = prepayid;
                 }
 
-                public int getTimestamp() {
+                public String getTimestamp() {
                     return timestamp;
                 }
 
-                public void setTimestamp(int timestamp) {
+                public void setTimestamp(String timestamp) {
                     this.timestamp = timestamp;
                 }
 

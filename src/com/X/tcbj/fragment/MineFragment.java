@@ -72,7 +72,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     {
         if(DataCache.getInstance().user == null)
         {
-            head.setBackgroundResource(R.mipmap.user_head_big);
+            head.setImageResource(R.mipmap.user_head_big);
             nameTV.setText("尚未登陆");
         }
         else

@@ -45,12 +45,28 @@ dependencies {
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
     compile 'me.dm7.barcodescanner:zxing:1.9.3'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 }
 
 android {
+
+    signingConfigs {
+        release {
+            keyAlias 'tuangou'
+            keyPassword '123456'
+            storeFile file('/Users/x/Desktop/WorkSpace/GitHub/tuangou-Android/tuangou.jks')
+            storePassword '123456'
+        }
+        debug {
+            keyAlias 'tuangou'
+            keyPassword '123456'
+            storeFile file('/Users/x/Desktop/WorkSpace/GitHub/tuangou-Android/tuangou.jks')
+            storePassword '123456'
+        }
+    }
+
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
-
     defaultConfig {
         applicationId "com.X.tcbj.activity"
         minSdkVersion 14
@@ -65,20 +81,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions{
+    lintOptions {
         checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
         abortOnError false
-
     }
-
     packagingOptions {
         exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
         exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'

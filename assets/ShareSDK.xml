@@ -15,21 +15,21 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wx2fbb20c41b2d3e3d"
-        AppSecret="49652481728f15b4aac7f14282c04ee9"
+        AppId="wx75043ca8e647d5d3"
+        AppSecret="10e58beee4fc530a891f1e90a38c57bb"
         BypassApproval="false"
         Enable="true" />
         
 
     <WechatMoments
-        AppId="wx2fbb20c41b2d3e3d"
+        AppId="wx75043ca8e647d5d3"
         BypassApproval="false"
         Enable="true"
         Id="5"
         SortId="5" />
 
     <WechatFavorite
-        AppId="wx2fbb20c41b2d3e3d"
+        AppId="wx75043ca8e647d5d3"
         Enable="false"
         Id="6"
         SortId="6" />

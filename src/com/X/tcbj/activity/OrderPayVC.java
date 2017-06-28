@@ -17,6 +17,7 @@ import com.X.server.DataCache;
 import com.X.server.MyEventBus;
 import com.X.tcbj.myview.MyPopwindows;
 import com.X.tcbj.utils.AilupayApi;
+import com.X.tcbj.utils.Constant;
 import com.X.tcbj.utils.Expressions;
 import com.X.xnet.XActivityindicator;
 import com.X.xnet.XNetUtil;
@@ -26,6 +27,10 @@ import com.bigkoo.alertview.OnItemClickListener;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.robin.lazy.cache.CacheLoaderManager;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -225,6 +230,41 @@ public class OrderPayVC extends BaseActivity {
 
     private void doWXPay()
     {
+        IWXAPI api = WXAPIFactory.createWXAPI(this, Constant.APP_ID);
+        api.registerApp(Constant.APP_ID);
+
+
+        if(!api.isWXAppInstalled())
+        {
+            XActivityindicator.hide();
+            XActivityindicator.showToast("检测到未安装微信，无法支付");
+            return;
+        }
+
+        if(!api.isWXAppSupportAPI())
+        {
+            XActivityindicator.hide();
+            XActivityindicator.showToast("微信版本过低，请先升级微信至最新版");
+            return;
+        }
+
+
+        PayModel.PaymentCodeBean.ConfigBean bean = payModel.getPayment_code().getConfig();
+
+        XNetUtil.APPPrintln(bean.getIos().toString());
+
+        PayReq request = new PayReq();
+        request.appId = bean.getIos().getAppid();
+        request.partnerId = bean.getIos().getPartnerid();
+        request.prepayId= bean.getIos().getPrepayid();
+        request.packageValue = bean.getIos().getPackageX();
+        request.nonceStr= bean.getIos().getNoncestr();
+        request.timeStamp= bean.getIos().getTimestamp();
+        request.sign = bean.getIos().getSignX();
+
+
+
+        api.sendReq(request);
 
     }
 

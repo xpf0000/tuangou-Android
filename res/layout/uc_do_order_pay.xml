@@ -135,8 +135,6 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
                 android:gravity="center_vertical"
-                android:clickable="true"
-                android:onClick="choosePayType"
                 >
 
                 <ImageView
@@ -185,8 +183,6 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
                 android:gravity="center_vertical"
-                android:clickable="true"
-                android:onClick="choosePayType"
                 >
 
                 <ImageView
