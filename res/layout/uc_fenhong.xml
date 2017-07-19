@@ -31,7 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/jt" />
+            android:src="@drawable/jt"
+            android:clickable="true"
+            android:onClick="back"
+            />
 
 
     </RelativeLayout>

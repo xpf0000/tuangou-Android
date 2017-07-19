@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.X.model.UserFenhongModel;
 import com.X.model.UserUnitsModel;
+import com.X.server.BaseActivity;
 import com.X.server.DataCache;
 import com.X.xnet.XNetUtil;
 
@@ -16,7 +17,7 @@ import static com.X.server.location.APPService;
  * Created by Administrator on 2017/5/22 0022.
  */
 
-public class UserFenhongVC extends Activity {
+public class UserFenhongVC extends BaseActivity {
 
     TextView countTV,xiaofeiTV,tjuserTV,tjshopTV;
     WebView webView;
@@ -38,10 +39,9 @@ public class UserFenhongVC extends Activity {
             "img {width:100%;height: auto}\r\n" +
             "</style>\r\n</head>\r\n<body>\r\n"+"[XHTMLX]"+"\r\n</body>\r\n</html>";
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
+    protected void setupUi() {
         setContentView(R.layout.uc_fenhong);
 
         countTV = (TextView) findViewById(R.id.uc_fenhong_money_count);
@@ -54,6 +54,10 @@ public class UserFenhongVC extends Activity {
         webView.getSettings().setDefaultTextEncodingName("utf-8");
 
         getUnitsInfo();
+    }
+
+    @Override
+    protected void setupData() {
 
     }
 

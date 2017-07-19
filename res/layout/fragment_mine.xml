@@ -402,6 +402,43 @@
                     />
 
             </LinearLayout>
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:id="@+id/mine_layout8"
+                >
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@mipmap/mine_icon8"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="绑定银行卡"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="@color/APPTXTBlack"
+                    android:textSize="18sp"
+                    />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/arrow02"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -417,6 +454,42 @@
                     android:background="#eeeeee"/>
 
             </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:id="@+id/mine_layout9"
+                >
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@mipmap/mine_icon9"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="我的提现"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="@color/APPTXTBlack"
+                    android:textSize="18sp"
+                    />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@mipmap/arrow02"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
+
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal"

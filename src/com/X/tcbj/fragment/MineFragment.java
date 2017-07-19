@@ -40,7 +40,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     TextView nameTV;
 
     int[] ids = {R.id.mine_layout0,R.id.mine_layout1,R.id.mine_layout2,R.id.mine_layout3,
-            R.id.mine_layout4,R.id.mine_layout5,R.id.mine_layout6,R.id.mine_layout7};
+            R.id.mine_layout4,R.id.mine_layout5,R.id.mine_layout6,R.id.mine_layout7,R.id.mine_layout8,R.id.mine_layout9};
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -186,6 +186,24 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             case R.id.mine_layout7:
                 intent.setClass(getActivity(), APPConfig.class);
                 getActivity().startActivity(intent);
+                break;
+
+            case R.id.mine_layout8:
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=user&act=app_user_bank");
+                intent.putExtra("title","绑定银行卡");
+                getActivity().startActivity(intent);
+
+                break;
+
+            case R.id.mine_layout9:
+
+                intent.setClass(getActivity(), XHtmlVC.class);
+                intent.putExtra("url","http://www.tcbjpt.com/wap/index.php?ctl=user&act=app_tx_user");
+                intent.putExtra("title","我的提现");
+                getActivity().startActivity(intent);
+
                 break;
         }
 
